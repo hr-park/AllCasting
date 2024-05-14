@@ -70,7 +70,7 @@ input:focus{outline:0 none}
 
 header{position:relative;display:flex;align-items:center;justify-content:center;height:56px;padding:0 20px;}
 header .btn_prev{position:absolute;left:10px;top:50%;display:inline-block;width:30px;height:30px;text-indent:-9999px;background:url('../images/btn/btn_prev.svg') no-repeat 50% 50% / 10px auto;transform:translateY(-50%)}
-header .btn_home{position:absolute;left:35px;top:50%;display:inline-block;width:30px;height:30px;text-indent:-9999px;background:url('../images/btn/btn_home.svg') no-repeat 50% 50% / 18px auto;transform:translateY(-50%)}
+header .btn_home{position:absolute;left:40px;top:50%;display:inline-block;width:30px;height:30px;text-indent:-9999px;background:url('../images/btn/btn_home.svg') no-repeat 50% 50% / 18px auto;transform:translateY(-50%)}
 header .btn_next{position:absolute;right:20px;top:50%;display:inline-block;font-size:16px;color:#999;transform:translateY(-50%)}
 header .page_name{font-size:16px;font-weight:700;color:#222}
 
@@ -145,7 +145,7 @@ ul.list_type3{border-top:1px solid #E7E7E7}
 ul.list_type3 li{position:relative;padding:14px 0;border-bottom:1px solid #E7E7E7}
 ul.list_type3 li .subject{position:relative;padding:0 30px 0 36px;line-height:1.5;word-break:keep-all}
 ul.list_type3 li .subject:before{content:'';position:absolute;left:12px;top:3px;display:inline-block;width:0px;height:0px;margin-right:6px;border-style:solid;border-width:10px 0 10px 16px;border-color:transparent transparent transparent #F6AE0D;transform:rotate(0deg);}
-ul.list_type3 li .btn_del{position:absolute;right:10px;top:13px;display:inline-block;width:20px;height:20px;text-indent:-9999px;border:0 none;background:url('../images/btn/btn_close.svg') no-repeat 50% 50% / 16px auto;}
+ul.list_type3 li .btn_del{position:absolute;right:10px;top:16px;display:inline-block;width:20px;height:20px;text-indent:-9999px;border:0 none;background:url('../images/btn/btn_close.svg') no-repeat 50% 50% / 16px auto;}
 
 a.btn_txt{display:inline-block;font-size:16px;color:#999}
 a.btn_txt.active{color:#009672;font-weight:700}
