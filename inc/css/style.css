@@ -13,8 +13,7 @@ html,body{margin:0;padding:0;height:100%;min-width:320px;margin:0 auto;}
 body{font:16px/1 'Noto Sans KR', 'Apple Gothic', sans-serif;color:#222;letter-spacing:-.01em}
 dl,dt,dd,ul,ol,li,h1,h2,h3,h4,h5,h6,pre,form,fieldset,input,textarea,p,blockquote,tbody,tfoot,thead,th,td{margin:0;padding:0;}
 input,textarea,select,td,th,button{font:16px/1 'Noto Sans KR', 'Apple Gothic', sans-serif;color:#222;letter-spacing:-.01em;vertical-align:middle;}
-input,textarea,select{color:#222;}
-input, textarea {-webkit-appearance:none;-webkit-border-radius: 0;}
+input,textarea,select{color:#222;-webkit-appearance:none;-webkit-border-radius: 0;}
 h1,h2,h3,h4,h5,h6{font-weight:normal;font-size:100%;}
 table{width:100%;border-spacing:0;border-collapse:collapse;table-layout:fixed;}
 ol,ul,li{list-style:none;}
@@ -130,7 +129,7 @@ nav ul li.active a{color:#222;font-weight:700}
 .reg_form .inp_field .row{display:flex;gap:8px}
 .reg_form .inp_box{position:relative;display:flex;height:40px;flex:1;align-items:center;margin-top:8px;}
 .reg_form .inp_box .txt{font-size:16px;color:#222}
-.reg_form .inp_box .btn_reset{position:absolute;right:10px;top:50%;display:inline-block;width:24px;height:24px;flex-shrink:0;border:0 none;text-indent:-9999px;background:url('../images/btn/btn_reset.svg') no-repeat 50% 50% / 24px auto;transform:translateY(-50%)}
+.reg_form .inp_box .btn_reset{position:absolute;right:10px;top:50%;display:inline-block;width:24px;height:24px;flex-shrink:0;border:0 none;text-indent:-9999px;background:url('../images/btn/btn_reset.svg') no-repeat 50% 50% / 100% auto;transform:translateY(-50%)}
 .reg_form label{font-size:14px;color:#222}
 .reg_form label .lab_sub{font-size:14px;color:#999}
 .reg_form .inp_txt{height:40px;margin-top:8px;/*font-size:16px;*/font-size:15px;color:#222;border-bottom:1px solid #E7E7E7}

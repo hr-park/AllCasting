@@ -16,8 +16,8 @@
   font-style: normal;
   font-weight: 400;
   src: local('Noto Sans KR Regular'), local('NotoSansKR-Regular'),
-       url('../fonts/noto-sans-kr-v11-korean_latin-regular.woff2') format('woff2'), /* Super Modern Browsers */
-       url('../fonts/noto-sans-kr-v11-korean_latin-regular.woff') format('woff'); /* Modern Browsers */
+       url('../fonts/noto-sans-kr-v36-korean_latin-regular.woff2') format('woff2'), /* Super Modern Browsers */
+       url('../fonts/noto-sans-kr-v36-korean_latin-regular.woff') format('woff'); /* Modern Browsers */
 }
 /* noto-sans-kr-500 - korean_latin */
 @font-face {
@@ -25,8 +25,8 @@
   font-style: normal;
   font-weight: 500;
   src: local('Noto Sans KR Medium'), local('NotoSansKR-Medium'),
-       url('../fonts/noto-sans-kr-v11-korean_latin-500.woff2') format('woff2'), /* Super Modern Browsers */
-       url('../fonts/noto-sans-kr-v11-korean_latin-500.woff') format('woff'); /* Modern Browsers */
+       url('../fonts/noto-sans-kr-v36-korean_latin-500.woff2') format('woff2'), /* Super Modern Browsers */
+       url('../fonts/noto-sans-kr-v36-korean_latin-500.woff') format('woff'); /* Modern Browsers */
 }
 /* noto-sans-kr-700 - korean_latin */
 @font-face {
@@ -34,8 +34,8 @@
   font-style: normal;
   font-weight: 700;
   src: local('Noto Sans KR Bold'), local('NotoSansKR-Bold'),
-       url('../fonts/noto-sans-kr-v11-korean_latin-700.woff2') format('woff2'), /* Super Modern Browsers */
-       url('../fonts/noto-sans-kr-v11-korean_latin-700.woff') format('woff'); /* Modern Browsers */
+       url('../fonts/noto-sans-kr-v36-korean_latin-700.woff2') format('woff2'), /* Super Modern Browsers */
+       url('../fonts/noto-sans-kr-v36-korean_latin-700.woff') format('woff'); /* Modern Browsers */
 }
 /* noto-sans-kr-900 - korean_latin */
 @font-face {
@@ -43,6 +43,6 @@
   font-style: normal;
   font-weight: 900;
   src: local('Noto Sans KR Black'), local('NotoSansKR-Black'),
-       url('../fonts/noto-sans-kr-v11-korean_latin-900.woff2') format('woff2'), /* Super Modern Browsers */
-       url('../fonts/noto-sans-kr-v11-korean_latin-900.woff') format('woff'); /* Modern Browsers */
+       url('../fonts/noto-sans-kr-v36-korean-700.woff2') format('woff2'), /* Super Modern Browsers */
+       url('../fonts/noto-sans-kr-v36-korean_latin-900.woff') format('woff'); /* Modern Browsers */
 }
