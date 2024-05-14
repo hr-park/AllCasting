@@ -7,7 +7,7 @@
 	<title>All CASTING</title>
 	<link rel="stylesheet" href="inc/css/NotoSansKR.css">
 	<link rel="stylesheet" href="inc/css/style.css">
-	<script src="https://code.jquery.com/jquery-latest.min.js"></script>
+	<!--<script src="https://code.jquery.com/jquery-latest.min.js"></script>-->
 </head>
 <body>
 	<header>
@@ -36,7 +36,31 @@
 				</div>
 				<div class="inp_field">
 					<label for="age">연령대</label>
-					<div class="inp_box"><input type="text" id="age" class="inp_txt" placeholder="연기가 가능한 연령대를 선택해 주세요."/></div>
+					<!--<div class="inp_box">
+						<input type="text" id="age" class="inp_txt btn-example" onclick="" href="#pop_age" readonly placeholder="연기가 가능한 연령대를 선택해 주세요."/>
+					</div>-->
+					<div class="inp_box">
+						<div class="sel_box">
+							<select name="" id="">
+								<option>선택</option>
+								<option>17~1811</option>
+								<option>17~18222</option>
+								<option>17~1833</option>
+								<option>17~1844</option>
+								<option>17~18</option>
+								<option>17~18</option>
+								<option>17~18</option>
+								<option>17~18</option>
+								<option>17~18</option>
+								<option>17~18</option>
+								<option>17~18</option>
+								<option>17~18</option>
+								<option>17~18</option>
+								<option>17~18</option>
+								<option>17~18</option>
+							</select>
+						</div>
+					</div>
 					<span class="msg_error">필수 입력 사항입니다.</span>
 				</div>
 				<div class="inp_field">
@@ -63,9 +87,25 @@
 				</div>
 				<div class="inp_field">
 					<label for="area">신체 사이즈 <span class="lab_sub">(선택사항)</span></label>
-					<div class="dp_flex">
-						<div class="inp_box"><div class="pos_rel"><input type="text" id="area" class="inp_txt" oninput="chkNumber(this, 0)" placeholder="키 입력"/><button type="button" class="btn_reset">X</button><span class="txt">cm</span></div></div>
-						<div class="inp_box"><div class="pos_rel"><input type="text" id="area" class="inp_txt" oninput="chkNumber(this, 0)" placeholder="몸무게 입력"/><button type="button" class="btn_reset">X</button><span class="txt">kg</span></div></div>
+					<div class="row">
+						<div class="inp_box">
+							<div class="dp_flex_center">
+								<div class="pos_rel">
+									<input type="text" id="area" class="inp_txt" oninput="chkNumber(this, 0)" placeholder="키 입력"/>
+									<button type="button" class="btn_reset">X</button>
+								</div>
+								<span class="txt">cm</span>
+							</div>
+						</div>
+						<div class="inp_box">
+							<div class="dp_flex_center">
+								<div class="pos_rel">
+									<input type="text" id="area" class="inp_txt" oninput="chkNumber(this, 0)" placeholder="몸무게 입력"/>
+									<button type="button" class="btn_reset">X</button>
+								</div>
+								<span class="txt">kg</span>
+							</div>
+						</div>
 					</div>
 				</div>
 				<div class="inp_field">
@@ -83,55 +123,11 @@
 			</div>
 		</form>
 	</div>
-	<style>
-.pop_wrap .pop_container{overflow-y:auto;height:100%;padding:20px 25px;box-sizing:border-box;}
-.pop_wrap .pop_head {text-align:right;}
-
-.pop_wrap {
-  display: none;
-  position: absolute;
-  bottom:0;
-  left:0;
-  width: 100%;
-  height: auto;
-  background-color: #fff;
-  z-index: 10;
-}
-
-.dim_layer.full .pop_wrap{height:100%}
-
-.dim_layer {
-  display: none;
-  position: fixed;
-  bottom: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  z-index: 100;
-}
-
-.dim_layer .dim {
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background: #000;
-  opacity: .5;
-  filter: alpha(opacity=50);
-}
-
-.dim_layer .pop_wrap {
-  display: block;
-}
-
-
-	</style>
 	<a href="#pop_age" class="btn-example">딤처리 팝업레이어 1</a>
 	<!-- P1)Profile-step1-agepop -->
-	<div class="dim_layer">
+	<div id="pop_age" class="dim_layer">
 		<div class="dim"></div>
-		<div id="pop_age" class="pop_wrap">
+		<div class="pop_wrap">
 			<div class="pop_container">
 				<div class="pop_head">
 					<a href="#" class="btn_txt btn_pop_close">확인</a>
@@ -150,9 +146,9 @@
 
 	<a href="#pop_su" class="btn-example">딤처리 팝업레이어 2</a>
 	<!-- P1)Profile-step1-supop-1 -->
-	<div class="dim_layer full">
+	<div id="pop_su" class="dim_layer full">
 		<div class="dim"></div>
-		<div id="pop_su" class="pop_wrap">
+		<div class="pop_wrap">
 			<div class="pop_container">
 				<div class="pop_head">
 					<a href="#" class="btn_txt btn_pop_close">확인</a>
@@ -171,5 +167,61 @@
 		</div>
 	</div>
 	<!-- -->
+	<script src="inc/js/common.js"></script>
+	<script>
+	//TAG
+	const tag = {};
+	let counter = 0;
+
+	const addTag = (value) => {
+		tag[counter] = value;
+		counter++;
+	};
+
+	const marginTag = () => Object.values(tag).filter(word => word !== "");
+
+	// document.getElementById('tag-form').addEventListener('submit', (e) => {
+	//     const value = marginTag(); // 배열로 반환
+	//     document.getElementById('rdTag').value = value; 
+	//     e.target.submit();
+	// });
+
+	document.getElementById('tag').addEventListener('keypress', (e) => {
+		const self = e.target;
+
+		if (e.key === 'Enter' || e.keyCode === 32) {
+			const tagValue = self.value; 
+
+			// 해시태그 값이 없으면 실행X
+			if (tagValue !== '') {
+				// 중복 태그 확인
+				const result = Object.values(tag).filter(word => word === tagValue);
+				
+				// 중복 태그가 없으면 실행
+				if (result.length === 0) { 
+					const tagList = document.getElementById('tag_list');
+					const li = document.createElement('li');
+					li.classList.add('tag_item');
+					li.innerHTML = `${tagValue}<span class='btn_del' idx='${counter}'>태그삭제</span>`;
+					tagList.appendChild(li);
+					addTag(tagValue);
+					self.value = '';
+				} else {
+					alert('특기가 중복됩니다.');
+				}
+			}
+			e.preventDefault(); // 스페이스바 시 빈 공간이 생기지 않도록 방지
+		}
+	});
+
+	// 인덱스 검사 후 삭제
+    document.addEventListener('click', (e) => {
+        if (e.target.classList.contains('btn_del')) {
+            const index = e.target.getAttribute('idx');
+            tag[index] = '';
+            e.target.parentElement.remove();
+        }
+    });
+	</script>
 </body>
 </html>
