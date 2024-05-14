@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8" />
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no"/>
+	<title>All CASTING</title>
+	<link rel="stylesheet" href="inc/css/NotoSansKR.css">
+	<link rel="stylesheet" href="inc/css/style.css">
+	<script src="http://code.jquery.com/jquery-latest.min.js"></script>
+	<script src="inc/js/common.js"></script>
+	<!-- swiper.js -->
+	<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
+	<script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+</head>
+<body>
+	<header>
+		<div>
+			<a href="#" class="btn_prev">이전</a>
+			<a href="#" class="btn_home">HOME</a>
+		</div>
+		<p class="page_name">새 프로필 만들기</p>
+		<a href="#" class="btn_next">다음</a>
+	</header>
+	<nav>
+		<ul>
+			<li class="completed"><a href="profile_form_step1.html">기본 정보</a></li>
+			<li class="completed"><a href="profile_form_step2.html">사진</a></li>
+			<li class="completed"><a href="profile_form_step3.html">경력</a></li>
+			<li class="active"><a href="profile_form_step4.html">영상</a></li>
+		</ul>
+	</nav>
+	<div class="content">
+		<form>
+			<div class="reg_form">
+				<div class="inp_field">
+					<label for="">영상 제목</label>
+					<div class="inp_box"><input type="text" id="" class="inp_txt" placeholder="영상 제목을 입력해 주세요."/><button type="button" class="btn_reset">X</button></div>
+					<span class="msg_error">필수 입력 사항입니다.</span>
+				</div>
+				<div class="inp_field">
+					<label for="">영상 URL</label>
+					<div class="inp_box"><input type="text" id="" class="inp_txt" placeholder="유튜브 영상 링크를 넣어 주세요."/><button type="button" class="btn_reset">X</button></div>
+					<span class="msg_error">URL 형식이 아닙니다.</span>
+				</div>
+				<div class="inp_field">
+					<div class="video_box"><iframe width="" height="" src="https://www.youtube.com/embed/_FOm1HamXJ8" title="" frameborder="0" allow="" allowfullscreen></iframe></div>
+				</div>
+				<div class="btn_box"><button type="button" class="btn_add"><span>영상 링크 추가</span></button></div>
+				<ul class="list_type3">
+					<li>
+						<p class="subject">티빙 ‘유미의 세포들’ 연기 영상</p>
+						<button type="button" class="btn_del">삭제</button>
+					</li>
+					<li>
+						<p class="subject">한국인 참가자의 소극적인 모습에 기대감 1도 없던 심사위원과 관객들이 잠시 후 모두 경악</p>
+						<button type="button" class="btn_del">삭제</button>
+					</li>
+				</ul>
+			</div>
+		</form>
+	</div>
+</body>
+</html>

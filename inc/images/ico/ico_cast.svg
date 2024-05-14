@@ -1,0 +1,19 @@
+<svg width="61" height="60" viewBox="0 0 61 60" fill="none" xmlns="http://www.w3.org/2000/svg">
+<path d="M1 7.26953H7.27646" stroke="#222222" stroke-width="2" stroke-miterlimit="10"/>
+<path d="M4.13477 4V10.5322" stroke="#222222" stroke-width="2" stroke-miterlimit="10"/>
+<path d="M54 52.2695H60.2765" stroke="#222222" stroke-width="2" stroke-miterlimit="10"/>
+<path d="M57.1416 49V55.5322" stroke="#222222" stroke-width="2" stroke-miterlimit="10"/>
+<path d="M7 45V16C7 14.8954 7.89543 14 9 14H51C52.1046 14 53 14.8954 53 16V45C53 46.1046 52.1046 47 51 47H9C7.89543 47 7 46.1046 7 45Z" fill="white" stroke="#222222" stroke-width="2"/>
+<path d="M13.667 14V47" stroke="#222222" stroke-width="2"/>
+<path d="M46.333 14V47" stroke="#222222" stroke-width="2"/>
+<path d="M7.0957 40H13.6671" stroke="#222222" stroke-width="2"/>
+<path d="M46.333 40H52.9044" stroke="#222222" stroke-width="2"/>
+<path d="M7.0957 34H13.6671" stroke="#222222" stroke-width="2"/>
+<path d="M46.333 34H52.9044" stroke="#222222" stroke-width="2"/>
+<path d="M7.0957 27H13.6671" stroke="#222222" stroke-width="2"/>
+<path d="M46.333 27H52.9044" stroke="#222222" stroke-width="2"/>
+<path d="M7.0957 21H13.6671" stroke="#222222" stroke-width="2"/>
+<path d="M46.333 21H52.9044" stroke="#222222" stroke-width="2"/>
+<circle cx="29.5" cy="30" r="8" fill="#DDDDDD" stroke="#222222" stroke-width="2"/>
+<path d="M27.5 26L33.5 30L27.5 34.5V26Z" fill="white" stroke="#222222" stroke-width="2" stroke-linejoin="round"/>
+</svg>

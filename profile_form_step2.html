@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8" />
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no"/>
+	<title>All CASTING</title>
+	<link rel="stylesheet" href="inc/css/NotoSansKR.css">
+	<link rel="stylesheet" href="inc/css/style.css">
+	<script src="http://code.jquery.com/jquery-latest.min.js"></script>
+	<!-- swiper.js -->
+	<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
+	<script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+</head>
+<body>
+	<header>
+		<div>
+			<a href="#" class="btn_prev">이전</a>
+			<a href="#" class="btn_home">HOME</a>
+		</div>
+		<p class="page_name">새 프로필 만들기</p>
+		<a href="#" class="btn_next">다음</a>
+	</header>
+	<nav>
+		<ul>
+			<li class="completed"><a href="profile_form_step1.html">기본 정보</a></li>
+			<li class="active"><a href="profile_form_step2.html">사진</a></li>
+			<li><a href="profile_form_step3.html">경력</a></li>
+			<li><a href="profile_form_step4.html">영상</a></li>
+		</ul>
+	</nav>
+	<div class="content">
+		<div class="profile_add">
+			<label for="file">
+				<p class="btn_upload">최대 10장의 사진을 업로드해 주세요.<br>첫 번째 사진은 대표 프로필 사진으로 노출됩니다.</p>
+			</label>
+			<input type="file" name="file" id="file">
+		</div>
+
+		<!-- Swiper -->
+		<div class="swiper swiper_fraction">
+			<div class="swiper-wrapper">
+				<div class="swiper-slide">
+					<div class="profile_thumb">
+						<img src="inc/images/profile_sample.jpg" alt="" />
+						<button type="button" class="btn_del">프로필삭제</button>
+					</div>
+				</div>
+				<div class="swiper-slide">
+					<div class="profile_thumb">
+						<img src="inc/images/profile_sample.jpg" alt="" />
+						<button type="button" class="btn_del">프로필삭제</button>
+					</div>
+				</div>
+				<div class="swiper-slide">
+					<div class="profile_thumb">
+						<img src="inc/images/profile_sample.jpg" alt="" />
+						<button type="button" class="btn_del">프로필삭제</button>
+					</div>
+				</div>
+				<div class="swiper-slide">
+					<div class="profile_add">
+						<label for="file">
+							<p class="btn_upload">최대 10장의 사진을 업로드해 주세요.<br>첫 번째 사진은 대표 프로필 사진으로 노출됩니다.</p>
+						</label>
+						<input type="file" name="file" id="file">
+					</div>
+				</div>
+			</div>
+			<div class="swiper-pagination"></div>
+		</div>
+		
+	</div>
+
+	<!-- Initialize Swiper -->
+	<script>
+	var swiper = new Swiper(".swiper_fraction", {
+		spaceBetween: 10,
+		slidesPerView: 1.15,
+		centeredSlides: true,
+		pagination: {
+			el: ".swiper-pagination",
+			type: "fraction",
+		},
+	});
+	</script>
+</body>
+</html>

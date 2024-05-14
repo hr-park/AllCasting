@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8" />
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no"/>
+	<title>All CASTING</title>
+	<link rel="stylesheet" href="inc/css/NotoSansKR.css">
+	<link rel="stylesheet" href="inc/css/style.css">
+	<script src="http://code.jquery.com/jquery-latest.min.js"></script>
+</head>
+<body>
+	<header>
+		<div>
+			<a href="#" class="btn_prev">이전</a>
+			<a href="#" class="btn_home">HOME</a>
+		</div>
+		<p class="page_name">새 프로필 만들기</p>
+		<a href="#" class="btn_next">다음</a>
+	</header>
+	<nav>
+		<ul>
+			<li class="active"><a href="profile_form_step1.html">기본 정보</a></li>
+			<li><a href="profile_form_step2.html">사진</a></li>
+			<li><a href="profile_form_step3.html">경력</a></li>
+			<li><a href="profile_form_step4.html">영상</a></li>
+		</ul>
+	</nav>
+	<div class="content">
+		<form>
+			<div class="reg_form">
+				<div class="inp_field">
+					<label for="user_name">이름</label>
+					<div class="inp_box"><input type="text" id="user_name" class="inp_txt" placeholder="아티스트로서 활동하는 이름을 적어 주세요."/><button type="button" class="btn_reset">X</button></div>
+					<span class="msg_error">필수 입력 사항입니다.</span>
+				</div>
+				<div class="inp_field">
+					<label for="age">연령대</label>
+					<div class="inp_box"><input type="text" id="age" class="inp_txt" placeholder="연기가 가능한 연령대를 선택해 주세요."/></div>
+					<span class="msg_error">필수 입력 사항입니다.</span>
+				</div>
+				<div class="inp_field">
+					<label for="age">성별 <span class="lab_sub">(연기가 가능한 성별)</span></label>
+					<div class="inp_box">
+						<div class="inp_chk">
+							<input type="checkbox" name="gender" id="gender1">
+							<label for="gender1">남성</label>
+						</div>
+						<div class="inp_chk">
+							<input type="checkbox" name="gender" id="gender2">
+							<label for="gender2">여성</label>
+						</div>
+						<div class="inp_chk">
+							<input type="checkbox" name="gender" id="gender3">
+							<label for="gender3">기타</label>
+						</div>
+					</div>
+				</div>
+				<div class="inp_field">
+					<label for="area">활동 지역</label>
+					<div class="inp_box"><input type="text" id="area" class="inp_txt" placeholder="활동 가능한 지역을 선택해 주세요(최대 5개)." readonly /></div>
+					<span class="msg_error">필수 입력 사항입니다.</span>
+				</div>
+				<div class="inp_field">
+					<label for="area">신체 사이즈 <span class="lab_sub">(선택사항)</span></label>
+					<div class="dp_flex">
+						<div class="inp_box"><div class="pos_rel"><input type="text" id="area" class="inp_txt" oninput="chkNumber(this, 0)" placeholder="키 입력"/><button type="button" class="btn_reset">X</button><span class="txt">cm</span></div></div>
+						<div class="inp_box"><div class="pos_rel"><input type="text" id="area" class="inp_txt" oninput="chkNumber(this, 0)" placeholder="몸무게 입력"/><button type="button" class="btn_reset">X</button><span class="txt">kg</span></div></div>
+					</div>
+				</div>
+				<div class="inp_field">
+					<label for="area">최종 학력/교육 <span class="lab_sub">(선택사항)</span></label>
+					<div class="inp_box"><input type="text" id="area" class="inp_txt" placeholder="최종 학력/교육을 입력해 주세요." /><button type="button" class="btn_reset">X</button></div>
+					<span class="msg_error">필수 입력 사항입니다.</span>
+				</div>
+				<div class="inp_field">
+					<label for="area">특기 <span class="lab_sub">(선택사항)</span></label>
+					<input type="hidden" value="" name="tag" id="rdTag" />
+					<div class="inp_box"><span class="txt">#</span><input type="text" id="tag" size="7" class="inp_txt" placeholder="자유롭게 입력해 주세요."/></div>
+					<span class="msg_error">필수 입력 사항입니다.</span>
+					 <ul id="tag_list" class="tag_list"></ul>
+				</div>
+			</div>
+		</form>
+	</div>
+	<style>
+.pop_wrap .pop_container{overflow-y:auto;height:100%;padding:20px 25px;box-sizing:border-box;}
+.pop_wrap .pop_head {text-align:right;}
+
+.pop_wrap {
+  display: none;
+  position: absolute;
+  bottom:0;
+  left:0;
+  width: 100%;
+  height: auto;
+  background-color: #fff;
+  z-index: 10;
+}
+
+.dim_layer.full .pop_wrap{height:100%}
+
+.dim_layer {
+  display: none;
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 100;
+}
+
+.dim_layer .dim {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: #000;
+  opacity: .5;
+  filter: alpha(opacity=50);
+}
+
+.dim_layer .pop_wrap {
+  display: block;
+}
+
+
+	</style>
+	<a href="#pop_age" class="btn-example">딤처리 팝업레이어 1</a>
+	<!-- P1)Profile-step1-agepop -->
+	<div class="dim_layer">
+		<div class="dim"></div>
+		<div id="pop_age" class="pop_wrap">
+			<div class="pop_container">
+				<div class="pop_head">
+					<a href="#" class="btn_txt btn_pop_close">확인</a>
+				</div>
+				<div class="pop_conts">
+					<select>
+						<option value="">18~38</option>
+						<option value="">19~39</option>
+						<option value="">20~40</option>
+					</select>
+				</div>
+			</div>
+		</div>
+	</div>
+	<!-- -->
+
+	<a href="#pop_su" class="btn-example">딤처리 팝업레이어 2</a>
+	<!-- P1)Profile-step1-supop-1 -->
+	<div class="dim_layer full">
+		<div class="dim"></div>
+		<div id="pop_su" class="pop_wrap">
+			<div class="pop_container">
+				<div class="pop_head">
+					<a href="#" class="btn_txt btn_pop_close">확인</a>
+				</div>
+				<div class="pop_conts">
+					<ul class="list_type1">
+						<li><a href="#">국내 전체</a></li>
+						<li><a href="#">서울</a></li>
+						<li><a href="#">서울</a></li>
+						<li><a href="#">서울</a></li>
+						<li><a href="#">서울</a></li>
+						<li><a href="#">서울</a></li>
+					</ul>
+				</div>
+			</div>
+		</div>
+	</div>
+	<!-- -->
+</body>
+</html>
