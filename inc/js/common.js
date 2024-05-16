@@ -108,7 +108,7 @@ document.addEventListener("DOMContentLoaded", () => {
         });
     };
 
-    document.querySelectorAll('.btn-example').forEach(button => {
+    document.querySelectorAll('.btn_pop_open').forEach(button => {
         button.addEventListener('click', function() {
             const href = this.getAttribute('href');
             layer_popup(href);
