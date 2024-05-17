@@ -7,7 +7,7 @@
 	<title>All CASTING</title>
 	<link rel="stylesheet" href="inc/css/NotoSansKR.css">
 	<link rel="stylesheet" href="inc/css/style.css">
-	<script src="inc/js/common.js"></script>
+	
 </head>
 <body>
 	<header>
@@ -27,7 +27,7 @@
 		</ul>
 	</nav>
 	<div class="content">
-		<form>
+		<form autocomplete="off">
 			<div class="reg_form">
 				<div class="inp_field">
 					<label for="user_name">이름</label>
@@ -36,10 +36,10 @@
 				</div>
 				<div class="inp_field">
 					<label for="age">연령대</label>
-					<!--<div class="inp_box">
-						<input type="text" id="age" class="inp_txt btn_pop_open" onclick="" href="#pop_age" readonly placeholder="연기가 가능한 연령대를 선택해 주세요."/>
-					</div>-->
 					<div class="inp_box">
+						<input type="text" id="age" class="inp_txt" onclick="javascript:openPop('pop_age')" readonly placeholder="연기가 가능한 연령대를 선택해 주세요."/>
+					</div>
+					<!--<div class="inp_box">
 						<div class="sel_box">
 							<select name="" id="">
 								<option>선택</option>
@@ -47,20 +47,9 @@
 								<option>17~18222</option>
 								<option>17~1833</option>
 								<option>17~1844</option>
-								<option>17~18</option>
-								<option>17~18</option>
-								<option>17~18</option>
-								<option>17~18</option>
-								<option>17~18</option>
-								<option>17~18</option>
-								<option>17~18</option>
-								<option>17~18</option>
-								<option>17~18</option>
-								<option>17~18</option>
-								<option>17~18</option>
 							</select>
 						</div>
-					</div>
+					</div>-->
 					<span class="msg_error">필수 입력 사항입니다.</span>
 				</div>
 				<div class="inp_field">
@@ -82,7 +71,7 @@
 				</div>
 				<div class="inp_field">
 					<label for="area">활동 지역</label>
-					<div class="inp_box"><input type="text" id="area" class="inp_txt" placeholder="활동 가능한 지역을 선택해 주세요(최대 5개)." readonly /></div>
+					<div class="inp_box" onclick="javascript:openPop('pop_su')"><input type="text" id="area" class="inp_txt" placeholder="활동 가능한 지역을 선택해 주세요(최대 5개)." readonly /></div>
 					<span class="msg_error">필수 입력 사항입니다.</span>
 				</div>
 				<div class="inp_field">
@@ -123,14 +112,14 @@
 			</div>
 		</form>
 	</div>
-	<a href="#pop_age" class="btn_pop_open">딤처리 팝업레이어 1</a>
+
 	<!-- P1)Profile-step1-agepop -->
 	<div id="pop_age" class="dim_layer">
 		<div class="dim"></div>
 		<div class="pop_wrap">
 			<div class="pop_container">
 				<div class="pop_head">
-					<a href="javascript://" class="btn_txt btn_pop_close">확인</a>
+					<a href="javascript:closePop('pop_age');" class="btn_txt btn_pop_close">확인</a>
 				</div>
 				<div class="pop_cont">
 					<select>
@@ -143,15 +132,14 @@
 		</div>
 	</div>
 	<!-- -->
-
-	<a href="#pop_su" class="btn_pop_open">딤처리 팝업레이어 2</a>
+	
 	<!-- P1)Profile-step1-supop-1 -->
 	<div id="pop_su" class="dim_layer full">
 		<div class="dim"></div>
 		<div class="pop_wrap">
 			<div class="pop_container">
 				<div class="pop_head">
-					<a href="javascript://" class="btn_txt btn_pop_close">확인</a>
+					<a href="javascript:closePop('pop_su');" class="btn_txt btn_pop_close">확인</a>
 				</div>
 				<div class="pop_cont">
 					<ul class="list_type1">

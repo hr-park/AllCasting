@@ -1,10 +1,13 @@
 @charset "utf-8";
 
 :root{
-    --main-green:#018975;
-    --main-point-ylw:#ECB62B;
-    --main-point-brw:#C66825;
-    --setting-ico-gap:56px;
+    --gap-ico-setting:56px;
+
+    --state-default-color:#FFEB60;
+    --state-red-color:#ED3964;
+    --state-gray-color:#999999;
+    --state-darkgr-color:#708C7A;
+    --state-ylw-color:#ECB62B;
 }
 
 
@@ -100,11 +103,6 @@ header .page_name{font-size:16px;font-weight:700;color:#222}
 .video_box{position:relative;width:100%;height:0;padding-top:56.25%}
 .video_box > iframe{position:absolute;left:0;top:0;width:100%;height:100%;}
 
-.btn_add{display:block;width:100%;height:48px;border-radius:4px;background:#F3F3F3;color:#999;border:0 none}
-.btn_add span{display:inline-block;padding-left:28px;line-height:1.5;background:url('../images/ico/ico_plus.svg') no-repeat 0 50% / 12px auto}
-.btn_add.active{background:#222;}
-.btn_add.active span{color:#fff;background:url('../images/ico/ico_plus_white.svg') no-repeat 0 50% / 12px auto}
-
 /*popup*/
 .pop_wrap{display: none;position: absolute;bottom:0;left:0;width: 100%;height: auto;background-color: #fff;z-index: 10;}
 .pop_wrap .pop_container{overflow-y:auto;height:100%;padding:20px 25px;box-sizing:border-box;}
@@ -147,7 +145,7 @@ header .page_name{font-size:16px;font-weight:700;color:#222}
 .reg_form .inp_field .row{display:flex;gap:8px}
 .reg_form .inp_box{position:relative;display:flex;height:40px;flex:1;align-items:center;margin-top:8px;}
 .reg_form .inp_box .txt{font-size:16px;color:#222}
-.reg_form .inp_box .btn_reset{position:absolute;right:10px;top:50%;display:inline-block;width:24px;height:24px;flex-shrink:0;border:0 none;text-indent:-9999px;background:url('../images/btn/btn_reset.svg') no-repeat 50% 50% / 100% auto;transform:translateY(-50%)}
+.reg_form .inp_box .btn_reset{position:absolute;right:10px;top:50%;display:inline-block;width:24px;height:24px;flex-shrink:0;border:0 none;text-indent:-9999px;background:url('../images/btn/btn_reset.svg') no-repeat 50% 50% / 24px auto;transform:translateY(-50%)}
 .reg_form label{font-size:14px;color:#222}
 .reg_form label .lab_sub{font-size:14px;color:#999}
 .reg_form .inp_txt{height:40px;margin-top:8px;/*font-size:16px;*/font-size:15px;color:#222;border-bottom:1px solid #E7E7E7}
@@ -182,10 +180,13 @@ ul.list_type3 li .btn_del{position:absolute;right:10px;top:16px;display:inline-b
 .card_list .item{position:relative;background:#fff;}
 .card_list .item a{display:block;padding:20px;height:100%;}
 .card_list .item + .item{margin-top:24px;}
-.card_list .top_status{position:relative;padding:0 0 15px 20px;margin-bottom:15px;border-bottom:1px solid #E7E7E7}
-.card_list .top_status:before{content:'';position:absolute;left:0;top:0;display:inline-block;width:6px;height:calc(100% - 16px);border-radius:3px;background:#eee}
+.card_list .top_state{position:relative;padding:0 0 15px 20px;margin-bottom:15px;border-bottom:1px solid #E7E7E7}
+.card_list .top_state:before{content:'';position:absolute;left:0;top:0;display:inline-block;width:6px;height:calc(100% - 16px);border-radius:3px;background:#eee}
 .card_list .txt_day{display:block;margin-bottom:15px;font-size:18px;color:#ED3964;font-weight:700}
 .card_list .subject{margin-bottom:5px;font-size:18px;line-height:1.44;font-weight:700;}
+
+.card_list .top_state.red{background:var(--state-red-color)}; /*작업중.*/
+
 .sub_dot_list{display:flex;}
 .sub_dot_list li{font-size:12px;line-height:18px;color:#666;background:#fff;border-radius:12px;}
 .sub_dot_list li + li{position:relative;padding-left:10px;}
@@ -194,6 +195,7 @@ ul.list_type3 li .btn_del{position:absolute;right:10px;top:16px;display:inline-b
 .detail_row + .detail_row{margin-top:5px;}
 .detail_row .tit{margin-right:8px;font-size:16px;color:#999;}
 .detail_row .desc{font-size:16px;color:#222;}
+
 
 .row_summary{flex:1;}
 
@@ -204,6 +206,11 @@ ul.list_type3 li .btn_del{position:absolute;right:10px;top:16px;display:inline-b
 .btn_txt.active{color:#009672;font-weight:700}
 .btn_basic{display:inline-flex;height:48px;padding:0 10px;align-items:center;justify-content:center;background:#F3F3F3;color:#F3F3F3;border-radius:4px;font-size:16px;}
 .btn_basic.active{background:#222;color:#fff;}
+.btn_add{display:block;width:100%;height:48px;border-radius:4px;background:#F3F3F3;color:#999;border:0 none}
+.btn_add span{display:inline-block;padding-left:28px;line-height:1.5;background:url('../images/ico/ico_plus.svg') no-repeat 0 50% / 12px auto}
+.btn_add.active{border:1px solid #E7E7E7;background:#fff;}
+.btn_add.active span{color:#222;background:url('../images/ico/ico_plus_active.svg') no-repeat 0 50% / 12px auto}
+
 
 .profile_thumb{position:relative;display:flex;align-items:center;justify-content:center}
 .profile_thumb img{display:block;width:100%;height:100%;object-fit:cover;}
@@ -248,13 +255,13 @@ ul.list_type3 li .btn_del{position:absolute;right:10px;top:16px;display:inline-b
 .setting_list li{border-bottom:1px solid #E7E7E7}
 .setting_list li a{display:block;padding:15px 20px;line-height:24px;}
 .setting_list li a:before{content:'';display:inline-block;width:24px;height:24px;margin-right:10px;vertical-align:middle;background:url('../images/ico/ico_setting.svg') no-repeat}
-.setting_list li.list2 a:before{background-position:0 calc(-1 * var(--setting-ico-gap))}
-.setting_list li.list3 a:before{background-position:0 calc(-2 * var(--setting-ico-gap))}
-.setting_list li.list4 a:before{background-position:0 calc(-3 * var(--setting-ico-gap))}
-.setting_list li.list5 a:before{background-position:0 calc(-4 * var(--setting-ico-gap))}
-.setting_list li.list6 a:before{background-position:0 calc(-5 * var(--setting-ico-gap))}
-.setting_list li.list7 a:before{background-position:0 calc(-6 * var(--setting-ico-gap))}
-.setting_list li.list8 a:before{background-position:0 calc(-7 * var(--setting-ico-gap))}
+.setting_list li.list2 a:before{background-position:0 calc(-1 * var(--gap-ico-setting))}
+.setting_list li.list3 a:before{background-position:0 calc(-2 * var(--gap-ico-setting))}
+.setting_list li.list4 a:before{background-position:0 calc(-3 * var(--gap-ico-setting))}
+.setting_list li.list5 a:before{background-position:0 calc(-4 * var(--gap-ico-setting))}
+.setting_list li.list6 a:before{background-position:0 calc(-5 * var(--gap-ico-setting))}
+.setting_list li.list7 a:before{background-position:0 calc(-6 * var(--gap-ico-setting))}
+.setting_list li.list8 a:before{background-position:0 calc(-7 * var(--gap-ico-setting))}
 
 /*error*/
 .error{display:flex;height:100vh;align-items:center;flex-direction:column;justify-content:center;}

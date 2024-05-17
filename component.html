@@ -7,8 +7,7 @@
 	<title>All CASTING</title>
 	<link rel="stylesheet" href="inc/css/NotoSansKR.css">
 	<link rel="stylesheet" href="inc/css/style.css">
-	<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script><!-- alert -->
-	<script src="inc/js/common.js"></script>
+	
 	<style>
 	.content{padding:20px}
 	.box{padding:20px;margin:0 0 20px;background:#f7f7f7;}
@@ -83,6 +82,9 @@
 			<h2>btn_basic</h2>
 			<a href="javascript://" class="btn_basic">default</a>
 			<a href="javascript://" class="btn_basic active">active</a>
+			<h2>btn_add</h2>
+			<button type="button" class="btn_add"><span>btn_add</span></button>
+			<button type="button" class="btn_add active"><span>btn_add active</span></button>
 		</div>
 		<div class="box">
 			<h1>TEST</h1>
@@ -110,7 +112,7 @@
 				};
 			</script>
 			<h2>common</h2>
-			<a href="#pop_age" class="btn_pop_open">default</a>
+			<a href="javascript:openPop('pop_age')" class="btn_pop_open">default</a>
 			<div id="pop_age" class="dim_layer">
 				<div class="dim"></div>
 				<div class="pop_wrap">
@@ -119,17 +121,13 @@
 							<a href="javascript://" class="btn_txt btn_pop_close">확인</a>
 						</div>
 						<div class="pop_cont">
-							<select>
-								<option value="">18~38</option>
-								<option value="">19~39</option>
-								<option value="">20~40</option>
-							</select>
+							TEST
 						</div>
 					</div>
 				</div>
 			</div>
 			<h2>full</h2>
-			<a href="#pop_su" class="btn_pop_open">full</a>
+			<a href="javascript:openPop('pop_su')" class="btn_pop_open">full</a>
 			<div id="pop_su" class="dim_layer full">
 				<div class="dim"></div>
 				<div class="pop_wrap">
@@ -149,5 +147,7 @@
 			</div>
 		</div>
 	</div>
+	<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script><!-- alert -->
+	<script src="inc/js/common.js"></script>
 </body>
 </html>
