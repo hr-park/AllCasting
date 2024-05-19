@@ -14,7 +14,7 @@
 		<a href="javascript:openPop('pop_report')" class="btn_report">신고</a>
 	</header>
 	<div class="content">
-		<div class="project_view_top bg_state_red"><!-- bg_state_default, bg_state_red, bg_state_end -->
+		<div class="project_view_top bg_state_selected"><!-- bg_state_default, bg_state_red, bg_state_end,  bg_state_selected -->
 			<div class="pos_rel">
 				<p class="txt_num">D-10</p>
 				<button type="button" class="btn_bookmark_white active">bookmark</button>
@@ -36,62 +36,26 @@
 				</div>
 			</div>
 		</div>
-		<div class="card_slide">
-				<div class="tit_box">
-					<p class="tit">모집 분야</p>
-					<div class="swiper-pagination"></div>
-				</div>
-				<!-- Swiper -->
-				<div class="swiper swiper_fraction">
-					<ul class="swiper-wrapper card_list">
-						<li class="swiper-slide item">
-							<div class="flex_column_gap">
-								<div class="detail_row">
-									<strong class="tit">모델</strong>
-									<p class="desc"><strong>남성, 25~35세, 2명, 바디페인팅 모델</strong></p>
-								</div>
-								<p class="txt_light_gr">조각상 콘셉트로 전신에 바디페인팅을 한 뒤 촬영합니다. 최소한의 속옷을 착용하고 작업합니다. 키 175cm 이상의 피트니스 모델 체형이 좋습니다.</p>
-								<p class="ft_size_14">#누드모델 #수영</p>
-								<div class="detail_row">
-									<strong class="tit">출연료</strong>
-									<p class="desc">작품당 <strong>20~30만원</strong></p>
-								</div>
-								<a href="javascript:openPop('pop_apply')" class="btn_basic mt_auto active">지원하기</a>
-							</div>
-						</li>
-						<li class="swiper-slide item">
-							<div class="flex_column_gap">
-								<div class="detail_row">
-									<strong class="tit">모델</strong>
-									<p class="desc"><strong>남성, 25~35세, 2명, 바디페인팅 모델</strong></p>
-								</div>
-								<p class="txt_light_gr">조각상 콘셉트로 전신에 바디페인팅을 한 뒤 촬영합니다. 최소한의 속옷을 착용하고 작업합니다. 키 175cm 이상의 피트니스 모델 체형이 좋습니다.</p>
-								<p class="ft_size_14">#누드모델 #수영</p>
-								<div class="detail_row">
-									<strong class="tit">출연료</strong>
-									<p class="desc">작품당 <strong>20~30만원</strong></p>
-								</div>
-								<a href="javascript:openPop('pop_apply')" class="btn_basic mt_auto active">지원하기</a>
-							</div>
-						</li>
-						<li class="swiper-slide item">
-							<div class="flex_column_gap">
-								<div class="detail_row">
-									<strong class="tit">모델</strong>
-									<p class="desc"><strong>남성, 25~35세, 2명, 바디페인팅 모델</strong></p>
-								</div>
-								<p class="txt_light_gr">조각상</p>
-								<p class="ft_size_14">#누드모델 #수영 #누드모델 #수영 #누드모델 #수영 #누드모델 #수영 #누드모델 #수영</p>
-								<div class="detail_row">
-									<strong class="tit">출연료</strong>
-									<p class="desc">작품당 <strong>20~30만원</strong></p>
-								</div>
-								<a href="javascript:openPop('pop_apply')" class="btn_basic mt_auto active">지원하기</a>
-							</div>
-						</li>
-					</ul>
-				</div>
-			</div>
+		<div class="bg_cont_gray">
+			<ul class="card_list">
+				<li class="swiper-slide item">
+					<div class="flex_column_gap">
+						<div class="detail_row">
+							<strong class="tit">모델</strong>
+							<p class="desc"><strong>남성, 25~35세, 2명, 바디페인팅 모델</strong></p>
+						</div>
+						<p class="txt_light_gr">조각상 콘셉트로 전신에 바디페인팅을 한 뒤 촬영합니다. 최소한의 속옷을 착용하고 작업합니다. 키 175cm 이상의 피트니스 모델 체형이 좋습니다.</p>
+						<p class="ft_size_14">#누드모델 #수영</p>
+						<div class="detail_row">
+							<strong class="tit">출연료</strong>
+							<p class="desc">작품당 <strong>20~30만원</strong></p>
+						</div>
+						<button id="btn_cancel" class="btn_line mt10">지원 취소하기</button>
+						<a href="javascript:openPop('pop_apply')" class="btn_basic mt10 active">지원하기</a>
+						<a href="javascript:openPop('pop_schedule')" class="btn_basic mt10 active">오디션 일정 선택하기</a>
+					</div>
+				</li>
+			</ul>
 		</div>
 		
 		<div class="cont_pd">
@@ -132,8 +96,8 @@
 	<nav class="gnb artist">
 		<ul>
 			<li><a href="#">Home</a></li>
-			<li class="active"><a href="#">모집공고</a></li>
-			<li><a href="#">지원현황</a></li>
+			<li><a href="#">모집공고</a></li>
+			<li class="active"><a href="#">지원현황</a></li>
 			<li><a href="#">일정</a></li>
 			<li><a href="#">프로필</a></li>
 		</ul>
@@ -158,6 +122,17 @@
 		</div>
 	</div>
 	<!--// 신고팝업 -->
+
+	<!-- 일정 선택 팝업 -->
+	<div id="pop_schedule" class="dim_layer">  
+		<div class="dim"></div>
+		<div class="pop_wrap"> 
+			<div class="pop_cont">
+				
+			</div>
+		</div>
+	</div>
+	<!--// 일정 선택 팝업 -->
 
 	<!-- 지원팝업 -->
 	<div id="pop_apply" class="dim_layer">  
@@ -197,9 +172,6 @@
 						</div>
 					</div>
 				</div>
-
-
-				
 				
 				<a href="#" class="btn_basic active mt_auto">지원하기</a>
 			</div>
@@ -210,25 +182,32 @@
 	<!-- swiper.js -->
 	<link rel="stylesheet" href="inc/css/swiper-bundle.min.css" />
 	<script src="inc/js/swiper-bundle.min.js"></script>
+	<!-- alert -->
+	<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 	<!-- -->
 	<script src="inc/js/common.js"></script>
 
 	<script>
-	const field_swiper = new Swiper(".swiper_fraction", {
-		spaceBetween: 10,
-		slidesPerView: 1.15,
-		centeredSlides: true,
-		pagination: {
-			el: ".swiper-pagination",
-			type: "fraction",
-		},
-	});
-
 	const profile_swiper = new Swiper(".profile_swiper", {
 		spaceBetween: 10,
 		slidesPerView: 2.8,
 		centeredSlides: true,
 	});
+
+	document.getElementById('btn_cancel').onclick = function(){
+		Swal.fire({
+			title: "전쟁을 소재로 한 가족영화 / 바디페인팅 모델",
+			customClass: {
+				popup: 'pop_confirm' //confirm창에 pop_confirm 클래스 추가
+			},
+			html:"이 역할에 대한 지원을 취소하시겠습니까?<br>(모집 마감 전에 재지원 가능합니다)",
+			reverseButtons : true,
+			showCancelButton: true,
+			showDenyButton: false,
+			cancelButtonText: "아니요",
+			confirmButtonText: "네"
+		});
+	};
 	</script>
 	
 </body>

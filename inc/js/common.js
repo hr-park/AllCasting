@@ -71,6 +71,8 @@ document.addEventListener('click', function() {
 document.querySelectorAll('.dim_layer .dim').forEach(dim => {
     dim.addEventListener('click', () => {
         dim.closest('.dim_layer').style.display = 'none';
+        document.documentElement.style.overflow = '';
+        document.body.style.overflow = '';
     });
 });
 
