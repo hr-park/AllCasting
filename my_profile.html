@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+	<meta charset="utf-8" />
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no"/>
+	<title>All CASTING</title>
+	<link rel="stylesheet" href="inc/css/NotoSansKR.css">
+	<link rel="stylesheet" href="inc/css/style.css">
+	
+</head>
+<body>
+	<header class="header_type2">
+		<nav>
+			<ul>
+				<li class="active"><a href="javascript://" class="active">나의 프로필</a></li>
+			</ul>
+		</nav>
+		<div>
+			<a href="#" class="btn_profile_change">나의 프로필 변경</a>
+			<a href="#" class="btn_profile_setting">나의 프로필 설정</a>
+		</div>
+	</header>
+	<div class="content">
+		<style>
+			.profile_list{display:flex;padding:24px 10px;flex-wrap:wrap;gap:10px;box-sizing: border-box;}
+			.profile_list li{width:calc(50% - 5px);}
+		</style>
+		<ul class="profile_list">
+			<li>
+				<a href="">
+					<div class="profile_thumb completed">
+						<img src="inc/images/profile_sample.jpg" alt="">
+					</div>
+				</a>
+			</li>
+			<li>
+				<a href="">
+					<div class="profile_thumb ing">
+						<img src="inc/images/profile_sample.jpg" alt="">
+					</div>
+				</a>
+			</li>
+			<li>
+				<a href="">
+					<div class="profile_thumb">
+						<img src="inc/images/profile_sample.jpg" alt="">
+					</div>
+				</a>
+			</li>
+			<li>
+				<div class="profile_add">
+					<label for="file">
+						<p class="btn_upload not_txt"></p>
+					</label>
+					<input type="file" name="file" id="file">
+				</div>
+			</li>
+		</ul>
+	</div>
+	
+	<nav class="gnb artist">
+		<ul>
+			<li><a href="#">Home</a></li>
+			<li><a href="#">모집공고</a></li>
+			<li><a href="#">지원현황</a></li>
+			<li><a href="#">일정</a></li>
+			<li class="active"><a href="#">프로필</a></li>
+		</ul>
+	</nav>
+	
+	<!-- swiper.js -->
+	<link rel="stylesheet" href="inc/css/swiper-bundle.min.css" />
+	<script src="inc/js/swiper-bundle.min.js"></script>
+	<!-- js -->
+	<script src="inc/js/common.js"></script>
+	<script>
+	const swiper = new Swiper(".swiper_fraction", {
+		spaceBetween: 10,
+		slidesPerView: 1.15,
+		centeredSlides: true,
+		pagination: {
+			el: ".swiper-pagination",
+			type: "fraction",
+		},
+	});
+	</script>
+</body>
+</html>
