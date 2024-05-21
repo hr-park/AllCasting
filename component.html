@@ -17,135 +17,137 @@
 	.btn_pop_open{display:inline-block;padding:5px;border:1px solid #000;background:#fff}
 	</style>
 </head>
-<body style="max-width:720px;margin:0 auto">
-	<div class="content">
-		<p style="margin:0 0 30px;font-weight:700;font-weight:700;font-size:24px;">Component</p>
-		<div class="box">
-			<h1>Input</h1>
-			<h2>Checkbox</h2>
-			<div class="inp_chk">
-				<input type="checkbox" name="a" id="t1">
-				<label for="t1">test</label>
+<body>
+	<div class="wrap" style="max-width:720px;margin:0 auto">
+		<div class="content">
+			<p style="margin:0 0 30px;font-weight:700;font-weight:700;font-size:24px;">Component</p>
+			<div class="box">
+				<h1>Input</h1>
+				<h2>Checkbox</h2>
+				<div class="inp_chk">
+					<input type="checkbox" name="a" id="t1">
+					<label for="t1">test</label>
+				</div>
+				<h2>radio</h2>
+				<div class="inp_radio">
+					<input type="radio" name="b" id="t2">
+					<label for="t2">test</label>
+				</div>
+				<h2>selectbox</h2>
+				<div class="sel_box">
+					<select name="" id="">
+						<option>test1</option>
+						<option>test2</option>
+						<option>test3</option>
+						<option>test4</option>
+						<option>test5</option>
+					</select>
+				</div>
 			</div>
-			<h2>radio</h2>
-			<div class="inp_radio">
-				<input type="radio" name="b" id="t2">
-				<label for="t2">test</label>
+			<div class="box">
+				<h1>List</h1>
+				<h2>list_type1</h2>
+				<ul class="list_type1">
+					<li class="active"><a href="javascript://">국내 전체</a></li>
+					<li><a href="javascript://">서울</a></li>
+					<li><a href="javascript://">서울</a></li>
+				</ul>
+				<h2>list_type2</h2>
+				<ul class="list_type2">
+					<li>
+						<div class="mb5">
+							<strong class="label mark">2021</strong>
+							<span>대표 작품</span>
+						</div>
+						<p class="subject">단편 영화 ‘영화 제목제목제목’ 조연</p>
+						<button type="button" class="btn_del">삭제</button>
+					</li>
+				</ul>
+				<h2>list_type3</h2>
+				<ul class="list_type3">
+					<li>
+						<p class="subject">티빙 ‘유미의 세포들’ 연기 영상</p>
+						<button type="button" class="btn_del">삭제</button>
+					</li>
+					<li>
+						<p class="subject">한국인 참가자의 소극적인 모습에 기대감 1도 없던 심사위원과 관객들이 잠시 후 모두 경악</p>
+						<button type="button" class="btn_del">삭제</button>
+					</li>
+				</ul>
 			</div>
-			<h2>selectbox</h2>
-			<div class="sel_box">
-				<select name="" id="">
-					<option>test1</option>
-					<option>test2</option>
-					<option>test3</option>
-					<option>test4</option>
-					<option>test5</option>
-				</select>
+			<div class="box">
+				<h1>Button</h1>
+				<h2>btn_txt</h2>
+				<a href="javascript://" class="btn_txt">default</a>
+				<a href="javascript://" class="btn_txt active">active</a>
+				<h2>btn_basic</h2>
+				<a href="javascript://" class="btn_basic">default</a>
+				<a href="javascript://" class="btn_basic active">active</a>
+				<h2>btn_add</h2>
+				<button type="button" class="btn_add"><span>btn_add</span></button>
+				<button type="button" class="btn_add active"><span>btn_add active</span></button>
+				<h2>btn_line</h2>
+				<a href="javascript://" class="btn_line">default</a>
 			</div>
-		</div>
-		<div class="box">
-			<h1>List</h1>
-			<h2>list_type1</h2>
-			<ul class="list_type1">
-				<li class="active"><a href="javascript://">국내 전체</a></li>
-				<li><a href="javascript://">서울</a></li>
-				<li><a href="javascript://">서울</a></li>
-			</ul>
-			<h2>list_type2</h2>
-			<ul class="list_type2">
-				<li>
-					<div class="mb5">
-						<strong class="label mark">2021</strong>
-						<span>대표 작품</span>
+			<div class="box">
+				<h1>TEST</h1>
+				<h2>txt_light_gr</h2>
+				<p class="txt_light_gr">TEST TEST TEST TEST TEST  TEST</p>
+			</div>
+			<div class="box">
+				<h1>Popup</h1>
+				<h2>confirm - sweetalert2</h2>
+				<button id="confirm_test">sweetalert2 - pop_confirm</button>
+				<script>
+					document.getElementById('confirm_test').onclick = function(){
+						Swal.fire({
+							title: "변경한 내용을 취소하고 나가시겠습니까?",
+							customClass: {
+								popup: 'pop_confirm' //confirm창에 pop_confirm 클래스 추가
+							},
+							html:"변경 내역을 저장하지 않고<br><b>프로필</b> 화면으로 이동합니다.",
+							reverseButtons : true,
+							showCancelButton: true,
+							showDenyButton: false,
+							cancleButtonText: "취소",
+							confirmButtonText: "이동"
+						});
+					};
+				</script>
+				<h2>common</h2>
+				<a href="javascript:openPop('pop_age')" class="btn_pop_open">default</a>
+				<div id="pop_age" class="dim_layer">  
+					<div class="dim"></div>
+					<div class="pop_wrap"> 
+							<div class="pop_head">
+								<a href="javascript://" class="btn_txt btn_pop_close">확인</a>
+							</div>
+							<div class="pop_cont">
+								TEST
+							</div>
+						</div>
 					</div>
-					<p class="subject">단편 영화 ‘영화 제목제목제목’ 조연</p>
-					<button type="button" class="btn_del">삭제</button>
-				</li>
-			</ul>
-			<h2>list_type3</h2>
-			<ul class="list_type3">
-				<li>
-					<p class="subject">티빙 ‘유미의 세포들’ 연기 영상</p>
-					<button type="button" class="btn_del">삭제</button>
-				</li>
-				<li>
-					<p class="subject">한국인 참가자의 소극적인 모습에 기대감 1도 없던 심사위원과 관객들이 잠시 후 모두 경악</p>
-					<button type="button" class="btn_del">삭제</button>
-				</li>
-			</ul>
-		</div>
-		<div class="box">
-			<h1>Button</h1>
-			<h2>btn_txt</h2>
-			<a href="javascript://" class="btn_txt">default</a>
-			<a href="javascript://" class="btn_txt active">active</a>
-			<h2>btn_basic</h2>
-			<a href="javascript://" class="btn_basic">default</a>
-			<a href="javascript://" class="btn_basic active">active</a>
-			<h2>btn_add</h2>
-			<button type="button" class="btn_add"><span>btn_add</span></button>
-			<button type="button" class="btn_add active"><span>btn_add active</span></button>
-			<h2>btn_line</h2>
-			<a href="javascript://" class="btn_line">default</a>
-		</div>
-		<div class="box">
-			<h1>TEST</h1>
-			<h2>txt_light_gr</h2>
-			<p class="txt_light_gr">TEST TEST TEST TEST TEST  TEST</p>
-		</div>
-		<div class="box">
-			<h1>Popup</h1>
-			<h2>confirm - sweetalert2</h2>
-			<button id="confirm_test">sweetalert2 - pop_confirm</button>
-			<script>
-				document.getElementById('confirm_test').onclick = function(){
-					Swal.fire({
-						title: "변경한 내용을 취소하고 나가시겠습니까?",
-						customClass: {
-							popup: 'pop_confirm' //confirm창에 pop_confirm 클래스 추가
-						},
-						html:"변경 내역을 저장하지 않고<br><b>프로필</b> 화면으로 이동합니다.",
-						reverseButtons : true,
-						showCancelButton: true,
-						showDenyButton: false,
-						cancleButtonText: "취소",
-						confirmButtonText: "이동"
-					});
-				};
-			</script>
-			<h2>common</h2>
-			<a href="javascript:openPop('pop_age')" class="btn_pop_open">default</a>
-			<div id="pop_age" class="dim_layer">  
-				<div class="dim"></div>
-				<div class="pop_wrap"> 
+				</div>
+				<h2>full</h2>
+				<a href="javascript:openPop('pop_su')" class="btn_pop_open">full</a>
+				<div id="pop_su" class="dim_layer full">
+					<div class="dim"></div>
+					<div class="pop_wrap">
 						<div class="pop_head">
 							<a href="javascript://" class="btn_txt btn_pop_close">확인</a>
 						</div>
 						<div class="pop_cont">
-							TEST
+							<ul class="list_type1">
+								<li><a href="javascript://">국내 전체</a></li>
+								<li><a href="javascript://">서울</a></li>
+								<li><a href="javascript://">서울</a></li>
+							</ul>
 						</div>
 					</div>
 				</div>
 			</div>
-			<h2>full</h2>
-			<a href="javascript:openPop('pop_su')" class="btn_pop_open">full</a>
-			<div id="pop_su" class="dim_layer full">
-				<div class="dim"></div>
-				<div class="pop_wrap">
-					<div class="pop_head">
-						<a href="javascript://" class="btn_txt btn_pop_close">확인</a>
-					</div>
-					<div class="pop_cont">
-						<ul class="list_type1">
-							<li><a href="javascript://">국내 전체</a></li>
-							<li><a href="javascript://">서울</a></li>
-							<li><a href="javascript://">서울</a></li>
-						</ul>
-					</div>
-				</div>
-			</div>
 		</div>
-	</div>
+	</div><!-- //wrap -->
 	<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script><!-- alert -->
 	<script src="inc/js/common.js"></script>
 </body>

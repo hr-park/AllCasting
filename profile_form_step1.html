@@ -10,146 +10,148 @@
 	
 </head>
 <body>
-	<header class="header_type1">
-		<div>
-			<a href="javascript://" class="btn_prev">이전</a>
-			<a href="javascript://" class="btn_home">HOME</a>
-		</div>
-		<p class="page_name">새 프로필 만들기</p>
-		<a href="javascript://" class="btn_next">다음</a>
-	</header>
-	<nav class="page_nav">
-		<ul>
-			<li class="active"><a href="profile_form_step1.html">기본 정보</a></li>
-			<li><a href="profile_form_step2.html">사진</a></li>
-			<li><a href="profile_form_step3.html">경력</a></li>
-			<li><a href="profile_form_step4.html">영상</a></li>
-		</ul>
-	</nav>
-	<div class="content">
-		<form autocomplete="off">
-			<div class="reg_form">
-				<div class="inp_field">
-					<label for="user_name">이름</label>
-					<div class="inp_box"><input type="text" id="user_name" class="inp_txt" placeholder="아티스트로서 활동하는 이름을 적어 주세요."/><button type="button" class="btn_reset">X</button></div>
-					<span class="msg_error">필수 입력 사항입니다.</span>
-				</div>
-				<div class="inp_field">
-					<label for="age">연령대</label>
-					<div class="inp_box">
-						<input type="text" id="age" class="inp_txt" onclick="javascript:openPop('pop_age')" readonly placeholder="연기가 가능한 연령대를 선택해 주세요."/>
-					</div>
-					<!--<div class="inp_box">
-						<div class="sel_box">
-							<select name="" id="">
-								<option>선택</option>
-								<option>17~1811</option>
-								<option>17~18222</option>
-								<option>17~1833</option>
-								<option>17~1844</option>
-							</select>
-						</div>
-					</div>-->
-					<span class="msg_error">필수 입력 사항입니다.</span>
-				</div>
-				<div class="inp_field">
-					<label for="age">성별 <span class="lab_sub">(연기가 가능한 성별)</span></label>
-					<div class="inp_box">
-						<div class="inp_chk">
-							<input type="checkbox" name="gender" id="gender1">
-							<label for="gender1">남성</label>
-						</div>
-						<div class="inp_chk">
-							<input type="checkbox" name="gender" id="gender2">
-							<label for="gender2">여성</label>
-						</div>
-						<div class="inp_chk">
-							<input type="checkbox" name="gender" id="gender3">
-							<label for="gender3">기타</label>
-						</div>
-					</div>
-				</div>
-				<div class="inp_field">
-					<label for="area">활동 지역</label>
-					<div class="inp_box" onclick="javascript:openPop('pop_su')"><input type="text" id="area" class="inp_txt" placeholder="활동 가능한 지역을 선택해 주세요(최대 5개)." readonly /></div>
-					<span class="msg_error">필수 입력 사항입니다.</span>
-				</div>
-				<div class="inp_field">
-					<label for="area">신체 사이즈 <span class="lab_sub">(선택사항)</span></label>
-					<div class="row">
-						<div class="inp_box">
-							<div class="flex_center">
-								<div class="pos_rel">
-									<input type="text" id="area" class="inp_txt" oninput="chkNumber(this, 0)" pattern="[0-9]*" placeholder="키 입력"/>
-									<button type="button" class="btn_reset">X</button>
-								</div>
-								<span class="txt">cm</span>
-							</div>
-						</div>
-						<div class="inp_box">
-							<div class="flex_center">
-								<div class="pos_rel">
-									<input type="text" id="area" class="inp_txt" oninput="chkNumber(this, 0)" pattern="[0-9]*" placeholder="몸무게 입력"/>
-									<button type="button" class="btn_reset">X</button>
-								</div>
-								<span class="txt">kg</span>
-							</div>
-						</div>
-					</div>
-				</div>
-				<div class="inp_field">
-					<label for="area">최종 학력/교육 <span class="lab_sub">(선택사항)</span></label>
-					<div class="inp_box"><input type="text" id="area" class="inp_txt" placeholder="최종 학력/교육을 입력해 주세요." /><button type="button" class="btn_reset">X</button></div>
-					<span class="msg_error">필수 입력 사항입니다.</span>
-				</div>
-				<div class="inp_field">
-					<label for="area">특기 <span class="lab_sub">(선택사항)</span></label>
-					<input type="hidden" value="" name="tag" id="rdTag" />
-					<div class="inp_box"><span class="txt">#</span><input type="text" id="tag" size="7" class="inp_txt" placeholder="자유롭게 입력해 주세요."/></div>
-					<span class="msg_error">필수 입력 사항입니다.</span>
-					 <ul id="tag_list" class="tag_list"></ul>
-				</div>
+	<div class="wrap">
+		<header class="header_type1">
+			<div>
+				<a href="javascript://" class="btn_prev">이전</a>
+				<a href="javascript://" class="btn_home">HOME</a>
 			</div>
-		</form>
-	</div>
+			<p class="page_name">새 프로필 만들기</p>
+			<a href="javascript://" class="btn_next">다음</a>
+		</header>
+		<nav class="page_nav">
+			<ul>
+				<li class="active"><a href="profile_form_step1.html">기본 정보</a></li>
+				<li><a href="profile_form_step2.html">사진</a></li>
+				<li><a href="profile_form_step3.html">경력</a></li>
+				<li><a href="profile_form_step4.html">영상</a></li>
+			</ul>
+		</nav>
+		<div class="content">
+			<form autocomplete="off">
+				<div class="reg_form">
+					<div class="inp_field">
+						<label for="user_name">이름</label>
+						<div class="inp_box"><input type="text" id="user_name" class="inp_txt" placeholder="아티스트로서 활동하는 이름을 적어 주세요."/><button type="button" class="btn_reset">X</button></div>
+						<span class="msg_error">필수 입력 사항입니다.</span>
+					</div>
+					<div class="inp_field">
+						<label for="age">연령대</label>
+						<div class="inp_box">
+							<input type="text" id="age" class="inp_txt" onclick="javascript:openPop('pop_age')" readonly placeholder="연기가 가능한 연령대를 선택해 주세요."/>
+						</div>
+						<!--<div class="inp_box">
+							<div class="sel_box">
+								<select name="" id="">
+									<option>선택</option>
+									<option>17~1811</option>
+									<option>17~18222</option>
+									<option>17~1833</option>
+									<option>17~1844</option>
+								</select>
+							</div>
+						</div>-->
+						<span class="msg_error">필수 입력 사항입니다.</span>
+					</div>
+					<div class="inp_field">
+						<label for="age">성별 <span class="lab_sub">(연기가 가능한 성별)</span></label>
+						<div class="inp_box">
+							<div class="inp_chk">
+								<input type="checkbox" name="gender" id="gender1">
+								<label for="gender1">남성</label>
+							</div>
+							<div class="inp_chk">
+								<input type="checkbox" name="gender" id="gender2">
+								<label for="gender2">여성</label>
+							</div>
+							<div class="inp_chk">
+								<input type="checkbox" name="gender" id="gender3">
+								<label for="gender3">기타</label>
+							</div>
+						</div>
+					</div>
+					<div class="inp_field">
+						<label for="area">활동 지역</label>
+						<div class="inp_box" onclick="javascript:openPop('pop_su')"><input type="text" id="area" class="inp_txt" placeholder="활동 가능한 지역을 선택해 주세요(최대 5개)." readonly /></div>
+						<span class="msg_error">필수 입력 사항입니다.</span>
+					</div>
+					<div class="inp_field">
+						<label for="area">신체 사이즈 <span class="lab_sub">(선택사항)</span></label>
+						<div class="row">
+							<div class="inp_box">
+								<div class="flex_center">
+									<div class="pos_rel">
+										<input type="text" id="area" class="inp_txt" oninput="chkNumber(this, 0)" pattern="[0-9]*" placeholder="키 입력"/>
+										<button type="button" class="btn_reset">X</button>
+									</div>
+									<span class="txt">cm</span>
+								</div>
+							</div>
+							<div class="inp_box">
+								<div class="flex_center">
+									<div class="pos_rel">
+										<input type="text" id="area" class="inp_txt" oninput="chkNumber(this, 0)" pattern="[0-9]*" placeholder="몸무게 입력"/>
+										<button type="button" class="btn_reset">X</button>
+									</div>
+									<span class="txt">kg</span>
+								</div>
+							</div>
+						</div>
+					</div>
+					<div class="inp_field">
+						<label for="area">최종 학력/교육 <span class="lab_sub">(선택사항)</span></label>
+						<div class="inp_box"><input type="text" id="area" class="inp_txt" placeholder="최종 학력/교육을 입력해 주세요." /><button type="button" class="btn_reset">X</button></div>
+						<span class="msg_error">필수 입력 사항입니다.</span>
+					</div>
+					<div class="inp_field">
+						<label for="area">특기 <span class="lab_sub">(선택사항)</span></label>
+						<input type="hidden" value="" name="tag" id="rdTag" />
+						<div class="inp_box"><span class="txt">#</span><input type="text" id="tag" size="7" class="inp_txt" placeholder="자유롭게 입력해 주세요."/></div>
+						<span class="msg_error">필수 입력 사항입니다.</span>
+						<ul id="tag_list" class="tag_list"></ul>
+					</div>
+				</div>
+			</form>
+		</div>
 
-	<!-- P1)Profile-step1-agepop -->
-	<div id="pop_age" class="dim_layer">
-		<div class="dim"></div>
-		<div class="pop_wrap">
-			<div class="pop_head">
-				<a href="javascript:closePop('pop_age');" class="btn_txt btn_pop_close">확인</a>
-			</div>
-			<div class="pop_cont">
-				<select>
-					<option value="">18~38</option>
-					<option value="">19~39</option>
-					<option value="">20~40</option>
-				</select>
-			</div>
-		</div>
-	</div>
-	<!-- -->
-	
-	<!-- P1)Profile-step1-supop-1 -->
-	<div id="pop_su" class="dim_layer full">
-		<div class="dim"></div>
-		<div class="pop_wrap">
-			<div class="pop_head">
-				<a href="javascript:closePop('pop_su');" class="btn_txt btn_pop_close">확인</a>
-			</div>
-			<div class="pop_cont">
-				<ul class="list_type1">
-					<li><a href="javascript://">국내 전체</a></li>
-					<li><a href="javascript://">서울</a></li>
-					<li><a href="javascript://">서울</a></li>
-					<li><a href="javascript://">서울</a></li>
-					<li><a href="javascript://">서울</a></li>
-					<li><a href="javascript://">서울</a></li>
-				</ul>
+		<!-- P1)Profile-step1-agepop -->
+		<div id="pop_age" class="dim_layer">
+			<div class="dim"></div>
+			<div class="pop_wrap">
+				<div class="pop_head">
+					<a href="javascript:closePop('pop_age');" class="btn_txt btn_pop_close">확인</a>
+				</div>
+				<div class="pop_cont">
+					<select>
+						<option value="">18~38</option>
+						<option value="">19~39</option>
+						<option value="">20~40</option>
+					</select>
+				</div>
 			</div>
 		</div>
-	</div>
+		<!-- -->
+		
+		<!-- P1)Profile-step1-supop-1 -->
+		<div id="pop_su" class="dim_layer full">
+			<div class="dim"></div>
+			<div class="pop_wrap">
+				<div class="pop_head">
+					<a href="javascript:closePop('pop_su');" class="btn_txt btn_pop_close">확인</a>
+				</div>
+				<div class="pop_cont">
+					<ul class="list_type1">
+						<li><a href="javascript://">국내 전체</a></li>
+						<li><a href="javascript://">서울</a></li>
+						<li><a href="javascript://">서울</a></li>
+						<li><a href="javascript://">서울</a></li>
+						<li><a href="javascript://">서울</a></li>
+						<li><a href="javascript://">서울</a></li>
+					</ul>
+				</div>
+			</div>
+		</div>
+	</div><!-- //wrap -->
 	<!-- -->
 	<script src="inc/js/common.js"></script>
 	<script>

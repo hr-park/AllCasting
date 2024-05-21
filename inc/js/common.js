@@ -67,6 +67,22 @@ document.addEventListener('click', function() {
     closeAllSelect();
 });
 
+//dropbox
+document.querySelectorAll('.drop_box button').forEach(button => {
+    button.addEventListener('click', () => {
+        const nextUl = button.nextElementSibling;
+        if (nextUl && nextUl.tagName.toLowerCase() === 'ul') {
+            button.classList.toggle('active');
+            nextUl.style.display = nextUl.style.display === 'block' ? 'none' : 'block';
+        }
+    });
+});
+
+//calendar
+
+const flatpickr = document.querySelector('#flatpickr');
+flatpickr.flatpickr();
+
 //layerpopup
 document.querySelectorAll('.dim_layer .dim').forEach(dim => {
     dim.addEventListener('click', () => {

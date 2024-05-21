@@ -9,108 +9,110 @@
 	<link rel="stylesheet" href="inc/css/style.css">
 </head>
 <body>
-	<header class="header_type2">
-		<nav>
+	<div class="wrap">
+		<header class="header_type2">
+			<nav>
+				<ul>
+					<li class="active"><a href="javascript://" class="active">모집공고</a></li>
+					<li><a href="javascript://" class="">즐겨찾기</a></li>
+				</ul>
+			</nav>
+			<div class="drop_box">
+				<button type="button" class="selected">마감일순</button>
+				<ul>
+					<li><a href="#">마감일순</a></li>
+					<li><a href="#">업데이트순</a></li>
+				</ul>
+			</div>
+		</header>
+		<nav class="type_nav">
 			<ul>
-				<li class="active"><a href="javascript://" class="active">모집공고</a></li>
-				<li><a href="javascript://" class="">즐겨찾기</a></li>
+				<li class="active"><a href="#">전체</a></li>
+				<li><a href="#">배우</a></li>
+				<li><a href="#">모델</a></li>
 			</ul>
 		</nav>
-		<div class="drop_box">
-			<button type="button" class="selected">마감일순</button>
+		<div class="content">
+			<!-- 리스트 없음
+			<div class="list_none">
+				<p class="tit">지원한 프로젝트가 없습니다</p>
+				<p class="desc">프로필이 완성되었다면<br>모집 공고에서 지원해 보세요!</p>
+			</div> -->
+			<div class="bg_cont_gray">
+				<ul class="card_list">
+					<!-- -->
+					<li class="item">
+						<a href="apply_view.html">
+							<div class="top">
+								<p class="subject">전쟁을 소재로 한 가족영화 </p>
+								<ul class="sub_dot_list">
+									<li>CJ Entertainment</li>
+									<li>단편영화</li>
+									<li>학생작품</li>
+								</ul>
+								<strong class="txt_num mt10">5,514 : <em class="ft_color_red">1</em></strong>
+							</div>
+							<div class="detail_row">
+								<strong class="tit">단역</strong>
+								<p class="desc">남성, 45세, 고루한 아버지 역남성</p>
+							</div>
+							<ol class="step_bar">
+								<li class="step_item active">
+									<div class="tit">심사 대기</div>
+								</li>
+								<li class="step_item">
+									<div class="tit">심사 시작</div>
+								</li>
+								<li class="step_item">
+									<div class="tit">결과발표</div>
+								</li>
+							</ol>
+						</a>
+						<a href="javascript://" class="btn_basic active">오디션 일정 선택하기</a>
+					</li>
+					<!--// -->
+					<li class="item">
+						<a href="apply_view.html">
+							<div class="top">
+								<p class="subject">전쟁을 소재로 한 가족영화 </p>
+								<ul class="sub_dot_list">
+									<li>CJ Entertainment</li>
+									<li>단편영화</li>
+									<li>학생작품</li>
+								</ul>
+								<strong class="txt_num mt10">5,514 : <em class="ft_color_red">1</em></strong>
+							</div>
+							<div class="detail_row">
+								<strong class="tit">단역</strong>
+								<p class="desc">남성, 45세, 고루한 아버지 역남성</p>
+							</div>
+							<ol class="step_bar">
+								<li class="step_item completed">
+									<div class="tit">심사 대기</div>
+								</li>
+								<li class="step_item completed">
+									<div class="tit">심사 시작</div>
+								</li>
+								<li class="step_item fail">
+									<div class="tit">불합격</div>
+								</li>
+							</ol>
+						</a>
+					</li>
+				</ul>
+			</div>
+		</div>
+		
+		<nav class="gnb artist">
 			<ul>
-				<li><a href="#">마감일순</a></li>
-				<li><a href="#">업데이트순</a></li>
+				<li><a href="#">Home</a></li>
+				<li><a href="#">모집공고</a></li>
+				<li class="active"><a href="#">지원현황</a></li>
+				<li><a href="#">일정</a></li>
+				<li><a href="#">프로필</a></li>
 			</ul>
-		</div>
-	</header>
-	<nav class="type_nav">
-		<ul>
-			<li class="active"><a href="#">전체</a></li>
-			<li><a href="#">배우</a></li>
-			<li><a href="#">모델</a></li>
-		</ul>
-	</nav>
-	<div class="content">
-		<!-- 리스트 없음
-		<div class="list_none">
-			<p class="tit">지원한 프로젝트가 없습니다</p>
-			<p class="desc">프로필이 완성되었다면<br>모집 공고에서 지원해 보세요!</p>
-		</div> -->
-		<div class="bg_cont_gray">
-			<ul class="card_list">
-				<!-- -->
-				<li class="item">
-					<a href="apply_view.html">
-						<div class="top">
-							<p class="subject">전쟁을 소재로 한 가족영화 </p>
-							<ul class="sub_dot_list">
-								<li>CJ Entertainment</li>
-								<li>단편영화</li>
-								<li>학생작품</li>
-							</ul>
-							<strong class="txt_num mt10">5,514 : <em class="ft_color_red">1</em></strong>
-						</div>
-						<div class="detail_row">
-							<strong class="tit">단역</strong>
-							<p class="desc">남성, 45세, 고루한 아버지 역남성</p>
-						</div>
-						<ol class="step_bar">
-							<li class="step_item active">
-								<div class="tit">심사 대기</div>
-							</li>
-							<li class="step_item">
-								<div class="tit">심사 시작</div>
-							</li>
-							<li class="step_item">
-								<div class="tit">결과발표</div>
-							</li>
-						</ol>
-					</a>
-					<a href="javascript://" class="btn_basic active">오디션 일정 선택하기</a>
-				</li>
-				<!--// -->
-				<li class="item">
-					<a href="apply_view.html">
-						<div class="top">
-							<p class="subject">전쟁을 소재로 한 가족영화 </p>
-							<ul class="sub_dot_list">
-								<li>CJ Entertainment</li>
-								<li>단편영화</li>
-								<li>학생작품</li>
-							</ul>
-							<strong class="txt_num mt10">5,514 : <em class="ft_color_red">1</em></strong>
-						</div>
-						<div class="detail_row">
-							<strong class="tit">단역</strong>
-							<p class="desc">남성, 45세, 고루한 아버지 역남성</p>
-						</div>
-						<ol class="step_bar">
-							<li class="step_item completed">
-								<div class="tit">심사 대기</div>
-							</li>
-							<li class="step_item completed">
-								<div class="tit">심사 시작</div>
-							</li>
-							<li class="step_item fail">
-								<div class="tit">불합격</div>
-							</li>
-						</ol>
-					</a>
-				</li>
-			</ul>
-		</div>
-	</div>
-	
-	<nav class="gnb artist">
-		<ul>
-			<li><a href="#">Home</a></li>
-			<li><a href="#">모집공고</a></li>
-			<li class="active"><a href="#">지원현황</a></li>
-			<li><a href="#">일정</a></li>
-			<li><a href="#">프로필</a></li>
-		</ul>
-	</nav>
+		</nav>
+	</div><!-- //wrap -->
 	<!-- -->
 	<script src="inc/js/common.js"></script>
 	
