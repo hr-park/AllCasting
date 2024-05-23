@@ -10,65 +10,30 @@
 	
 </head>
 <body>
+	<style>
+		.header_type3{position:absolute;left:0;top:0;z-index:1;width:100%;}
+		.profile_swiper2 .profile_thumb{height:100vh}
+	</style>
 	<div class="wrap">
-		<header class="header_type2">
-			<nav>
-				<ul>
-					<li class="active"><a href="javascript://" class="active">나의 프로필</a></li>
-				</ul>
-			</nav>
-			<div>
-				<a href="#" class="btn_profile_change">나의 프로필 변경</a>
-				<a href="#" class="btn_profile_setting">나의 프로필 설정</a>
-			</div>
+		<header class="header_type3">
+			
 		</header>
 		<div class="content">
-			<style>
-				.profile_list{display:flex;padding:24px 10px;flex-wrap:wrap;gap:10px;box-sizing: border-box;}
-				.profile_list li{width:calc(50% - 5px);}
-			</style>
-			<ul class="profile_list">
-				<li>
-					<a href="">
-						<div class="profile_thumb completed">
-							<img src="inc/images/profile_sample.jpg" alt="">
-						</div>
-					</a>
-				</li>
-				<li>
-					<a href="">
-						<div class="profile_thumb ing">
-							<img src="inc/images/profile_sample.jpg" alt="">
-						</div>
-					</a>
-				</li>
-				<li>
-					<a href="">
+			<div class="swiper profile_swiper2">
+				<div class="swiper-wrapper">
+					<div class="swiper-slide">
 						<div class="profile_thumb">
 							<img src="inc/images/profile_sample.jpg" alt="">
+							<dl class="info">
+								<dt>이유비</dt>
+								<dd>25세~30세</dd>
+								<dd>여성</dd>
+							</dl>
 						</div>
-					</a>
-				</li>
-				<li>
-					<div class="profile_add">
-						<label for="file">
-							<p class="btn_upload not_txt"></p>
-						</label>
-						<input type="file" name="file" id="file">
 					</div>
-				</li>
-			</ul>
+				</div>
+			</div>
 		</div>
-		
-		<nav class="gnb artist">
-			<ul>
-				<li><a href="#">Home</a></li>
-				<li><a href="#">모집공고</a></li>
-				<li><a href="#">지원현황</a></li>
-				<li><a href="#">일정</a></li>
-				<li class="active"><a href="#">프로필</a></li>
-			</ul>
-		</nav>
 	</div><!-- //wrap -->
 	
 	<!-- swiper.js -->
@@ -77,10 +42,9 @@
 	<!-- js -->
 	<script src="inc/js/common.js"></script>
 	<script>
-	const swiper = new Swiper(".swiper_fraction", {
-		spaceBetween: 10,
-		slidesPerView: 1.15,
-		centeredSlides: true,
+	const profile_swiper2 = new Swiper(".profile_swiper2", {
+		slidesPerView: 1,
+		//centeredSlides: true,
 		pagination: {
 			el: ".swiper-pagination",
 			type: "fraction",

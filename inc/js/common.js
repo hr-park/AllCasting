@@ -79,9 +79,8 @@ document.querySelectorAll('.drop_box button').forEach(button => {
 });
 
 //calendar
-
-const flatpickr = document.querySelector('#flatpickr');
-flatpickr.flatpickr();
+// const flatpickr = document.querySelector('#flatpickr');
+// flatpickr.flatpickr();
 
 //layerpopup
 document.querySelectorAll('.dim_layer .dim').forEach(dim => {

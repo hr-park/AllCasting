@@ -145,8 +145,8 @@
 			<div class="dim"></div>
 			<div class="pop_wrap"> 
 				<div class="pop_cont">
-					<p>신고 사유를 알려주세요. 운영진이 검토한 뒤 조치를 취하겠습니다. 콜타임의 <a href="">개인정보 보호방침,</a> <a href="">이용자 약관</a> 및 현행법을 위반한 행위는 제재 대상이 됩니다.</p>
-					<div class="sel_box">
+					<p>신고 사유를 알려주세요. 운영진이 검토한 뒤 조치를 취하겠습니다. 콜타임의 <a href="#"><u class="txt_point_green">개인정보 보호방침,</u></a> <a href="#"><u class="txt_point_green">이용자 약관</u></a> 및 현행법을 위반한 행위는 제재 대상이 됩니다.</p>
+					<div class="sel_box mt25">
 						<select name="" id="">
 							<option>신고 사유 선택</option>
 							<option>신고 사유1</option>
@@ -208,10 +208,17 @@
 	<!-- swiper.js -->
 	<link rel="stylesheet" href="inc/css/swiper-bundle.min.css" />
 	<script src="inc/js/swiper-bundle.min.js"></script>
+	<!-- alert -->
+	<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 	<!-- -->
 	<script src="inc/js/common.js"></script>
 
 	<script>
+	const profile_swiper = new Swiper(".profile_swiper", {
+		spaceBetween: 10,
+		slidesPerView: 2.8,
+		centeredSlides: true,
+	});
 	const field_swiper = new Swiper(".swiper_fraction", {
 		spaceBetween: 10,
 		slidesPerView: 1.15,
@@ -220,12 +227,6 @@
 			el: ".swiper-pagination",
 			type: "fraction",
 		},
-	});
-
-	const profile_swiper = new Swiper(".profile_swiper", {
-		spaceBetween: 10,
-		slidesPerView: 2.8,
-		centeredSlides: true,
 	});
 	</script>
 	
