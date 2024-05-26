@@ -94,9 +94,9 @@
 			<div class="box">
 				<h1>Popup</h1>
 				<h2>confirm - sweetalert2</h2>
-				<button id="confirm_test">sweetalert2 - pop_confirm</button>
+				<button id="confirmTest">sweetalert2 - pop_confirm</button>
 				<script>
-					document.getElementById('confirm_test').onclick = function(){
+					document.getElementById('confirmTest').onclick = function(){
 						Swal.fire({
 							title: "변경한 내용을 취소하고 나가시겠습니까?",
 							customClass: {
@@ -116,9 +116,10 @@
 				<div id="pop_age" class="dim_layer">  
 					<div class="dim"></div>
 					<div class="pop_wrap"> 
-						<div class="pop_head">
+						<!--<div class="pop_head">
 							<a href="javascript://" class="btn_txt btn_pop_close">확인</a>
-						</div>
+						</div>-->
+						<div class="pop_handle" onclick="closePop('pop_age')"></div>
 						<div class="pop_cont">
 							TEST
 						</div>

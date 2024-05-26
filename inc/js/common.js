@@ -120,11 +120,11 @@ function closePop(popName) {
 }
 
 function showNotification(message) {
-    const layerNoti = document.querySelector('#layer_noti');
+    const layerNoti = document.querySelector('#layerNoti');
     if (!layerNoti) {
-        document.querySelector('.content').insertAdjacentHTML('beforeend', `<div class="layer_noti" id="layer_noti">${message}</div>`);
+        document.querySelector('.content').insertAdjacentHTML('beforeend', `<div class="layer_noti" id="layerNoti">${message}</div>`);
         setTimeout(function(){
-            const updatedLayerNoti = document.querySelector('#layer_noti');
+            const updatedLayerNoti = document.querySelector('#layerNoti');
             if (updatedLayerNoti) {
                 updatedLayerNoti.remove();
             }

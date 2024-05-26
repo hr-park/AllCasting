@@ -11,7 +11,7 @@
 <body>
 	<div class="wrap">
 		<header class="header_type1 pos_abs">
-			<a href="javascript://" class="btn_prev">이전</a>
+			<a href="javascript:history.go(-1)" class="btn_prev">이전</a>
 			<a href="javascript:openPop('pop_report')" class="btn_report">신고</a>
 		</header>
 		<div class="content has_gnb">
@@ -130,11 +130,11 @@
 		</div>
 		<nav class="gnb artist">
 			<ul>
-				<li><a href="#">Home</a></li>
-				<li class="active"><a href="#">모집공고</a></li>
-				<li><a href="#">지원현황</a></li>
-				<li><a href="#">일정</a></li>
-				<li><a href="#">프로필</a></li>
+				<li><a href="javascript://">Home</a></li>
+				<li class="active"><a href="castingcall_list.html">모집공고</a></li>
+				<li><a href="apply_list.html">지원현황</a></li>
+				<li><a href="schedule_list.html">일정</a></li>
+				<li><a href="my_profile_list.html">프로필</a></li>
 			</ul>
 		</nav>
 
@@ -142,8 +142,9 @@
 		<div id="pop_report" class="dim_layer">  
 			<div class="dim"></div>
 			<div class="pop_wrap"> 
+				<div class="pop_handle" onclick="closePop('pop_report')"></div>
 				<div class="pop_cont">
-					<p>신고 사유를 알려주세요. 운영진이 검토한 뒤 조치를 취하겠습니다. 콜타임의 <a href="#"><u class="txt_point_green">개인정보 보호방침,</u></a> <a href="#"><u class="txt_point_green">이용자 약관</u></a> 및 현행법을 위반한 행위는 제재 대상이 됩니다.</p>
+					<p>신고 사유를 알려주세요. 운영진이 검토한 뒤 조치를 취하겠습니다. 콜타임의 <a href="javascript://"><u class="txt_point_green">개인정보 보호방침,</u></a> <a href="javascript://"><u class="txt_point_green">이용자 약관</u></a> 및 현행법을 위반한 행위는 제재 대상이 됩니다.</p>
 					<div class="sel_box mt25">
 						<select name="" id="">
 							<option>신고 사유 선택</option>
@@ -152,7 +153,7 @@
 							<option>신고 사유3</option>
 						</select>
 					</div>
-					<a href="#" id="btn_report" class="btn_basic active mt50">프로젝트 신고하기</a>
+					<a href="javascript://" id="btnReport" class="btn_basic active mt50">프로젝트 신고하기</a>
 				</div>
 			</div>
 		</div>
@@ -162,6 +163,7 @@
 		<div id="pop_apply" class="dim_layer">  
 			<div class="dim"></div>
 			<div class="pop_wrap"> 
+				<div class="pop_handle" onclick="closePop('pop_apply')"></div>
 				<div class="pop_cont">
 					<p>지원할 프로필 선택</p>
 					<div class="swiper profile_swiper">
@@ -196,7 +198,7 @@
 							</div>
 						</div>
 					</div>
-					<a href="#" id="btn_apply" class="btn_basic active mt_auto">지원하기</a>
+					<a href="javascript://" id="btnApply" class="btn_basic active mt_auto">지원하기</a>
 				</div>
 			</div>
 		</div>
@@ -228,13 +230,13 @@
 	});
 
 	//신고하기
-	document.querySelector('#btn_report').addEventListener('click', () => {
+	document.querySelector('#btnReport').addEventListener('click', () => {
 		closePop('pop_report');
 		showNotification('이 프로젝트를 신고했습니다.');
 	});
 
 	//지원하기
-	document.querySelector('#btn_apply').addEventListener('click', () => {
+	document.querySelector('#btnApply').addEventListener('click', () => {
 		closePop('pop_apply');
 		showNotification('지원을 완료했습니다.');
 	});

@@ -15,12 +15,19 @@
 </head>
 <body>
 	<div class="wrap">
-		<header class="header_type1">
+		<!--<header class="header_type1">
 			<div>
-				<a href="javascript://" class="btn_prev">이전</a>
+				<a href="javascript:history.go(-1)" class="btn_prev">이전</a>
 				<a href="javascript://" class="btn_home">HOME</a>
 			</div>
 			<p class="page_name">오디션 일정 선택하기</p>
+		</header>-->
+		<header class="header_type2">
+			<nav>
+				<ul>
+					<li class="active"><a href="javascript://" class="active">일정</a></li>
+				</ul>
+			</nav>
 		</header>
 		<div class="content has_gnb">
 			<div class="schedule_calendar">
@@ -28,7 +35,7 @@
 			</div>
 			<div class="bg_cont_gray">
 				<div class="schedule_list" id="scheduleList">
-					<div class="schedule_box red">
+					<div class="schedule_box bg_bar_red">
 						<p class="tit">프로젝트 AAA</p>
 						<p class="time">10:00 AM ~ 10:15 AM</p>
 						<ul>
@@ -38,13 +45,13 @@
 						<button type="button" class="btn_drop_menu">메뉴열기</button>
 						<div class="drop_menu">
 							<ul>
-								<li><a href="#">장소 확인</a></li>
-								<li><a href="#" id="schedule_add">일정 추가 요청</a></li>
-								<li><a href="#" id="apply_cancle">지원 취소</a></li>
+								<li><a href="javascript://">장소 확인</a></li>
+								<li><a href="javascript://" id="scheduleAdd">일정 추가 요청</a></li>
+								<li><a href="javascript://" id="applyCancle">지원 취소</a></li>
 							</ul>
 						</div>
 					</div>
-					<div class="schedule_box yellow active">
+					<div class="schedule_box bg_bar_ylw active">
 						<p class="tit">프로젝트 BBB</p>
 						<p class="time">10:00 AM ~ 10:15 AM</p>
 						<ul>
@@ -54,13 +61,13 @@
 						<button type="button" class="btn_drop_menu">메뉴열기</button>
 						<div class="drop_menu">
 							<ul>
-								<li><a href="#">장소 확인</a></li>
-								<li><a href="#" id="schedule_add">일정 추가 요청</a></li>
-								<li><a href="#" id="apply_cancle">지원 취소</a></li>
+								<li><a href="javascript://">장소 확인</a></li>
+								<li><a href="javascript://" id="scheduleAdd">일정 추가 요청</a></li>
+								<li><a href="javascript://" id="applyCancle">지원 취소</a></li>
 							</ul>
 						</div>
 					</div>
-					<div class="schedule_box green">
+					<div class="schedule_box bg_bar_default">
 						<p class="tit">프로젝트 CCC</p>
 						<p class="time">10:00 AM ~ 10:15 AM</p>
 						<ul>
@@ -70,9 +77,9 @@
 						<button type="button" class="btn_drop_menu">메뉴열기</button>
 						<div class="drop_menu">
 							<ul>
-								<li><a href="#">장소 확인</a></li>
-								<li><a href="#" id="schedule_add">일정 추가 요청</a></li>
-								<li><a href="#" id="apply_cancle">지원 취소</a></li>
+								<li><a href="javascript://">장소 확인</a></li>
+								<li><a href="javascript://" id="scheduleAdd">일정 추가 요청</a></li>
+								<li><a href="javascript://" id="applyCancle">지원 취소</a></li>
 							</ul>
 						</div>
 					</div>
@@ -87,9 +94,9 @@
 						<button type="button" class="btn_drop_menu">메뉴열기</button>
 						<div class="drop_menu">
 							<ul>
-								<li><a href="#">장소 확인</a></li>
-								<li><a href="#" id="schedule_add">일정 추가 요청</a></li>
-								<li><a href="#" id="apply_cancle">지원 취소</a></li>
+								<li><a href="javascript://">장소 확인</a></li>
+								<li><a href="javascript://" id="scheduleAdd">일정 추가 요청</a></li>
+								<li><a href="javascript://" id="applyCancle">지원 취소</a></li>
 							</ul>
 						</div>
 					</div>
@@ -98,11 +105,11 @@
 		</div>
 		<nav class="gnb artist">
 			<ul>
-				<li><a href="#">Home</a></li>
-				<li><a href="#">모집공고</a></li>
-				<li><a href="#">지원현황</a></li>
-				<li class="active"><a href="#">일정</a></li>
-				<li><a href="#">프로필</a></li>
+				<li><a href="javascript://">Home</a></li>
+				<li><a href="castingcall_list.html">모집공고</a></li>
+				<li><a href="apply_list.html">지원현황</a></li>
+				<li class="active"><a href="schedule_list.html">일정</a></li>
+				<li><a href="my_profile_list.html">프로필</a></li>
 			</ul>
 		</nav>
 	</div><!-- //wrap -->
@@ -170,14 +177,14 @@
 			
 			// 퍼블 확인용
 			if(dayLabel === 'May 13, 2024' || dayLabel === 'May 14, 2024' || dayLabel === 'May 15, 2024'){
-				dayStat.innerHTML += `<span class="red"></span><span class="yellow"></span><span class="green"></span>`;
+				dayStat.innerHTML += `<span class="bg_state_red"></span><span class="bg_state_selected"></span><span class="bg_state_default"></span>`;
 			}else if(dayLabel === 'May 25, 2024'){
-				dayStat.innerHTML += `<span class="gray"></span>`;
+				dayStat.innerHTML += `<span class="bg_state_end"></span>`;
 			}
         }
 
 		//Swalpop
-		document.getElementById('schedule_add').onclick = function(){
+		document.getElementById('scheduleAdd').onclick = function(){
 			Swal.fire({
 			//title: "",
 			customClass: {
@@ -192,7 +199,7 @@
 			});
 		};
 
-		document.getElementById('apply_cancle').onclick = function(){
+		document.getElementById('applyCancle').onclick = function(){
 			Swal.fire({
 			title: "전쟁을 소재로 한 가족영화 / 고루한 아버지 역",
 			customClass: {

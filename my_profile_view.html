@@ -12,27 +12,20 @@
 	<script src="inc/js/common.js"></script>
 </head>
 <body>
-	<style>
-		.profile_swiper2{background:#000;}
-		.profile_swiper2 .swiper-slide{display:flex;flex-direction:column;justify-content:center;min-height:100vh;}
-		.profile_swiper2 .profile_thumb{min-height:100vh}
-		.profile_swiper2 .profile_thumb:before{content:'';position:absolute;left:0;top:0;z-index:1;display:block;width:100%;height:10%;background: linear-gradient(0deg, rgba(20,20,20,0.0) 0%, rgba(20,20,20,0.4) 100%);}
-		.profile_swiper2 .btn_detail{position:fixed;left:50%;bottom:3.23%;z-index:1;padding-right:20px;color:#fff;font-size:14px;transform:translateX(-50%);background:url('inc/images/ico/ico_arr_double_white.svg') no-repeat 100% 50% / 12px auto} 
-	</style>
 	<div class="wrap">
 		<header class="header_type3">
-			<a href="javascript://" class="btn_prev">이전</a>
+			<a href="javascript:history.go(-1)" class="btn_prev">이전</a>
 			<button type="button" class="btn_drop_menu">메뉴열기</button>
 			<div class="drop_menu">
 				<ul>
-					<li><a href="#">편집</a></li>
-					<li><a href="#">프로필 삭제</a></li>
+					<li><a href="javascript://">편집</a></li>
+					<li><a href="javascript://">프로필 삭제</a></li>
 				</ul>
 			</div>
 			<button type="button" class="btn_sharing">공유하기</button>
 		</header>
 		<div class="content">
-			<div class="swiper profile_swiper2">
+			<div class="swiper profile_view_swiper">
 				<div class="swiper-wrapper">
 					<div class="swiper-slide">
 						<div class="profile_thumb">
@@ -49,31 +42,69 @@
 					</div>
 				</div>
 				<div class="swiper-scrollbar"></div>
-				<a href="javascript:openPop('popProfile');" class="btn_detail">상세보기</a>
+				<a href="javascript:openPop('pop_profile');" class="btn_detail">상세보기</a>
 			</div>
-			<dl class="fixed_info">
+			<dl class="profile_info fixed">
 				<dt>이유비</dt>
 				<dd>25세~30세</dd>
 				<dd>여성</dd>
 			</dl>
-			<button type="button" class="btn_like"><span>100</span></button>
+			<button type="button" class="btn_like" onclick="toggleActiveClass(this)"><span>100</span></button>
 		</div>
 
 
 		 <!-- P1)nav-Profile-3 -->
-		 <div id="popProfile" class="dim_layer full">
+		 <div id="pop_profile" class="dim_layer full">
             <div class="dim"></div>
             <div class="pop_wrap">
-                <!-- <div class="pop_head">
-                    <a href="javascript:closePop('popProfile');" class="btn_txt btn_pop_close">확인</a>
-                </div> -->
+                <div class="pop_handle" onclick="closePop('pop_profile')"></div>
+                <div class="btn_area">
+                    <button type="button" class="btn_drop_menu">메뉴열기</button>
+                    <div class="drop_menu">
+                        <ul>
+                            <li><a href="javascript://">편집</a></li>
+                            <li><a href="javascript://">프로필 삭제</a></li>
+                        </ul>
+                    </div>
+                    <button type="button" class="btn_sharing">공유하기</button>
+                </div>
                 <div class="pop_cont type2">
                     <p class="profile_name">이유비</p>
-
-                    <!-- 대표작품 -->
+                    <!-- 기본 정보 -->
                     <div class="profile_box">
-                        <p class="tit">대표작품</p>
-
+                        <p class="tit">기본 정보</p>
+                        <div class="detail_row">
+                            <strong class="tit">이름</strong>
+                            <p class="desc">이유비</p>
+                        </div>
+                        <div class="detail_row">
+                            <strong class="tit">연령대</strong>
+                            <p class="desc">25~35세</p>
+                        </div>
+                        <div class="detail_row">
+                            <strong class="tit">성별</strong>
+                            <p class="desc">여성</p>
+                        </div>
+                        <div class="detail_row">
+                            <strong class="tit">키</strong>
+                            <p class="desc">165cm</p>
+                        </div>
+                        <div class="detail_row">
+                            <strong class="tit">몸무게</strong>
+                            <p class="desc">45kg</p>
+                        </div>
+                        <div class="detail_row">
+                            <strong class="tit">최종학력</strong>
+                            <p class="desc">이화여자대학교 음악학부 성악전공</p>
+                        </div>
+                        <div class="detail_row">
+                            <strong class="tit">특기</strong>
+                            <p class="desc">#성악 #코믹연기</p>
+                        </div>
+                    </div>
+                    <!-- 대표 작품 -->
+                    <div class="profile_box">
+                        <p class="tit">대표 작품</p>
                         <!-- P1)nav-Profile-3 -->
                         <ul class="list_type4">
                             <li>
@@ -84,7 +115,6 @@
                                 </ul>
                             </li>
                         </ul>
-
                         <!-- P1)nav-Profile-3-old -->
                         <ul class="list_type5">
                             <li>
@@ -97,7 +127,6 @@
                             </li>
                         </ul>
                     </div>
-
                     <!-- 경력 -->
                     <div class="profile_box">
                         <p class="tit">경력</p>
@@ -177,11 +206,10 @@
                             </li>
                         </ul>
                     </div>
-
                     <!-- 방문자 통계 -->
                     <div class="profile_box">
                         <p class="tit">방문자 통계</p>
-                        <div class="half_box">
+                        <div class="half_desc_box">
                             <div class="item">
                                 <span class="label">전체 방문자</span>
                                 <div class="count">12,345</div>
@@ -200,19 +228,23 @@
                             </div>
                         </div>
                     </div>
-
                     <!-- 업데이트 내역 -->
                     <div class="profile_update">최근 업데이트 : 2022년 6월 23일</div>
                 </div>
+                <!--<a href="javascript:closePop('pop_profile');" class="btn_pop_close">팝업닫기</a>-->
             </div>
         </div>
 	</div><!-- //wrap -->
 	<script>
-	const profile_swiper2 = new Swiper(".profile_swiper2", {
+	const profile_view_swiper = new Swiper(".profile_view_swiper", {
 		scrollbar: {
 			el: ".swiper-scrollbar",
 		},
 	});
+
+    function toggleActiveClass(button) {
+        button.classList.toggle('active');
+    }
 	</script>
 </body>
 </html>

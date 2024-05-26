@@ -6,12 +6,16 @@
 	<meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no"/>
 	<title>All CASTING</title>
 	<link rel="stylesheet" href="inc/css/NotoSansKR.css">
+	<link rel="stylesheet" href="inc/css/swiper-bundle.min.css" />
 	<link rel="stylesheet" href="inc/css/style.css">
+	<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script><!-- alert -->
+	<script src="inc/js/swiper-bundle.min.js"></script>
+	<script src="inc/js/common.js"></script>
 </head>
 <body>
 	<div class="wrap">
 		<header class="header_type1 pos_abs">
-			<a href="javascript://" class="btn_prev">이전</a>
+			<a href="javascript:history.go(-1)" class="btn_prev">이전</a>
 			<a href="javascript:openPop('pop_report')" class="btn_report">신고</a>
 		</header>
 		<div class="content has_gnb">
@@ -51,7 +55,7 @@
 								<strong class="tit">출연료</strong>
 								<p class="desc">작품당 <strong>20~30만원</strong></p>
 							</div>
-							<button id="btn_cancel" class="btn_line mt10">지원 취소하기</button>
+							<button id="btnCancel" class="btn_line mt10">지원 취소하기</button>
 							<a href="javascript:openPop('pop_apply')" class="btn_basic mt10 active">지원하기</a>
 							<a href="schedule_choice.html" class="btn_basic mt10 active" target="_blank">오디션 일정 선택하기</a>
 						</div>
@@ -95,10 +99,10 @@
 		</div>
 		<nav class="gnb artist">
 			<ul>
-				<li><a href="#">Home</a></li>
+				<li><a href="javascript://">Home</a></li>
 				<li><a href="castingcall_list.html">모집공고</a></li>
 				<li class="active"><a href="apply_list.html">지원현황</a></li>
-				<li><a href="schedule_choice.html">일정</a></li>
+				<li><a href="schedule_list.html">일정</a></li>
 				<li><a href="my_profile_list.html">프로필</a></li>
 			</ul>
 		</nav>
@@ -106,9 +110,10 @@
 		<!-- 신고팝업 -->
 		<div id="pop_report" class="dim_layer">  
 			<div class="dim"></div>
-			<div class="pop_wrap"> 
+			<div class="pop_wrap">
+				<div class="pop_handle" onclick="closePop('pop_report')"></div>
 				<div class="pop_cont">
-					<p>신고 사유를 알려주세요. 운영진이 검토한 뒤 조치를 취하겠습니다. 콜타임의 <a href="#"><u class="txt_point_green">개인정보 보호방침,</u></a> <a href="#"><u class="txt_point_green">이용자 약관</u></a> 및 현행법을 위반한 행위는 제재 대상이 됩니다.</p>
+					<p>신고 사유를 알려주세요. 운영진이 검토한 뒤 조치를 취하겠습니다. 콜타임의 <a href="javascript://"><u class="txt_point_green">개인정보 보호방침,</u></a> <a href="javascript://"><u class="txt_point_green">이용자 약관</u></a> 및 현행법을 위반한 행위는 제재 대상이 됩니다.</p>
 					<div class="sel_box mt25">
 						<select name="" id="">
 							<option>신고 사유 선택</option>
@@ -117,7 +122,7 @@
 							<option>신고 사유3</option>
 						</select>
 					</div>
-					<a href="#" class="btn_basic active mt50">프로젝트 신고하기</a>
+					<a href="javascript://" class="btn_basic active mt50">프로젝트 신고하기</a>
 				</div>
 			</div>
 		</div>
@@ -138,6 +143,7 @@
 		<div id="pop_apply" class="dim_layer">  
 			<div class="dim"></div>
 			<div class="pop_wrap"> 
+				<div class="pop_handle" onclick="closePop('pop_apply')"></div>
 				<div class="pop_cont">
 					<p>지원할 프로필 선택</p>
 					<div class="swiper profile_swiper">
@@ -172,21 +178,13 @@
 							</div>
 						</div>
 					</div>
-					<a href="#" id="btn_apply" class="btn_basic active mt_auto">지원하기</a>
+					<a href="javascript://" id="btnApply" class="btn_basic active mt_auto">지원하기</a>
 				</div>
 			</div>
 		</div>
 		<!--// 지원팝업 -->
 	</div><!-- //wrap -->
-
-	<!-- swiper.js -->
-	<link rel="stylesheet" href="inc/css/swiper-bundle.min.css" />
-	<script src="inc/js/swiper-bundle.min.js"></script>
-	<!-- alert -->
-	<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
-	<!-- -->
-	<script src="inc/js/common.js"></script>
-
+	
 	<script>
 	const profile_swiper = new Swiper(".profile_swiper", {
 		spaceBetween: 10,
@@ -194,7 +192,7 @@
 		centeredSlides: true,
 	});
 
-	document.getElementById('btn_cancel').onclick = function(){
+	document.getElementById('btnCancel').onclick = function(){
 		Swal.fire({
 			title: "전쟁을 소재로 한 가족영화 / 바디페인팅 모델",
 			customClass: {
@@ -214,7 +212,7 @@
 	};
 
 	//지원하기
-	document.querySelector('#btn_apply').addEventListener('click', () => {
+	document.querySelector('#btnApply').addEventListener('click', () => {
 		closePop('pop_apply');
 		showNotification('지원을 완료했습니다.');
 	});
