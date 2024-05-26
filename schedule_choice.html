@@ -1,0 +1,214 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+	<meta charset="utf-8" />
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no"/>
+	<title>All CASTING</title>
+	<link rel="stylesheet" href="inc/css/NotoSansKR.css">
+	<link rel="stylesheet" href="inc/css/style.css">
+	<!-- -->
+	<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script><!-- alert -->
+	<script src="inc/js/common.js"></script>
+</head>
+<body>
+	<div class="wrap">
+		<header class="header_type1">
+			<div>
+				<a href="javascript://" class="btn_prev">이전</a>
+				<a href="javascript://" class="btn_home">HOME</a>
+			</div>
+			<p class="page_name">오디션 일정 선택하기</p>
+			<button type="button" class="btn_drop_menu">메뉴열기</button>
+			<div class="drop_menu">
+				<ul>
+					<li><a href="#">장소 확인</a></li>
+					<li><a href="#" id="schedule_add">일정 추가 요청</a></li>
+					<li><a href="#" id="apply_cancle">지원 취소</a></li>
+				</ul>
+			</div>
+		</header>
+		<!-- <nav class="page_nav">
+			<ul>
+				<li class="active"><a href="#">기본 정보</a></li>
+				<li><a href="#">사진</a></li>
+				<li><a href="#">경력</a></li>
+				<li><a href="#">영상</a></li>
+			</ul>
+		</nav> -->
+		<div class="content has_fix_bottom">
+			<!-- P1)nav-Schedule-choice-1 -->
+			<div class="schedule_choice_nav">
+                <ul>
+                    <li class="active">
+                        <span class="month">10월</span>
+                        <a href="#"><span>20</span><em>월</em></a>
+                    </li>
+                    <li>
+                        <a href="#"><span>21</span><em>화</em></a>
+                    </li>
+                    <li>
+                        <a href="#"><span>23</span><em>목</em></a>
+                    </li>
+                    <li>
+                        <a href="#"><span>24</span><em>금</em></a>
+                    </li>
+                    <li>
+                        <span class="month">11월</span>
+                        <a href="#"><span>2</span><em>화</em></a>
+                    </li>
+                    <li>
+                        <a href="#"><span>3</span><em>수</em></a>
+                    </li>
+                    <li>
+                        <a href="#"><span>4</span><em>목</em></a>
+                    </li>
+                </ul>
+            </div>
+			<div class="white_box">
+				<p class="sub_tit">시간 선택</h3>
+				<div class="time_choice_box">
+					<p class="lb">오전</p>
+					<ul>
+						<li><a href="#">09:00</a></li>
+						<li><a href="#">09:15</a></li>
+						<li><a href="#">10:00</a></li>
+						<li><a href="#">11:00</a></li>
+					</ul>
+				</div>
+				<div class="time_choice_box">
+					<p class="lb">오후</p>
+					<ul>
+						<li><a href="#">12:00</a></li>
+						<li><a href="#">01:15</a></li>
+						<li><a href="#">01:30</a></li>
+						<li><a href="#">02:00</a></li>
+						<li><a href="#">02:30</a></li>
+						<li><a href="#">03:00</a></li>
+						<li><a href="#">04:00</a></li>
+					</ul>
+				</div>
+			</div>
+
+			<div class="fix_bottom">
+				<a href="#" class="btn_basic unactive" id="btnSubmit">장소 확인하고 일정 확인</a>
+			</div>
+		</div>
+
+		<!-- Schedule-popup-장소확인 -->
+		<div id="popLocation" class="dim_layer">
+			<div class="dim"></div>
+			<div class="pop_wrap">
+				<div class="pop_head pos_rel">
+					<a href="javascript:closePop('popLocation');" class="btn_pop_close pos_abs">닫기</a>
+				</div>
+				<div class="pop_cont">
+					<p class="sub_tit">장소확인</p>
+					<div class="addr_box">
+						<p>로캘리</dt>
+						<p><a href="#" id="locationAddr">서울시 서초구 123-45, YG빌딩 2층</a></p>
+						<p class="txt_gr">서초동 124-57</p>
+					</div>
+					<div class="txt_gr">주소를 터치하면 클립보드에 복사됩니다.</div>
+				</div>
+			</div>
+			<!--<div class="layer_noti" id="layer_noti">주소가 클립보드에 복사되었습니다.</div>-->
+		</div>
+		<!--<div class="layer_noti" id="layer_noti"></div>-->
+	</div><!-- //wrap -->
+
+	<script>
+		const btnSubmit = document.querySelector('#btnSubmit');
+		const timeChoiceEl = document.querySelectorAll('.time_choice_box ul li a');
+		const locationAddr = document.querySelector('#locationAddr');
+
+		//시간 선택 시 확인 버튼 활성화
+		timeChoiceEl.forEach((a) => {
+			a.addEventListener('click', function(e){
+				e.preventDefault();
+
+				document.querySelectorAll('.time_choice_box ul li').forEach((li) => li.classList.remove('active'));
+
+				this.parentElement.classList.add('active');
+				btnSubmit.classList.replace('unactive', 'active');
+			});
+		});
+
+		//확인 버튼 클릭 시 일정 팝업 open
+		function checkPlace(){
+			const btnSubmit = document.querySelector('#btnSubmit');
+			if(btnSubmit.classList.contains('unactive')){
+				return false;
+			}else{
+				openPop('popLocation');
+			}
+		}
+
+		const layerNotiDiv = document.querySelector('#layer_noti');
+		//주소 복사 후 alert
+		function copyAddr(){
+			let copyText = document.querySelector('#locationAddr').textContent;
+			let textarea = document.createElement("textarea");
+			document.body.appendChild(textarea);
+			textarea.value = copyText;
+			textarea.select();
+			document.execCommand("copy");
+			document.body.removeChild(textarea);
+			showNotification('주소가 클립보드에 복사되었습니다.');
+		}
+
+		//handler
+		btnSubmit.addEventListener('click', checkPlace);
+		locationAddr.addEventListener('click', copyAddr);
+
+		//Swalpop
+		document.getElementById('schedule_add').onclick = function(){
+			Swal.fire({
+			//title: "",
+			customClass: {
+				popup: 'pop_confirm' //confirm창에 pop_confirm 클래스 추가
+			},
+			html:"가능한 시간대가 없을 경우, 제작자에게 일정 추가를 요청할 수 있습니다.<br>이미 일정을 확정했다면 기존 일정은 취소됩니다.",
+			reverseButtons : true,
+			showCancelButton: true,
+			showDenyButton: false,
+			cancelButtonText: "취소",
+			confirmButtonText: "추가 요청"
+			});
+		};
+
+		document.getElementById('apply_cancle').onclick = function(){
+			Swal.fire({
+			title: "전쟁을 소재로 한 가족영화 / 고루한 아버지 역",
+			customClass: {
+				popup: 'pop_confirm' //confirm창에 pop_confirm 클래스 추가
+			},
+			html:"이 역할에 대한 지원을 취소하시겠습니까?<br>(모집 마감 전에 재지원 가능합니다)",
+			reverseButtons : true,
+			showCancelButton: true,
+			showDenyButton: false,
+			cancelButtonText: "아니요",
+			confirmButtonText: "지원 취소"
+			}).then((result) => {
+				if (result.isConfirmed) {
+					showNotification('지원을 취소했습니다.');
+				}
+			});
+		};
+
+		//O1)Profile-back
+		/*Swal.fire({
+			title: "일정 선택을 끝내지 않고 나가시겠습니까?",
+			customClass: {
+				popup: 'pop_confirm' //confirm창에 pop_confirm 클래스 추가
+			},
+			html:"선택하신 오디션 일정을 아직 확정하지 않았습니다.",
+			reverseButtons : true,
+			showCancelButton: true,
+			showDenyButton: false,
+			cancelButtonText: "이동",
+			confirmButtonText: "취소"
+		});*/
+	</script>
+</body>
+</html>

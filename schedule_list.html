@@ -6,39 +6,210 @@
 	<meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no"/>
 	<title>All CASTING</title>
 	<link rel="stylesheet" href="inc/css/NotoSansKR.css">
-	<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/flatpickr/dist/flatpickr.min.css">
 	<link rel="stylesheet" href="inc/css/style.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/flatpickr/dist/flatpickr.min.css">
+	<script src="https://cdn.jsdelivr.net/npm/flatpickr"></script>
+	<script src="https://npmcdn.com/flatpickr/dist/l10n/ko.js"></script>
+	<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script><!-- alert -->
+	<script src="inc/js/common.js"></script>
 </head>
 <body>
 	<div class="wrap">
-		<header class="header_type2">
-			<nav>
-				<ul>
-					<li class="active"><a href="javascript://" class="active">나의 프로필</a></li>
-				</ul>
-			</nav>
+		<header class="header_type1">
 			<div>
-				<a href="#" class="btn_profile_change">나의 프로필 변경</a>
-				<a href="#" class="btn_profile_setting">나의 프로필 설정</a>
+				<a href="javascript://" class="btn_prev">이전</a>
+				<a href="javascript://" class="btn_home">HOME</a>
 			</div>
+			<p class="page_name">오디션 일정 선택하기</p>
 		</header>
-		<div class="content">
-			<input type="text" id="flatpickr" placeholder="날짜 및 시간 선택">
+		<div class="content has_gnb">
+			<div class="schedule_calendar">
+				<div id="fpCalendar"></div>
+			</div>
+			<div class="bg_cont_gray">
+				<div class="schedule_list" id="scheduleList">
+					<div class="schedule_box red">
+						<p class="tit">프로젝트 AAA</p>
+						<p class="time">10:00 AM ~ 10:15 AM</p>
+						<ul>
+							<li class="casting">고루한 아버지 역</li>
+							<li class="location">로캘리(서초대로 40길 96)</li>
+						</ul>
+						<button type="button" class="btn_drop_menu">메뉴열기</button>
+						<div class="drop_menu">
+							<ul>
+								<li><a href="#">장소 확인</a></li>
+								<li><a href="#" id="schedule_add">일정 추가 요청</a></li>
+								<li><a href="#" id="apply_cancle">지원 취소</a></li>
+							</ul>
+						</div>
+					</div>
+					<div class="schedule_box yellow active">
+						<p class="tit">프로젝트 BBB</p>
+						<p class="time">10:00 AM ~ 10:15 AM</p>
+						<ul>
+							<li class="casting">길거리 깡패 역</li>
+							<li class="location">로캘리(서초대로 40길 96)</li>
+						</ul>
+						<button type="button" class="btn_drop_menu">메뉴열기</button>
+						<div class="drop_menu">
+							<ul>
+								<li><a href="#">장소 확인</a></li>
+								<li><a href="#" id="schedule_add">일정 추가 요청</a></li>
+								<li><a href="#" id="apply_cancle">지원 취소</a></li>
+							</ul>
+						</div>
+					</div>
+					<div class="schedule_box green">
+						<p class="tit">프로젝트 CCC</p>
+						<p class="time">10:00 AM ~ 10:15 AM</p>
+						<ul>
+							<li class="casting">무명 악사 역</li>
+							<li class="location">로캘리(서초대로 40길 96)</li>
+						</ul>
+						<button type="button" class="btn_drop_menu">메뉴열기</button>
+						<div class="drop_menu">
+							<ul>
+								<li><a href="#">장소 확인</a></li>
+								<li><a href="#" id="schedule_add">일정 추가 요청</a></li>
+								<li><a href="#" id="apply_cancle">지원 취소</a></li>
+							</ul>
+						</div>
+					</div>
+					<!-- red, yellow, green 없을 때는 회색이 default -->
+					<div class="schedule_box">
+						<p class="tit">프로젝트 DDD</p>
+						<p class="time">10:00 AM ~ 10:15 AM</p>
+						<ul>
+							<li class="casting">고루한 아버지 역</li>
+							<li class="location">로캘리(서초대로 40길 96)</li>
+						</ul>
+						<button type="button" class="btn_drop_menu">메뉴열기</button>
+						<div class="drop_menu">
+							<ul>
+								<li><a href="#">장소 확인</a></li>
+								<li><a href="#" id="schedule_add">일정 추가 요청</a></li>
+								<li><a href="#" id="apply_cancle">지원 취소</a></li>
+							</ul>
+						</div>
+					</div>
+				</div>
+			</div>
 		</div>
-		
 		<nav class="gnb artist">
 			<ul>
 				<li><a href="#">Home</a></li>
 				<li><a href="#">모집공고</a></li>
 				<li><a href="#">지원현황</a></li>
-				<li><a href="#">일정</a></li>
-				<li class="active"><a href="#">프로필</a></li>
+				<li class="active"><a href="#">일정</a></li>
+				<li><a href="#">프로필</a></li>
 			</ul>
 		</nav>
 	</div><!-- //wrap -->
-	
-	<!-- js -->
-	<script src="https://cdn.jsdelivr.net/npm/flatpickr"></script>
-	<script src="inc/js/common.js"></script>
+	<!-- -->
+	<script>
+		const fpCalendar = document.querySelector('#fpCalendar')
+		fpCalendar.flatpickr({
+			inline: true,
+			dateFormat: "Y-m-d",
+			altFormat: "Y. n.",
+			defaultDate: "today",
+			onDayCreate: function(dObj, dStr, fp, dayElem) {
+				const dayNumber = dayElem.innerHTML;
+				dayElem.innerHTML = `<em>${dayNumber}</em><p class="stat"></p>`;
+
+				// 일요일이면 holiday 클래스 추가
+				const date = new Date(dayElem.getAttribute('aria-label'));
+				// console.log(date);
+				if (date.getDay() === 0) {
+					dayElem.classList.add('holiday');
+				}
+
+				handleDayCreate(dObj, dStr, fp, dayElem);	// 날짜 하단 스케쥴 아이콘 추가 handler
+			},
+			onReady: function(selectedDates, dateStr, instance) {
+				const yearMonthNav = document.createElement('div');
+				yearMonthNav.className = 'flatpickr-monthBox';
+
+				const yearMonthSelect = document.createElement('select');
+				yearMonthSelect.className = 'flatpickr-monthSelect';
+
+				for (let year = 2024; year <= 2025; year++) {
+					for (let month = 1; month <= 12; month++) {
+						const option = document.createElement('option');
+						option.value = `${year}-${month}`;
+						option.textContent = `${year}. ${month}.`;
+						if (year === instance.currentYear && month === instance.currentMonth + 1) {
+							option.selected = true;
+						}
+						yearMonthSelect.appendChild(option);
+					}
+				}
+
+				yearMonthSelect.addEventListener('change', function() {
+					const [year, month] = this.value.split('-').map(Number);
+					instance.setDate(new Date(year, month - 1, 1));
+				});
+
+				yearMonthNav.appendChild(yearMonthSelect);
+				instance.calendarContainer.insertBefore(yearMonthNav, instance.calendarContainer.firstChild);
+			},
+			onMonthChange: function(selectedDates, dateStr, instance) {
+				const yearMonthSelect = instance.calendarContainer.querySelector('.flatpickr-monthSelect');
+				yearMonthSelect.value = `${instance.currentYear}-${instance.currentMonth + 1}`;
+			},
+			onYearChange: function(selectedDates, dateStr, instance) {
+				const yearMonthSelect = instance.calendarContainer.querySelector('.flatpickr-monthSelect');
+				yearMonthSelect.value = `${instance.currentYear}-${instance.currentMonth + 1}`;
+			}
+		});
+
+		function handleDayCreate(dObj, dStr, fp, dayElem) {
+			let dayLabel = dayElem.getAttribute('aria-label');
+			let dayStat  = dayElem.querySelector('.stat');	// 날짜 하단 아이콘 추가할 곳
+			
+			// 퍼블 확인용
+			if(dayLabel === 'May 13, 2024' || dayLabel === 'May 14, 2024' || dayLabel === 'May 15, 2024'){
+				dayStat.innerHTML += `<span class="red"></span><span class="yellow"></span><span class="green"></span>`;
+			}else if(dayLabel === 'May 25, 2024'){
+				dayStat.innerHTML += `<span class="gray"></span>`;
+			}
+        }
+
+		//Swalpop
+		document.getElementById('schedule_add').onclick = function(){
+			Swal.fire({
+			//title: "",
+			customClass: {
+				popup: 'pop_confirm' //confirm창에 pop_confirm 클래스 추가
+			},
+			html:"가능한 시간대가 없을 경우, 제작자에게 일정 추가를 요청할 수 있습니다.<br>이미 일정을 확정했다면 기존 일정은 취소됩니다.",
+			reverseButtons : true,
+			showCancelButton: true,
+			showDenyButton: false,
+			cancelButtonText: "취소",
+			confirmButtonText: "추가 요청"
+			});
+		};
+
+		document.getElementById('apply_cancle').onclick = function(){
+			Swal.fire({
+			title: "전쟁을 소재로 한 가족영화 / 고루한 아버지 역",
+			customClass: {
+				popup: 'pop_confirm' //confirm창에 pop_confirm 클래스 추가
+			},
+			html:"이 역할에 대한 지원을 취소하시겠습니까?<br>(모집 마감 전에 재지원 가능합니다)",
+			reverseButtons : true,
+			showCancelButton: true,
+			showDenyButton: false,
+			cancelButtonText: "아니요",
+			confirmButtonText: "지원 취소"
+			}).then((result) => {
+				if (result.isConfirmed) {
+					showNotification('지원을 취소했습니다.');
+				}
+			});
+		};
+	</script>
 </body>
 </html>

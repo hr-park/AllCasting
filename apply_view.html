@@ -14,7 +14,7 @@
 			<a href="javascript://" class="btn_prev">이전</a>
 			<a href="javascript:openPop('pop_report')" class="btn_report">신고</a>
 		</header>
-		<div class="content">
+		<div class="content has_gnb">
 			<div class="project_view_top bg_state_selected"><!-- bg_state_default, bg_state_red, bg_state_end,  bg_state_selected -->
 				<div class="pos_rel">
 					<p class="txt_num">D-10</p>
@@ -53,7 +53,7 @@
 							</div>
 							<button id="btn_cancel" class="btn_line mt10">지원 취소하기</button>
 							<a href="javascript:openPop('pop_apply')" class="btn_basic mt10 active">지원하기</a>
-							<a href="javascript:openPop('pop_schedule')" class="btn_basic mt10 active">오디션 일정 선택하기</a>
+							<a href="schedule_choice.html" class="btn_basic mt10 active" target="_blank">오디션 일정 선택하기</a>
 						</div>
 					</li>
 				</ul>
@@ -93,14 +93,13 @@
 				<div class="info_line_txt mt25">최근 업데이트 : 2022년 6월 23일</div>
 			</div>
 		</div>
-
 		<nav class="gnb artist">
 			<ul>
 				<li><a href="#">Home</a></li>
-				<li><a href="#">모집공고</a></li>
-				<li class="active"><a href="#">지원현황</a></li>
-				<li><a href="#">일정</a></li>
-				<li><a href="#">프로필</a></li>
+				<li><a href="castingcall_list.html">모집공고</a></li>
+				<li class="active"><a href="apply_list.html">지원현황</a></li>
+				<li><a href="schedule_choice.html">일정</a></li>
+				<li><a href="my_profile_list.html">프로필</a></li>
 			</ul>
 		</nav>
 
@@ -118,7 +117,7 @@
 							<option>신고 사유3</option>
 						</select>
 					</div>
-					<a href="#" class="btn_basic active mt_auto">프로젝트 신고하기</a>
+					<a href="#" class="btn_basic active mt50">프로젝트 신고하기</a>
 				</div>
 			</div>
 		</div>
@@ -173,7 +172,7 @@
 							</div>
 						</div>
 					</div>
-					<a href="#" class="btn_basic active mt_auto">지원하기</a>
+					<a href="#" id="btn_apply" class="btn_basic active mt_auto">지원하기</a>
 				</div>
 			</div>
 		</div>
@@ -207,8 +206,18 @@
 			showDenyButton: false,
 			cancelButtonText: "아니요",
 			confirmButtonText: "네"
+		}).then((result) => {
+			if (result.isConfirmed) {
+				showNotification('지원을 취소했습니다.');
+			}
 		});
 	};
+
+	//지원하기
+	document.querySelector('#btn_apply').addEventListener('click', () => {
+		closePop('pop_apply');
+		showNotification('지원을 완료했습니다.');
+	});
 	</script>
 	
 </body>
