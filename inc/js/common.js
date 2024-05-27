@@ -76,9 +76,9 @@ document.addEventListener('DOMContentLoaded', () => {
         closeAllSelect();
     });
 
-    //dropbox
+    // dropbox
     document.querySelectorAll('.drop_box button').forEach(button => {
-        button.addEventListener('click', () => {
+        button.addEventListener('click', (event) => {
             const nextUl = button.nextElementSibling;
             if (nextUl && nextUl.tagName.toLowerCase() === 'ul') {
                 button.classList.toggle('active');
@@ -89,14 +89,31 @@ document.addEventListener('DOMContentLoaded', () => {
     });
 
     function hideDropBox(event) {
+        if (event.target.classList.contains('drop_box')) {
+            return;
+        }
         document.querySelectorAll('.drop_box ul').forEach(dropBox => {
-            if (!dropBox.contains(event.target)) {
+            if (dropBox.style.display === 'block' && !dropBox.contains(event.target)) {
                 dropBox.style.display = 'none';
+                //dropBox.previousElementSibling.classList.remove('active');
             }
         });
     }
-    
+
+    function hideDropMenu(event) {
+        if (event.target.classList.contains('btn_drop_menu')) {
+            return;
+        }
+        document.querySelectorAll('.drop_menu').forEach(dropBox => {
+            if (dropBox.style.display === 'block' && !dropBox.contains(event.target)) {
+                dropBox.style.display = 'none';
+                //dropBox.previousElementSibling.classList.remove('active');
+            }
+        });
+    }
+
     document.querySelector('body').addEventListener('click', hideDropBox);
+    document.querySelector('body').addEventListener('click', hideDropMenu);
 
     //btndropmenu
     document.querySelectorAll('.btn_drop_menu').forEach(button => {

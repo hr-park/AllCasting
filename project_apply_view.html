@@ -1,0 +1,254 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+	<meta charset="utf-8" />
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no"/>
+	<title>All CASTING</title>
+	<link rel="stylesheet" href="inc/css/NotoSansKR.css">
+	<link rel="stylesheet" href="inc/css/style.css">
+	<link rel="stylesheet" href="inc/css/swiper-bundle.min.css" />
+    <link rel="stylesheet" href="inc/css/flatpickr.min.css">
+	<script src="inc/js/swiper-bundle.min.js"></script>
+	<script src="https://cdn.jsdelivr.net/npm/flatpickr"></script>
+	<script src="https://npmcdn.com/flatpickr/dist/l10n/ko.js"></script>
+	<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+	<script src="inc/js/common.js"></script>
+</head>
+<body>
+	<div class="wrap">
+		<header class="header_type3">
+			<a href="javascript:history.go(-1)" class="btn_prev">이전</a>
+			<button type="button" class="btn_drop_menu">메뉴열기</button>
+			<div class="drop_menu">
+				<ul>
+					<li><a href="javascript://">편집</a></li>
+					<li><a href="javascript://">프로필 삭제</a></li>
+				</ul>
+			</div>
+			<button type="button" class="btn_sharing">공유하기</button>
+		</header>
+		<div class="content">
+			<div class="swiper profile_view_swiper">
+				<div class="swiper-wrapper">
+					<div class="swiper-slide">
+						<div class="profile_thumb">
+							<img src="inc/images/profile_sample.jpg" alt="">
+						</div>
+					</div>
+					<div class="swiper-slide">
+						<div class="profile_thumb">
+							<img src="inc/images/profile_sample.jpg" alt="">
+						</div>
+					</div>
+					<div class="swiper-slide">
+						<div class="video_box"><iframe width="" height="" src="https://www.youtube.com/embed/_FOm1HamXJ8" title="" frameborder="0" allow="" allowfullscreen></iframe></div>
+					</div>
+				</div>
+				<div class="swiper-scrollbar"></div>
+				<a href="javascript:openPop('pop_profile');" class="btn_detail">상세보기</a>
+			</div>
+			<dl class="profile_info fixed">
+				<dt>이유비</dt>
+				<dd>25세~30세</dd>
+				<dd>여성</dd>
+			</dl>
+			<button type="button" class="btn_like" onclick="toggleActiveClass(this)"><span>100</span></button>
+		</div>
+
+
+		 <!-- P1)nav-Profile-3 -->
+		 <div id="pop_profile" class="dim_layer full">
+            <div class="dim"></div>
+            <div class="pop_wrap">
+                <div class="pop_handle" onclick="closePop('pop_profile')"></div>
+                <div class="btn_area">
+                    <button type="button" class="btn_drop_menu">메뉴열기</button>
+                    <div class="drop_menu">
+                        <ul>
+                            <li><a href="javascript://">편집</a></li>
+                            <li><a href="javascript://">프로필 삭제</a></li>
+                        </ul>
+                    </div>
+                    <button type="button" class="btn_sharing">공유하기</button>
+                </div>
+                <div class="pop_cont type2">
+                    <p class="profile_name">이유비</p>
+                    <!-- 기본 정보 -->
+                    <div class="profile_box">
+                        <p class="tit">기본 정보</p>
+                        <div class="detail_row">
+                            <strong class="tit">이름</strong>
+                            <p class="desc">이유비</p>
+                        </div>
+                        <div class="detail_row">
+                            <strong class="tit">연령대</strong>
+                            <p class="desc">25~35세</p>
+                        </div>
+                        <div class="detail_row">
+                            <strong class="tit">성별</strong>
+                            <p class="desc">여성</p>
+                        </div>
+                        <div class="detail_row">
+                            <strong class="tit">키</strong>
+                            <p class="desc">165cm</p>
+                        </div>
+                        <div class="detail_row">
+                            <strong class="tit">몸무게</strong>
+                            <p class="desc">45kg</p>
+                        </div>
+                        <div class="detail_row">
+                            <strong class="tit">최종학력</strong>
+                            <p class="desc">이화여자대학교 음악학부 성악전공</p>
+                        </div>
+                        <div class="detail_row">
+                            <strong class="tit">특기</strong>
+                            <p class="desc">#성악 #코믹연기</p>
+                        </div>
+                    </div>
+                    <!-- 대표 작품 -->
+                    <div class="profile_box">
+                        <p class="tit">대표 작품</p>
+                        <!-- P1)nav-Profile-3 -->
+                        <ul class="list_type4">
+                            <li>
+                                <div class="label">2021</div>
+                                <ul>
+                                    <li>tvN ‘유미의 세포들’ 조연</li>
+                                    <li>제16회 아시아 모델 어워즈 연기자부문 인기상</li>
+                                </ul>
+                            </li>
+                        </ul>
+                        <!-- P1)nav-Profile-3-old -->
+                        <ul class="list_type5">
+                            <li>
+                                <span class="label mark">2021</span>
+                                <p class="text">tvN ‘유미의 세포들’ 조연</p>
+                            </li>
+                            <li>
+                                <strong class="label mark">2021</strong>
+                                <p class="text">제16회 아시아 모델 어워즈 연기자부문 인기상</p>
+                            </li>
+                        </ul>
+                    </div>
+                    <!-- 경력 -->
+                    <div class="profile_box">
+                        <p class="tit">경력</p>
+                        <ul class="list_type4 has_line">
+                            <li class="recent">
+                                <div class="label">2021</div>
+                                <ul>
+                                    <li>단편영화 ‘평양랭면’ 주연</li>
+                                    <li>tvN 드라마 ‘유미의 세포들’ 조연</li>
+                                    <li>SBS 드라마 ‘펜트하우스 시즌3’ 조연</li>
+                                    <li>제16회 아시아 모델 어워즈 연기자부문 인기상</li>
+                                </ul>
+                            </li>
+                            <li>
+                                <div class="label">2020</div>
+                                <ul>
+                                    <li>SBS 드라마 ‘편의점 샛별이’ 조연</li>
+                                    <li>장편영화 ‘이웃사촌’ 주연</li>
+                                    <li>KBS Joy 예능 ‘셀럽뷰티 시즌2’</li>
+                                </ul>
+                            </li>
+                            <li>
+                                <div class="label">2019</div>
+                                <ul>
+                                    <li>KBS 예능 ‘개는 훌륭하다’</li>
+                                    <li>대한민국 퍼스트 브랜드 대상 (뷰티 아이콘 상)</li>
+                                    <li>대한민국을 빛낸 10인 대상</li>
+                                </ul>
+                            </li>
+                            <li>
+                                <div class="label">2018</div>
+                                <ul>
+                                    <li>tvN 드라마 ‘시를 잊은 그대에게’ 주연</li>
+                                    <li>SBS 예능 ‘정글의 법칙’</li>
+                                </ul>
+                            </li>
+                            <li>
+                                <div class="label">2017</div>
+                                <ul>
+                                    <li>JTBC 드라마 ‘어쩌다 18’ 주연</li>
+                                </ul>
+                            </li>
+                            <li>
+                                <div class="label">2015</div>
+                                <ul>
+                                    <li>장편영화 ‘스물’ 조연</li>
+                                    <li>MBC 드라마 ‘밤을 걷는 선비’ 주연</li>
+                                    <li>MBC 연기대상 미니시리즈부문 여자 신인상</li>
+                                </ul>
+                            </li>
+                            <li>
+                                <div class="label">2014</div>
+                                <ul>
+                                    <li>장편영화 ‘상의원’ 조연</li>
+                                    <li>SBS 드라마 ‘피노키오’ 주연</li>
+                                    <li>SBS 연기대상 뉴스타상</li>
+                                </ul>
+                            </li>
+                            <li>
+                                <div class="label">2013</div>
+                                <ul>
+                                    <li>MBC 드라마 ‘구가의 서’ 주연</li>
+                                    <li>제2회 대전드라마페스티벌 여자 신인상</li>
+                                </ul>
+                            </li>
+                            <li>
+                                <div class="label">2012</div>
+                                <ul>
+                                    <li>KBS 드라마 ‘세상 어디에도 없는 착한 남자’ 조연</li>
+                                </ul>
+                            </li>
+                            <li>
+                                <div class="label">2011</div>
+                                <ul>
+                                    <li>MBN 드라마 ‘뱀파이어 아이돌’ 조연</li>
+                                </ul>
+                            </li>
+                        </ul>
+                    </div>
+                    <!-- 방문자 통계 -->
+                    <div class="profile_box">
+                        <p class="tit">방문자 통계</p>
+                        <div class="half_desc_box">
+                            <div class="item">
+                                <span class="label">전체 방문자</span>
+                                <div class="count">12,345</div>
+                            </div>
+                            <div class="item">
+                                <span class="label">오늘 방문자</span>
+                                <div class="count">12,345</div>
+                            </div>
+                            <div class="item">
+                                <span class="label">나를 즐겨찾기한 사람</span>
+                                <div class="count">12,345</div>
+                            </div>
+                            <div class="item">
+                                <span class="label">오늘 즐겨찾기한 사람</span>
+                                <div class="count">12,345</div>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- 업데이트 내역 -->
+                    <div class="profile_update">최근 업데이트 : 2022년 6월 23일</div>
+                </div>
+                <!--<a href="javascript:closePop('pop_profile');" class="btn_pop_close">팝업닫기</a>-->
+            </div>
+        </div>
+	</div><!-- //wrap -->
+	<script>
+	const profile_view_swiper = new Swiper(".profile_view_swiper", {
+		scrollbar: {
+			el: ".swiper-scrollbar",
+		},
+	});
+
+    function toggleActiveClass(button) {
+        button.classList.toggle('active');
+    }
+	</script>
+</body>
+</html>
