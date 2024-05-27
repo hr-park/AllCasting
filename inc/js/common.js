@@ -1,4 +1,12 @@
 document.addEventListener('DOMContentLoaded', () => {
+    const setVH = () => {
+        const vh = window.innerHeight * 0.01;
+        document.documentElement.style.setProperty('--vh', `${vh}px`);
+    };
+    
+    window.addEventListener('resize', setVH);
+    setVH();
+
     //selectbox
     const selectCustom = document.querySelectorAll('.sel_box');
     selectCustom.forEach(function(selectContainer) {
@@ -76,10 +84,21 @@ document.addEventListener('DOMContentLoaded', () => {
                 button.classList.toggle('active');
                 nextUl.style.display = nextUl.style.display === 'block' ? 'none' : 'block';
             }
+            event.stopPropagation();
         });
     });
 
-    //btn_drop_menu
+    function hideDropBox(event) {
+        document.querySelectorAll('.drop_box ul').forEach(dropBox => {
+            if (!dropBox.contains(event.target)) {
+                dropBox.style.display = 'none';
+            }
+        });
+    }
+    
+    document.querySelector('body').addEventListener('click', hideDropBox);
+
+    //btndropmenu
     document.querySelectorAll('.btn_drop_menu').forEach(button => {
         button.addEventListener('click', () => {
             const dropBox = button.nextElementSibling;
