@@ -1,0 +1,303 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+	<meta charset="utf-8" />
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no"/>
+	<title>All CASTING</title>
+	<link rel="stylesheet" href="inc/css/NotoSansKR.css">
+	<link rel="stylesheet" href="inc/css/style.css">
+	<link rel="stylesheet" href="inc/css/swiper-bundle.min.css" />
+    <link rel="stylesheet" href="inc/css/flatpickr.min.css">
+	<script src="inc/js/swiper-bundle.min.js"></script>
+	<script src="https://cdn.jsdelivr.net/npm/flatpickr"></script>
+	<script src="https://npmcdn.com/flatpickr/dist/l10n/ko.js"></script>
+	<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+	<script src="inc/js/common.js"></script>
+</head>
+<body>
+	<div class="wrap">
+		<!--<header class="header_type1">
+			<div>
+				<a href="javascript:history.go(-1)" class="btn_prev">이전</a>
+				<a href="javascript://" class="btn_home">HOME</a>
+			</div>
+			<p class="page_name">오디션 일정 선택하기</p>
+		</header>-->
+		<header class="header_type2">
+			<nav>
+				<ul>
+					<li class="active"><a href="javascript://" class="active">일정</a></li>
+				</ul>
+			</nav>
+		</header>
+		<div class="content has_gnb">
+			<div class="schedule_calendar">
+				<div id="fpCalendar"></div>
+			</div>
+			<div class="bg_cont_gray">
+				<div class="schedule_list" id="scheduleList">
+					<div class="schedule_box bg_bar_red" onclick="openPop('pop_schedule_detail')">
+						<p class="tit">프로젝트 AAA</p>
+						<p class="time">10:00 AM ~ 10:15 AM</p>
+						<ul>
+							<li class="casting">고루한 아버지 역</li>
+							<li class="location">로캘리(서초대로 40길 96)</li>
+						</ul>
+						<button type="button" class="btn_drop_menu">메뉴열기</button>
+						<div class="drop_menu">
+							<ul>
+								<li><a href="javascript://">편집</a></li>
+								<li><a href="javascript://">장소 확인</a></li>
+							</ul>
+						</div>
+					</div>
+					<div class="schedule_box bg_bar_ylw active">
+						<p class="tit">프로젝트 BBB</p>
+						<p class="time">10:00 AM ~ 10:15 AM</p>
+						<ul>
+							<li class="casting">길거리 깡패 역</li>
+							<li class="location">로캘리(서초대로 40길 96)</li>
+						</ul>
+						<button type="button" class="btn_drop_menu">메뉴열기</button>
+						<div class="drop_menu">
+							<ul>
+								<li><a href="javascript://">편집</a></li>
+								<li><a href="javascript://">장소 확인</a></li>
+							</ul>
+						</div>
+					</div>
+					<div class="schedule_box bg_bar_default" onclick="openPop('pop_schedule_detail')">
+						<p class="tit">프로젝트 CCC</p>
+						<p class="time">10:00 AM ~ 10:15 AM</p>
+						<ul>
+							<li class="casting">무명 악사 역</li>
+							<li class="location">로캘리(서초대로 40길 96)</li>
+						</ul>
+						<button type="button" class="btn_drop_menu">메뉴열기</button>
+						<div class="drop_menu">
+							<ul>
+								<li><a href="javascript://">편집</a></li>
+								<li><a href="javascript://">장소 확인</a></li>
+							</ul>
+						</div>
+					</div>
+					<div class="schedule_box bg_bar_end" onclick="openPop('pop_schedule_detail')">
+						<p class="tit">프로젝트 DDD</p>
+						<p class="time">10:00 AM ~ 10:15 AM</p>
+						<ul>
+							<li class="casting">고루한 아버지 역</li>
+							<li class="location">로캘리(서초대로 40길 96)</li>
+						</ul>
+						<button type="button" class="btn_drop_menu">메뉴열기</button>
+						<div class="drop_menu">
+							<ul>
+								<li><a href="javascript://">편집</a></li>
+								<li><a href="javascript://">장소 확인</a></li>
+							</ul>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+		<nav class="gnb producer">
+			<ul>
+				<li><a href="javascript://">Home</a></li>
+				<li><a href="javascript://">프로젝트</a></li>
+				<li><a href="javascript://">아티스트</a></li>
+				<li class="active"><a href="javascript://">일정</a></li>
+				<li><a href="javascript://">프로필</a></li>
+			</ul>
+		</nav>
+	</div><!-- //wrap -->
+
+	<div id="pop_schedule_detail" class="dim_layer full">
+		<div class="dim"></div>
+		<div class="pop_wrap">
+			<div class="pop_handle" onclick="closePop('pop_schedule_detail')"></div>
+			<div class="pop_cont pd0">
+				<div class="white_box no_line pd_tb0">
+					<p class="project_dot_tit bg_bar_ylw">프로젝트 AAA</p>
+					<div class="detail_row">
+						<strong class="tit">배역</strong>
+						<p class="desc">고루한 아버지 역</p>
+					</div>
+					<div class="detail_row">
+						<strong class="tit">모집인원</strong>
+						<p class="desc">1명</p>
+					</div>
+					<div class="detail_row">
+						<strong class="tit">오디션 장소</strong>
+						<p class="desc">로캘리(서초대로 40길 96)</p>
+					</div>
+				</div>
+				<div class="white_box pd_tb0">
+					<div class="casting_box">
+						<p class="time">PM <strong>04:00</strong></p>
+						<div class="casting_list">
+							<a href="#">
+								<div class="thumbnail"><img src="./inc/images/profile_sample.jpg" alt=""></div>
+								<span class="name">김유진</span>
+	
+							<a href="#">
+								<div class="thumbnail"><img src="./inc/images/profile_sample.jpg" alt=""></div>
+								<span class="name">박은비</span>
+							</a>
+							<a href="#">
+								<div class="thumbnail"><img src="./inc/images/profile_sample.jpg" alt=""></div>
+								<span class="name">김상현</span>
+							</a>
+						</div>
+					</div>
+					<div class="casting_box">
+						<p class="time">PM <strong>05:50</strong></p>
+						<div class="casting_list">
+							<a href="#">
+								<div class="thumbnail"><img src="./inc/images/profile_sample.jpg" alt=""></div>
+								<span class="name">화영</span>
+							</a>
+							<a href="#">
+								<div class="thumbnail"><img src="./inc/images/profile_sample.jpg" alt=""></div>
+								<span class="name">박형식</span>
+							</a>
+							<a href="#">
+								<div class="thumbnail"><img src="./inc/images/profile_sample.jpg" alt=""></div>
+								<span class="name">제이</span>
+							</a>
+							<a href="#">
+								<div class="thumbnail"><img src="./inc/images/profile_sample.jpg" alt=""></div>
+								<span class="name">이라온</span>
+							</a>
+							<a href="#">
+								<div class="thumbnail"><img src="./inc/images/profile_sample.jpg" alt=""></div>
+								<span class="name">문수영</span>
+							</a>
+							<a href="#">
+								<div class="thumbnail"><img src="./inc/images/profile_sample.jpg" alt=""></div>
+								<span class="name">Celin</span>
+							</a>
+							<a href="#">
+								<div class="thumbnail"><img src="./inc/images/profile_sample.jpg" alt=""></div>
+								<span class="name">Robert</span>
+							</a>
+							<a href="#">
+								<div class="thumbnail"><img src="./inc/images/profile_sample.jpg" alt=""></div>
+								<span class="name">이상혁</span>
+							</a>
+							<a href="#">
+								<div class="thumbnail"><img src="./inc/images/profile_sample.jpg" alt=""></div>
+								<span class="name">이상혁</span>
+							</a>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+	<!-- -->
+	<script>
+		const fpCalendar = document.querySelector('#fpCalendar')
+		fpCalendar.flatpickr({
+			inline: true,
+			dateFormat: "Y-m-d",
+			altFormat: "Y. n.",
+			defaultDate: "today",
+			onDayCreate: function(dObj, dStr, fp, dayElem) {
+				const dayNumber = dayElem.innerHTML;
+				dayElem.innerHTML = `<em>${dayNumber}</em><p class="stat"></p>`;
+
+				// 일요일이면 holiday 클래스 추가
+				const date = new Date(dayElem.getAttribute('aria-label'));
+				// console.log(date);
+				if (date.getDay() === 0) {
+					dayElem.classList.add('holiday');
+				}
+
+				handleDayCreate(dObj, dStr, fp, dayElem);	// 날짜 하단 스케쥴 아이콘 추가 handler
+			},
+			onReady: function(selectedDates, dateStr, instance) {
+				const yearMonthNav = document.createElement('div');
+				yearMonthNav.className = 'flatpickr-monthBox';
+
+				const yearMonthSelect = document.createElement('select');
+				yearMonthSelect.className = 'flatpickr-monthSelect';
+
+				for (let year = 2024; year <= 2025; year++) {
+					for (let month = 1; month <= 12; month++) {
+						const option = document.createElement('option');
+						option.value = `${year}-${month}`;
+						option.textContent = `${year}. ${month}.`;
+						if (year === instance.currentYear && month === instance.currentMonth + 1) {
+							option.selected = true;
+						}
+						yearMonthSelect.appendChild(option);
+					}
+				}
+
+				yearMonthSelect.addEventListener('change', function() {
+					const [year, month] = this.value.split('-').map(Number);
+					instance.setDate(new Date(year, month - 1, 1));
+				});
+
+				yearMonthNav.appendChild(yearMonthSelect);
+				instance.calendarContainer.insertBefore(yearMonthNav, instance.calendarContainer.firstChild);
+			},
+			onMonthChange: function(selectedDates, dateStr, instance) {
+				const yearMonthSelect = instance.calendarContainer.querySelector('.flatpickr-monthSelect');
+				yearMonthSelect.value = `${instance.currentYear}-${instance.currentMonth + 1}`;
+			},
+			onYearChange: function(selectedDates, dateStr, instance) {
+				const yearMonthSelect = instance.calendarContainer.querySelector('.flatpickr-monthSelect');
+				yearMonthSelect.value = `${instance.currentYear}-${instance.currentMonth + 1}`;
+			}
+		});
+
+		function handleDayCreate(dObj, dStr, fp, dayElem) {
+			let dayLabel = dayElem.getAttribute('aria-label');
+			let dayStat  = dayElem.querySelector('.stat');	// 날짜 하단 아이콘 추가할 곳
+			
+			// 퍼블 확인용
+			if(dayLabel === 'May 13, 2024' || dayLabel === 'May 14, 2024' || dayLabel === 'May 15, 2024'){
+				dayStat.innerHTML += `<span class="bg_state_red"></span><span class="bg_state_selected"></span><span class="bg_state_default"></span>`;
+			}else if(dayLabel === 'May 25, 2024'){
+				dayStat.innerHTML += `<span class="bg_state_end"></span>`;
+			}
+        }
+
+		//Swalpop
+		/*document.getElementById('scheduleAdd').onclick = function(){
+			Swal.fire({
+			//title: "",
+			customClass: {
+				popup: 'pop_confirm' //confirm창에 pop_confirm 클래스 추가
+			},
+			html:"가능한 시간대가 없을 경우, 제작자에게 일정 추가를 요청할 수 있습니다.<br>이미 일정을 확정했다면 기존 일정은 취소됩니다.",
+			reverseButtons : true,
+			showCancelButton: true,
+			showDenyButton: false,
+			cancelButtonText: "취소",
+			confirmButtonText: "추가 요청"
+			});
+		};*/
+
+		document.getElementById('applyCancle').onclick = function(){
+			Swal.fire({
+			title: "전쟁을 소재로 한 가족영화 / 고루한 아버지 역",
+			customClass: {
+				popup: 'pop_confirm' //confirm창에 pop_confirm 클래스 추가
+			},
+			html:"이 역할에 대한 지원을 취소하시겠습니까?<br>(모집 마감 전에 재지원 가능합니다)",
+			reverseButtons : true,
+			showCancelButton: true,
+			showDenyButton: false,
+			cancelButtonText: "아니요",
+			confirmButtonText: "지원 취소"
+			}).then((result) => {
+				if (result.isConfirmed) {
+					showNotification('지원을 취소했습니다.');
+				}
+			});
+		};
+	</script>
+</body>
+</html>

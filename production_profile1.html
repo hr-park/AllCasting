@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+	<meta charset="utf-8" />
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no"/>
+	<title>All CASTING</title>
+	<link rel="stylesheet" href="inc/css/NotoSansKR.css">
+	<link rel="stylesheet" href="inc/css/style.css">
+	<link rel="stylesheet" href="inc/css/swiper-bundle.min.css" />
+    <link rel="stylesheet" href="inc/css/flatpickr.min.css">
+	<script src="inc/js/swiper-bundle.min.js"></script>
+	<script src="https://cdn.jsdelivr.net/npm/flatpickr"></script>
+	<script src="https://npmcdn.com/flatpickr/dist/l10n/ko.js"></script>
+	<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+	<script src="inc/js/common.js"></script>
+</head>
+<body>
+	<div class="wrap">
+		<header class="header_type2">
+			<nav>
+				<ul>
+					<li class="active"><a href="javascript://" class="active">나의 프로필</a></li>
+				</ul>
+			</nav>
+			<div>
+				<a href="javascript://" class="btn_profile_change">나의 프로필 변경</a>
+				<a href="javascript://" class="btn_profile_setting">나의 프로필 설정</a>
+			</div>
+		</header>
+		<div class="content has_gnb">
+			<nav class="page_nav">
+				<ul>
+					<li class="active"><a href="producer_profile1.html">기본 정보</a></li>
+					<li><a href="producer_profile2.html">모집공고</a></li>
+					<li><a href="producer_profile3.html">아티스트</a></li>
+					<li><a href="producer_profile4.html">최신이슈</a></li>
+				</ul>
+			</nav>
+			
+		</div>
+		<nav class="gnb artist">
+			<ul>
+				<li><a href="javascript://">Home</a></li>
+				<li><a href="castingcall_list.html">모집공고</a></li>
+				<li><a href="apply_list.html">지원현황</a></li>
+				<li><a href="schedule_list.html">일정</a></li>
+				<li class="active"><a href="my_profile_list.html">프로필</a></li>
+			</ul>
+		</nav>
+	</div><!-- //wrap -->
+	<script>
+	const swiper = new Swiper(".swiper_fraction", {
+		
+	});
+
+	/*Swal.fire({
+	title: "PERFORM 모드로 전환합니다",
+	customClass: {
+		popup: 'pop_confirm' //confirm창에 pop_confirm 클래스 추가
+	},
+	html:"내 프로필을 등록하고<br>출연할 프로젝트의 모집 공고에 지원할 수 있습니다.",
+	reverseButtons : true,
+	showCancelButton: true,
+	showDenyButton: false,
+	cancelButtonText: "변경",
+	confirmButtonText: "취소"
+	});*/
+	</script>
+</body>
+</html>
