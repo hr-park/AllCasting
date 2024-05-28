@@ -125,6 +125,23 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     });
 
+    //type_nav slide
+    const typeNavElement = document.querySelector('.type_nav');
+    if (typeNavElement && typeNavElement.clientHeight > 40) {
+        const activeSlide = typeNavElement.querySelector('.swiper-slide.active');
+        if (activeSlide) {
+            const typeNavChildren = Array.from(typeNavElement.children);
+            const typeNavIdx = typeNavChildren.indexOf(activeSlide);
+            const typeNavSwiper = new Swiper('.type_nav', {
+                slidesPerView: "auto",
+                observer: true,
+                observeParents: true,
+                initialSlide: typeNavIdx,
+            });
+            typeNavElement.classList.add('swiper_type_nav');
+        }
+    }
+
     //layerpopup
     document.querySelectorAll('.dim_layer .dim').forEach(dim => {
         dim.addEventListener('click', () => {

@@ -25,18 +25,18 @@
 			</nav>
 		</header>
 		<nav class="type_nav">
-			<ul>
-				<li class="active"><a href="javascript://">전체</a></li>
-				<li><a href="javascript://">배우</a></li>
-				<li><a href="javascript://">모델</a></li>
+			<ul class="swiper-wrapper">
+				<li class="swiper-slide active"><a href="javascript://">전체</a></li>
+				<li class="swiper-slide"><a href="javascript://">배우</a></li>
+				<li class="swiper-slide"><a href="javascript://">모델</a></li>
 			</ul>
 		</nav>
 		<div class="content has_gnb">
-			<!-- 리스트 없음
-			<div class="list_none">
+			<!-- 리스트 없음 -->
+			<div class="list_none" style="display:none">
 				<p class="tit">지원한 프로젝트가 없습니다</p>
 				<p class="desc">프로필이 완성되었다면<br>모집 공고에서 지원해 보세요!</p>
-			</div> -->
+			</div> 
 			<div class="bg_cont_gray">
 				<ul class="card_list">
 					<!-- -->
@@ -111,5 +111,14 @@
 			</ul>
 		</nav>
 	</div><!-- //wrap -->
+	<script>
+		//퍼블 페이지 확인용, 추후 삭제 필요
+		const urlParams = new URL(location.href).searchParams;
+		const state = urlParams.get('state');
+		if (state === 'none') {
+			document.querySelector('.list_none').style.display = 'block';
+			document.querySelector('.bg_cont_gray').style.display = 'none';
+		}
+	</script>
 </body>
 </html>
