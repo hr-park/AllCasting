@@ -654,12 +654,12 @@ ul.list_type3 li .btn_del{position:absolute;right:10px;top:16px;display:inline-b
 .schedule_box .location:before{background-position:0 -27px;}
 
 /* 캐스팅 내역 */
-.casting_box{border-bottom:1px solid #E7E7E7;padding:12px 0;}
+.casting_box{overflow:hidden;border-bottom:1px solid #E7E7E7;padding:12px 0;}
 .casting_box:nth-child(1){padding-top:0;}
-.casting_box .casting_list{margin:12px 0 0;display:flex;gap:12px 12px;flex-wrap:wrap;}
+.casting_box .casting_list{margin:12px 0 0;/*display:flex;gap:12px 12px;flex-wrap:wrap;*/}
 .casting_box .casting_list a{display:inline-block;text-align:center;flex:0 1 50px;}
-.casting_box .casting_list a .thumbnail{width:100%;height:50px;border-radius:50%;overflow:hidden;}
-.casting_box .casting_list a .thumbnail img{text-align:center;max-width:100%;}
+.casting_box .casting_list a .thumb{width:50px;height:50px;border-radius:50%;overflow:hidden;}
+.casting_box .casting_list a .thumb img{text-align:center;max-width:100%;}
 .casting_box .casting_list a .name{display:inline-block;font-size:14px;margin:6px 0 0;}
 
 

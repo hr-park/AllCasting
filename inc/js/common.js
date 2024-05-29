@@ -118,6 +118,7 @@ document.addEventListener('DOMContentLoaded', () => {
     //btndropmenu
     document.querySelectorAll('.btn_drop_menu').forEach(button => {
         button.addEventListener('click', () => {
+            event.stopPropagation(); // 이벤트 버블링 방지
             const dropBox = button.nextElementSibling;
             if (dropBox && dropBox.classList.contains('drop_menu')) {
                 dropBox.style.display = dropBox.style.display === 'block' ? 'none' : 'block';

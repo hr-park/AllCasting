@@ -37,7 +37,7 @@
 			</div>
 			<div class="bg_cont_gray">
 				<div class="schedule_list" id="scheduleList">
-					<div class="schedule_box bg_bar_red" onclick="openPop('pop_schedule_detail')">
+					<div class="schedule_box bg_bar_red" onclick="openPopAndInitSwiper('pop_schedule_detail')">
 						<p class="tit">프로젝트 AAA</p>
 						<p class="time">10:00 AM ~ 10:15 AM</p>
 						<ul>
@@ -67,7 +67,7 @@
 							</ul>
 						</div>
 					</div>
-					<div class="schedule_box bg_bar_default" onclick="openPop('pop_schedule_detail')">
+					<div class="schedule_box bg_bar_default" onclick="openPopAndInitSwiper('pop_schedule_detail')">
 						<p class="tit">프로젝트 CCC</p>
 						<p class="time">10:00 AM ~ 10:15 AM</p>
 						<ul>
@@ -82,7 +82,7 @@
 							</ul>
 						</div>
 					</div>
-					<div class="schedule_box bg_bar_end" onclick="openPop('pop_schedule_detail')">
+					<div class="schedule_box bg_bar_end" onclick="openPopAndInitSwiper('pop_schedule_detail')">
 						<p class="tit">프로젝트 DDD</p>
 						<p class="time">10:00 AM ~ 10:15 AM</p>
 						<ul>
@@ -134,60 +134,88 @@
 				<div class="white_box pd_tb0">
 					<div class="casting_box">
 						<p class="time">PM <strong>04:00</strong></p>
-						<div class="casting_list">
-							<a href="#">
-								<div class="thumbnail"><img src="./inc/images/profile_sample.jpg" alt=""></div>
-								<span class="name">김유진</span>
-	
-							<a href="#">
-								<div class="thumbnail"><img src="./inc/images/profile_sample.jpg" alt=""></div>
-								<span class="name">박은비</span>
-							</a>
-							<a href="#">
-								<div class="thumbnail"><img src="./inc/images/profile_sample.jpg" alt=""></div>
-								<span class="name">김상현</span>
-							</a>
+						<div class="casting_list swiper-container">
+							<div class="swiper-wrapper">
+								<div class="swiper-slide">
+									<a href="#">
+										<div class="thumb"><img src="./inc/images/profile_sample.jpg" alt=""></div>
+										<span class="name">김유진</span>
+									</a>
+								</div>
+								<div class="swiper-slide">
+									<a href="#">
+										<div class="thumb"><img src="./inc/images/profile_sample.jpg" alt=""></div>
+										<span class="name">박은비</span>
+									</a>
+								</div>
+								<div class="swiper-slide">
+									<a href="#">
+										<div class="thumb"><img src="./inc/images/profile_sample.jpg" alt=""></div>
+										<span class="name">김상현</span>
+									</a>
+								</div>
+							</div>
 						</div>
 					</div>
 					<div class="casting_box">
 						<p class="time">PM <strong>05:50</strong></p>
-						<div class="casting_list">
-							<a href="#">
-								<div class="thumbnail"><img src="./inc/images/profile_sample.jpg" alt=""></div>
-								<span class="name">화영</span>
-							</a>
-							<a href="#">
-								<div class="thumbnail"><img src="./inc/images/profile_sample.jpg" alt=""></div>
-								<span class="name">박형식</span>
-							</a>
-							<a href="#">
-								<div class="thumbnail"><img src="./inc/images/profile_sample.jpg" alt=""></div>
-								<span class="name">제이</span>
-							</a>
-							<a href="#">
-								<div class="thumbnail"><img src="./inc/images/profile_sample.jpg" alt=""></div>
-								<span class="name">이라온</span>
-							</a>
-							<a href="#">
-								<div class="thumbnail"><img src="./inc/images/profile_sample.jpg" alt=""></div>
-								<span class="name">문수영</span>
-							</a>
-							<a href="#">
-								<div class="thumbnail"><img src="./inc/images/profile_sample.jpg" alt=""></div>
-								<span class="name">Celin</span>
-							</a>
-							<a href="#">
-								<div class="thumbnail"><img src="./inc/images/profile_sample.jpg" alt=""></div>
-								<span class="name">Robert</span>
-							</a>
-							<a href="#">
-								<div class="thumbnail"><img src="./inc/images/profile_sample.jpg" alt=""></div>
-								<span class="name">이상혁</span>
-							</a>
-							<a href="#">
-								<div class="thumbnail"><img src="./inc/images/profile_sample.jpg" alt=""></div>
-								<span class="name">이상혁</span>
-							</a>
+						<div class="casting_list swiper-container">
+							<div class="swiper-wrapper">
+								<div class="swiper-slide">
+									<a href="#">
+										<div class="thumb"><img src="./inc/images/profile_sample.jpg" alt=""></div>
+										<span class="name">화영</span>
+									</a>
+								</div>
+								<div class="swiper-slide">
+									<a href="#">
+										<div class="thumb"><img src="./inc/images/profile_sample.jpg" alt=""></div>
+										<span class="name">박형식</span>
+									</a>
+								</div>
+								<div class="swiper-slide">
+									<a href="#">
+										<div class="thumb"><img src="./inc/images/profile_sample.jpg" alt=""></div>
+										<span class="name">제이</span>
+									</a>
+								</div>
+								<div class="swiper-slide">
+									<a href="#">
+										<div class="thumb"><img src="./inc/images/profile_sample.jpg" alt=""></div>
+										<span class="name">이라온</span>
+									</a>
+								</div>
+								<div class="swiper-slide">
+									<a href="#">
+										<div class="thumb"><img src="./inc/images/profile_sample.jpg" alt=""></div>
+										<span class="name">문수영</span>
+									</a>
+								</div>
+								<div class="swiper-slide">
+									<a href="#">
+										<div class="thumb"><img src="./inc/images/profile_sample.jpg" alt=""></div>
+										<span class="name">Celin</span>
+									</a>
+								</div>
+								<div class="swiper-slide">
+									<a href="#">
+										<div class="thumb"><img src="./inc/images/profile_sample.jpg" alt=""></div>
+										<span class="name">Robert</span>
+									</a>
+								</div>
+								<div class="swiper-slide">
+									<a href="#">
+										<div class="thumb"><img src="./inc/images/profile_sample.jpg" alt=""></div>
+										<span class="name">테스트</span>
+									</a>
+								</div>
+								<div class="swiper-slide">
+									<a href="#">
+										<div class="thumb"><img src="./inc/images/profile_sample.jpg" alt=""></div>
+										<span class="name">테스트</span>
+									</a>
+								</div>
+							</div>
 						</div>
 					</div>
 				</div>
@@ -280,24 +308,34 @@
 			});
 		};*/
 
-		document.getElementById('applyCancle').onclick = function(){
-			Swal.fire({
-			title: "전쟁을 소재로 한 가족영화 / 고루한 아버지 역",
-			customClass: {
-				popup: 'pop_confirm' //confirm창에 pop_confirm 클래스 추가
-			},
-			html:"이 역할에 대한 지원을 취소하시겠습니까?<br>(모집 마감 전에 재지원 가능합니다)",
-			reverseButtons : true,
-			showCancelButton: true,
-			showDenyButton: false,
-			cancelButtonText: "아니요",
-			confirmButtonText: "지원 취소"
-			}).then((result) => {
-				if (result.isConfirmed) {
-					showNotification('지원을 취소했습니다.');
-				}
-			});
-		};
+		let swiperInstances = [];
+
+		function openPopAndInitSwiper(popName) {
+			if (swiperInstances.length > 0) {
+                swiperInstances.forEach(swiper => swiper.destroy(true, true));
+                swiperInstances = [];
+            }
+            openPop(popName);
+            initSwiper();
+        }
+
+		function initSwiper() {
+			let casting_swiper = document.querySelectorAll('.casting_list');
+            casting_swiper.forEach(function (swiperEl) {
+                let swiper = new Swiper(swiperEl, {
+                    width: 50,
+                    spaceBetween: 10,
+                    observer: true,
+                    observeParents: true
+                });
+                swiperInstances.push(swiper);
+            });
+		}
+
+		 // 페이지 로드 시 Swiper 초기화
+		 document.addEventListener('DOMContentLoaded', function () {
+            initSwiper();
+        });
 	</script>
 </body>
 </html>
