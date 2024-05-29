@@ -5,15 +5,15 @@
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no"/>
 	<title>All CASTING</title>
-	<link rel="stylesheet" href="static/css/NotoSansKR.css">
-	<link rel="stylesheet" href="static/css/style.css">
-	<link rel="stylesheet" href="static/css/swiper-bundle.min.css" />
-    <link rel="stylesheet" href="static/css/flatpickr.min.css">
-	<script src="static/js/swiper-bundle.min.js"></script>
+	<link rel="stylesheet" href="/static/css/NotoSansKR.css">
+	<link rel="stylesheet" href="/static/css/style.css">
+	<link rel="stylesheet" href="/static/css/swiper-bundle.min.css" />
+    <link rel="stylesheet" href="/static/css/flatpickr.min.css">
+	<script src="/static/js/swiper-bundle.min.js"></script>
 	<script src="https://cdn.jsdelivr.net/npm/flatpickr"></script>
 	<script src="https://npmcdn.com/flatpickr/dist/l10n/ko.js"></script>
 	<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
-	<script src="static/js/common.js"></script>
+	<script src="/static/js/common.js"></script>
 </head>
 <body>
 	<div class="wrap">
@@ -37,47 +37,22 @@
 					<li><a href="producer_profile4.html">최신이슈</a></li>
 				</ul>
 			</nav>
-			<div class="cont_pd">
-				<div class="detail_row">
-					<strong class="tit min">이메일</strong>
-					<p class="desc">abcd123@naver.com</p>
-				</div>
-				<div class="detail_row">
-					<strong class="tit min">홈페이지</strong>
-					<p class="desc"><a href="https://www.naver.com" target="_blank">www.naver.com</a></p>
-				</div>
-				<div class="mt25">
-					<div class="detail_row column">
-						<strong class="tit">기업소개</strong>
-						<p class="desc">기업을 소개하는 문구입니다. 기업을 소개하는 문구입니다. 기업을 소개하는 문구입니다. </p>
-					</div>
-				</div>	
-				<div class="mt25">
-					<div class="detail_row column">
-						<strong class="tit">연혁</strong>
-						<p class="desc"></p>
-					</div>
-				</div>
-				<div class="mt25">
-					<div class="detail_row column">
-						<strong class="tit">오시는길</strong>
-						<p class="desc">서울시 서초구 123-45 </p>
-					</div>
-				</div>
-				<a href="javascript://" class="btn_line mt25">지도보기</a>
-			</div>
+			
 		</div>
-		<nav class="gnb producer">
+		<nav class="gnb artist">
 			<ul>
 				<li><a href="javascript://">Home</a></li>
-				<li><a href="javascript://">프로젝트</a></li>
-				<li><a href="javascript://">아티스트</a></li>
-				<li><a href="javascript://">일정</a></li>
-				<li class="active"><a href="javascript://">프로필</a></li>
+				<li><a href="castingcall_list.html">모집공고</a></li>
+				<li><a href="apply_list.html">지원현황</a></li>
+				<li><a href="schedule_list.html">일정</a></li>
+				<li class="active"><a href="my_profile_list.html">프로필</a></li>
 			</ul>
 		</nav>
 	</div><!-- //wrap -->
 	<script>
+	const swiper = new Swiper(".swiper_fraction", {
+		
+	});
 
 	/*Swal.fire({
 	title: "PERFORM 모드로 전환합니다",

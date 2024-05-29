@@ -5,15 +5,15 @@
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no"/>
 	<title>All CASTING</title>
-	<link rel="stylesheet" href="static/css/NotoSansKR.css">
-	<link rel="stylesheet" href="static/css/style.css">
-	<link rel="stylesheet" href="static/css/swiper-bundle.min.css" />
-    <link rel="stylesheet" href="static/css/flatpickr.min.css">
-	<script src="static/js/swiper-bundle.min.js"></script>
+	<link rel="stylesheet" href="/static/css/NotoSansKR.css">
+	<link rel="stylesheet" href="/static/css/style.css">
+	<link rel="stylesheet" href="/static/css/swiper-bundle.min.css" />
+    <link rel="stylesheet" href="/static/css/flatpickr.min.css">
+	<script src="/static/js/swiper-bundle.min.js"></script>
 	<script src="https://cdn.jsdelivr.net/npm/flatpickr"></script>
 	<script src="https://npmcdn.com/flatpickr/dist/l10n/ko.js"></script>
 	<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
-	<script src="static/js/common.js"></script>
+	<script src="/static/js/common.js"></script>
 </head>
 <body>
 	<div class="wrap">
@@ -22,7 +22,7 @@
 			<a href="javascript:openPop('pop_report')" class="btn_report">신고</a>
 		</header>
 		<div class="content has_gnb">
-			<div class="project_view_top bg_state_selected"><!-- bg_state_default, bg_state_red, bg_state_end,  bg_state_selected -->
+			<div class="project_view_top bg_state_red"><!-- bg_state_default, bg_state_red, bg_state_end -->
 				<div class="pos_rel">
 					<p class="txt_num">D-10</p>
 					<button type="button" class="btn_bookmark_white active">bookmark</button>
@@ -44,26 +44,61 @@
 					</div>
 				</div>
 			</div>
-			<div class="bg_cont_gray">
-				<ul class="card_list">
-					<li class="swiper-slide item">
-						<div class="flex_column_gap">
-							<div class="detail_row">
-								<strong class="tit">모델</strong>
-								<p class="desc"><strong>남성, 25~35세, 2명, 바디페인팅 모델</strong></p>
+			<div class="card_slide">
+				<div class="tit_box">
+					<p class="tit">모집 분야</p>
+					<div class="swiper-pagination"></div>
+				</div>
+				<!-- Swiper -->
+				<div class="swiper swiper_fraction">
+					<ul class="swiper-wrapper card_list">
+						<li class="swiper-slide item">
+							<div class="flex_column_gap">
+								<div class="detail_row">
+									<strong class="tit">모델</strong>
+									<p class="desc"><strong>남성, 25~35세, 2명, 바디페인팅 모델</strong></p>
+								</div>
+								<p class="txt_light_gr">조각상 콘셉트로 전신에 바디페인팅을 한 뒤 촬영합니다. 최소한의 속옷을 착용하고 작업합니다. 키 175cm 이상의 피트니스 모델 체형이 좋습니다.</p>
+								<p class="ft_size_14">#누드모델 #수영</p>
+								<div class="detail_row">
+									<strong class="tit">출연료</strong>
+									<p class="desc">작품당 <strong>20~30만원</strong></p>
+								</div>
+								<a href="javascript:openPop('pop_apply')" class="btn_basic mt_auto active">지원하기</a>
 							</div>
-							<p class="txt_light_gr">조각상 콘셉트로 전신에 바디페인팅을 한 뒤 촬영합니다. 최소한의 속옷을 착용하고 작업합니다. 키 175cm 이상의 피트니스 모델 체형이 좋습니다.</p>
-							<p class="ft_size_14">#누드모델 #수영</p>
-							<div class="detail_row">
-								<strong class="tit">출연료</strong>
-								<p class="desc">작품당 <strong>20~30만원</strong></p>
+						</li>
+						<li class="swiper-slide item">
+							<div class="flex_column_gap">
+								<div class="detail_row">
+									<strong class="tit">모델</strong>
+									<p class="desc"><strong>남성, 25~35세, 2명, 바디페인팅 모델</strong></p>
+								</div>
+								<p class="txt_light_gr">조각상 콘셉트로 전신에 바디페인팅을 한 뒤 촬영합니다. 최소한의 속옷을 착용하고 작업합니다. 키 175cm 이상의 피트니스 모델 체형이 좋습니다.</p>
+								<p class="ft_size_14">#누드모델 #수영</p>
+								<div class="detail_row">
+									<strong class="tit">출연료</strong>
+									<p class="desc">작품당 <strong>20~30만원</strong></p>
+								</div>
+								<a href="javascript:openPop('pop_apply')" class="btn_basic mt_auto active">지원하기</a>
 							</div>
-							<button id="btnCancel" class="btn_line mt10">지원 취소하기</button>
-							<a href="javascript:openPop('pop_apply')" class="btn_basic mt10 active">지원하기</a>
-							<a href="schedule_choice.html" class="btn_basic mt10 active" target="_blank">오디션 일정 선택하기</a>
-						</div>
-					</li>
-				</ul>
+						</li>
+						<li class="swiper-slide item">
+							<div class="flex_column_gap">
+								<div class="detail_row">
+									<strong class="tit">모델</strong>
+									<p class="desc"><strong>남성, 25~35세, 2명, 바디페인팅 모델</strong></p>
+								</div>
+								<p class="txt_light_gr">조각상</p>
+								<p class="ft_size_14">#누드모델 #수영 #누드모델 #수영 #누드모델 #수영 #누드모델 #수영 #누드모델 #수영</p>
+								<div class="detail_row">
+									<strong class="tit">출연료</strong>
+									<p class="desc">작품당 <strong>20~30만원</strong></p>
+								</div>
+								<a href="javascript:openPop('pop_apply')" class="btn_basic mt_auto active">지원하기</a>
+							</div>
+						</li>
+					</ul>
+				</div>
 			</div>
 			
 			<div class="cont_pd">
@@ -103,8 +138,8 @@
 		<nav class="gnb artist">
 			<ul>
 				<li><a href="javascript://">Home</a></li>
-				<li><a href="castingcall_list.html">모집공고</a></li>
-				<li class="active"><a href="apply_list.html">지원현황</a></li>
+				<li class="active"><a href="castingcall_list.html">모집공고</a></li>
+				<li><a href="apply_list.html">지원현황</a></li>
 				<li><a href="schedule_list.html">일정</a></li>
 				<li><a href="my_profile_list.html">프로필</a></li>
 			</ul>
@@ -113,7 +148,7 @@
 		<!-- 신고팝업 -->
 		<div id="pop_report" class="dim_layer">  
 			<div class="dim"></div>
-			<div class="pop_wrap">
+			<div class="pop_wrap"> 
 				<div class="pop_handle" onclick="closePop('pop_report')"></div>
 				<div class="pop_cont">
 					<p>신고 사유를 알려주세요. 운영진이 검토한 뒤 조치를 취하겠습니다. 콜타임의 <a href="javascript://"><u class="txt_point_green">개인정보 보호방침,</u></a> <a href="javascript://"><u class="txt_point_green">이용자 약관</u></a> 및 현행법을 위반한 행위는 제재 대상이 됩니다.</p>
@@ -125,22 +160,11 @@
 							<option>신고 사유3</option>
 						</select>
 					</div>
-					<a href="javascript://" class="btn_basic active mt50">프로젝트 신고하기</a>
+					<a href="javascript://" id="btnReport" class="btn_basic active mt50">프로젝트 신고하기</a>
 				</div>
 			</div>
 		</div>
 		<!--// 신고팝업 -->
-
-		<!-- 일정 선택 팝업 -->
-		<div id="pop_schedule" class="dim_layer">  
-			<div class="dim"></div>
-			<div class="pop_wrap"> 
-				<div class="pop_cont">
-					
-				</div>
-			</div>
-		</div>
-		<!--// 일정 선택 팝업 -->
 
 		<!-- 지원팝업 -->
 		<div id="pop_apply" class="dim_layer">  
@@ -153,28 +177,28 @@
 						<div class="swiper-wrapper">
 							<div class="swiper-slide">
 								<div class="profile_thumb">
-									<img src="static/images/profile_sample.jpg" alt="" />
+									<img src="/static/images/profile_sample.jpg" alt="" />
 									<input type="radio" name="profile" id="p1">
 									<label for="p1">이유비</label>
 								</div>
 							</div>
 							<div class="swiper-slide">
 								<div class="profile_thumb">
-									<img src="static/images/profile_sample.jpg" alt="" />
+									<img src="/static/images/profile_sample.jpg" alt="" />
 									<input type="radio" name="profile" id="p2">
 									<label for="p2">이유비</label>
 								</div>
 							</div>
 							<div class="swiper-slide">
 								<div class="profile_thumb">
-									<img src="static/images/profile_sample.jpg" alt="" />
+									<img src="/static/images/profile_sample.jpg" alt="" />
 									<input type="radio" name="profile" id="p3">
 									<label for="p3">이유비</label>
 								</div>
 							</div>
 							<div class="swiper-slide">
 								<div class="profile_thumb">
-									<img src="static/images/profile_sample.jpg" alt="" />
+									<img src="/static/images/profile_sample.jpg" alt="" />
 									<input type="radio" name="profile" id="p4">
 									<label for="p4">이유비</label>
 								</div>
@@ -187,32 +211,27 @@
 		</div>
 		<!--// 지원팝업 -->
 	</div><!-- //wrap -->
-	
 	<script>
 	const profile_swiper = new Swiper(".profile_swiper", {
 		spaceBetween: 10,
 		slidesPerView: 2.8,
 		centeredSlides: true,
 	});
+	const field_swiper = new Swiper(".swiper_fraction", {
+		spaceBetween: 10,
+		slidesPerView: 1.15,
+		centeredSlides: true,
+		pagination: {
+			el: ".swiper-pagination",
+			type: "fraction",
+		},
+	});
 
-	document.getElementById('btnCancel').onclick = function(){
-		Swal.fire({
-			title: "전쟁을 소재로 한 가족영화 / 바디페인팅 모델",
-			customClass: {
-				popup: 'pop_confirm' //confirm창에 pop_confirm 클래스 추가
-			},
-			html:"이 역할에 대한 지원을 취소하시겠습니까?<br>(모집 마감 전에 재지원 가능합니다)",
-			reverseButtons : true,
-			showCancelButton: true,
-			showDenyButton: false,
-			cancelButtonText: "아니요",
-			confirmButtonText: "네"
-		}).then((result) => {
-			if (result.isConfirmed) {
-				showNotification('지원을 취소했습니다.');
-			}
-		});
-	};
+	//신고하기
+	document.querySelector('#btnReport').addEventListener('click', () => {
+		closePop('pop_report');
+		showNotification('이 프로젝트를 신고했습니다.');
+	});
 
 	//지원하기
 	document.querySelector('#btnApply').addEventListener('click', () => {
@@ -220,6 +239,5 @@
 		showNotification('지원을 완료했습니다.');
 	});
 	</script>
-	
 </body>
 </html>
