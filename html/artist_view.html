@@ -27,27 +27,15 @@
 					<div class="swiper-slide">
 						<div class="profile_thumb">
 							<img src="../static/images/profile_sample.jpg" alt="">
-                            <div class="state_choice">
-                                <button type="button" class="btn_before_pass">pass</button>
-                                <button type="button" class="btn_before_hold">hold</button>
-                            </div>
 						</div>
 					</div>
 					<div class="swiper-slide">
 						<div class="profile_thumb">
 							<img src="../static/images/profile_sample.jpg" alt="">
-                            <div class="state_choice">
-                                <button type="button" class="btn_before_pass">pass</button>
-                                <button type="button" class="btn_before_hold">hold</button>
-                            </div>
 						</div>
 					</div>
 					<div class="swiper-slide">
 						<div class="video_box"><iframe width="" height="" src="https://www.youtube.com/embed/_FOm1HamXJ8" title="" frameborder="0" allow="" allowfullscreen></iframe></div>
-                        <div class="state_choice">
-                            <button type="button" class="btn_pass">pass</button>
-                            <button type="button" class="btn_hold">hold</button>
-                        </div>
 					</div>
 				</div>
 				<div class="swiper-scrollbar"></div>
@@ -58,6 +46,7 @@
 				<dd>25세~30세</dd>
 				<dd>여성</dd>
 			</dl>
+			<button type="button" class="btn_like" onclick="toggleActiveClass(this)"><span>100</span></button>
 		</div>
 
 
@@ -67,14 +56,7 @@
             <div class="pop_wrap">
                 <div class="pop_handle" onclick="closePop('pop_profile')"></div>
                 <div class="btn_area">
-                    <button type="button" class="btn_drop_menu">메뉴열기</button>
-                    <div class="drop_menu">
-                        <ul>
-                            <li><a href="javascript://">편집</a></li>
-                            <li><a href="javascript://">프로필 삭제</a></li>
-                        </ul>
-                    </div>
-                    <button type="button" class="btn_sharing">공유하기</button>
+                    <a href="javascript:openPop('pop_report')" class="btn_report">신고</a>
                 </div>
                 <div class="pop_cont type2">
                     <p class="profile_name">이유비</p>
@@ -214,34 +196,62 @@
                             </li>
                         </ul>
                     </div>
-                    <!-- 방문자 통계 -->
-                    <div class="profile_box">
-                        <p class="tit">방문자 통계</p>
-                        <div class="half_desc_box">
-                            <div class="item">
-                                <span class="label">전체 방문자</span>
-                                <div class="count">12,345</div>
-                            </div>
-                            <div class="item">
-                                <span class="label">오늘 방문자</span>
-                                <div class="count">12,345</div>
-                            </div>
-                            <div class="item">
-                                <span class="label">나를 즐겨찾기한 사람</span>
-                                <div class="count">12,345</div>
-                            </div>
-                            <div class="item">
-                                <span class="label">오늘 즐겨찾기한 사람</span>
-                                <div class="count">12,345</div>
-                            </div>
-                        </div>
-                    </div>
                     <!-- 업데이트 내역 -->
                     <div class="profile_update">최근 업데이트 : 2022년 6월 23일</div>
+                    <a href="javascript://" id="btnOffer" class="btn_basic active mt40">역할 제안하기</a>
                 </div>
                 <!--<a href="javascript:closePop('pop_profile');" class="btn_pop_close">팝업닫기</a>-->
             </div>
         </div>
+
+        <!-- 신고팝업 -->
+		<div id="pop_report" class="dim_layer">  
+			<div class="dim"></div>
+			<div class="pop_wrap">
+				<div class="pop_handle" onclick="closePop('pop_report')"></div>
+				<div class="pop_cont">
+					<p>신고 사유를 알려주세요. 운영진이 검토한 뒤 조치를 취하겠습니다. 콜타임의 <a href="javascript://"><u class="txt_point_green">개인정보 보호방침,</u></a> <a href="javascript://"><u class="txt_point_green">이용자 약관</u></a> 및 현행법을 위반한 행위는 제재 대상이 됩니다.</p>
+					<div class="sel_box mt25">
+						<select name="" id="">
+							<option>신고 사유 선택</option>
+							<option>신고 사유1</option>
+							<option>신고 사유2</option>
+							<option>신고 사유3</option>
+						</select>
+					</div>
+					<a href="javascript://" class="btn_basic active mt50">사용자 신고하기</a>
+				</div>
+			</div>
+		</div>
+		<!--// 신고팝업 -->
+
+        <!-- P2)nav-artist-4-default -->
+		<div id="pop_offer" class="dim_layer">  
+			<div class="dim"></div>
+			<div class="pop_wrap">
+				<div class="pop_handle" onclick="closePop('pop_offer')"></div>
+				<div class="pop_cont">
+					<p>해당 아티스트에게 프로젝트 제안을 할 수 있습니다.<br>제안하고 싶은 프로젝트와 역할을 선택해 주세요.</p>
+					<div class="sel_box mt25">
+						<select name="" id="">
+							<option>프로젝트 선택</option>
+							<option>AAA 프로젝트</option>
+                            <option>AAA 프로젝트</option>
+						</select>
+					</div>
+                    <div class="sel_box mt25">
+						<select name="" id="">
+							<option>역할 선택</option>
+							<option>고루한 아버지 역</option>
+                            <option>고루한 아버지 역</option>
+						</select>
+					</div>
+					<a href="javascript://" id="btnOfferNotice" class="btn_basic active mt50">역할 제안 알림 보내기</a>
+				</div>
+			</div>
+		</div>
+		<!--// P2)nav-artist-4-default -->
+        
 	</div><!-- //wrap -->
 	<script>
 	const profile_view_swiper = new Swiper(".profile_view_swiper", {
@@ -253,6 +263,32 @@
     function toggleActiveClass(button) {
         button.classList.toggle('active');
     }
+
+    document.getElementById('btnOffer').onclick = function(){
+        Swal.fire({
+            title: "역할을 제안할 수 있는 프로젝트가 없습니다",
+            customClass: {
+                popup: 'pop_confirm' //confirm창에 pop_confirm 클래스 추가
+            },
+            html:"프로젝트를 새로 만드시겠습니까?",
+            reverseButtons : true,
+            showCancelButton: true,
+            showDenyButton: false,
+            cancelButtonText: "나중에",
+            confirmButtonText: "만들기"
+            }).then((result) => {
+			if (result.isConfirmed) {
+                openPop('pop_offer')
+			}
+		});
+    };
+
+   //역할 제안 알림 보내기
+	document.querySelector('#btnOfferNotice').addEventListener('click', () => {
+		closePop('pop_offer');
+		showNotification('역할 제안 알림을 보냈습니다.');
+	});
+    
 	</script>
 </body>
 </html>

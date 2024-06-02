@@ -23,7 +23,6 @@
 				<a href="javascript://" class="btn_home">HOME</a>
 			</div>
 			<p class="page_name">새 프로필 만들기</p>
-			<a href="javascript://" class="btn_next">다음</a>
 		</header>
 		<nav class="page_nav">
 			<ul>
@@ -34,57 +33,95 @@
 			</ul>
 		</nav>
 		<div class="content">
-			<div class="profile_add">
-				<label for="file">
-					<p class="btn_upload">최대 10장의 사진을 업로드해 주세요.<br>첫 번째 사진은 대표 프로필 사진으로 노출됩니다.</p>
-				</label>
-				<input type="file" name="file" id="file">
-			</div>
-
-			<!-- Swiper -->
-			<div class="swiper swiper_fraction">
-				<div class="swiper-wrapper">
-					<div class="swiper-slide">
-						<div class="profile_thumb">
-							<img src="../static/images/profile_sample.jpg" alt="" />
-							<button type="button" class="btn_del">프로필삭제</button>
-						</div>
-					</div>
-					<div class="swiper-slide">
-						<div class="profile_thumb">
-							<img src="../static/images/profile_sample.jpg" alt="" />
-							<button type="button" class="btn_del">프로필삭제</button>
-						</div>
-					</div>
-					<div class="swiper-slide">
-						<div class="profile_thumb">
-							<img src="../static/images/profile_sample.jpg" alt="" />
-							<button type="button" class="btn_del">프로필삭제</button>
-						</div>
-					</div>
-					<div class="swiper-slide">
-						<div class="profile_add">
-							<label for="file">
-								<p class="btn_upload">최대 10장의 사진을 업로드해 주세요.<br>첫 번째 사진은 대표 프로필 사진으로 노출됩니다.</p>
+			<form autocomplete="off">
+				<!-- 등록 전 -->
+				<div class="reg_form" id="test1" style="display:none;">
+					<div class="inp_field">
+						<label for="">메인 사진</label>
+						<div class="profile_add mt10 min">
+							<label for="mainFile">
+								<p class="btn_upload">메인사진은 얼굴과 가슴 또는 배까지 나온<br>자신의 얼굴이 잘보이는 사진을 올려주세요.</p>
 							</label>
-							<input type="file" name="file" id="file">
+							<input type="file" name="file" id="mainFile">
+						</div>
+					</div>
+					<div class="inp_field">
+						<label for="">서브 사진</label>
+						<div class="profile_add mt10 min">
+							<label for="subFile">
+								<p class="btn_upload ft_color_gray">서브사진은 자신이 돋보일 수 있는 포즈 또는 맡았던<br>역할에 대해 어필할수 있는 사진을 올려주세요.</p>
+							</label>
+							<input type="file" name="file" id="subFile">
 						</div>
 					</div>
 				</div>
-				<div class="swiper-pagination"></div>
-			</div>
+				<!--// 등록 전 -->
+				<!-- 등록 후 -->
+				<div class="reg_form">
+					<div class="inp_field">
+						<label for="">메인 사진</label>
+						<div class="profile_thumb modify mt10">
+							<img src="../static/images/profile_sample.jpg" alt="">
+							<button type="button" class="btn_write">수정</button>
+							<button type="button" class="btn_del">삭제</button>
+						</div>
+					</div>
+					<div class="inp_field">
+						<label for="">서브 사진</label>
+						<ul class="profile_list_col2 pd0 mt10">
+							<li>
+								<div class="profile_thumb modify">
+									<img src="../static/images/profile_sample.jpg" alt="">
+									<button type="button" class="btn_write">수정</button>
+									<button type="button" class="btn_del">삭제</button>
+								</div>
+							</li>
+							<li>
+								<div class="profile_thumb modify">
+									<img src="../static/images/profile_sample2.jpg" alt="">
+									<button type="button" class="btn_write">수정</button>
+									<button type="button" class="btn_del">삭제</button>
+								</div>
+							</li>
+							<li>
+								<div class="profile_thumb modify">
+									<img src="../static/images/profile_sample.jpg" alt="">
+									<button type="button" class="btn_write">수정</button>
+									<button type="button" class="btn_del">삭제</button>
+								</div>
+							</li>
+						</ul>
+					</div>
+				</div>
+				<!--// 등록 후 -->
+			</form>
+
+
+			<!--<div class="cont_pd">
+				<div class="profile_add">
+					<label for="mainFile">
+						<p class="btn_upload">메인사진은 얼굴과 가슴 또는 배까지 나온<br>자신의 얼굴이 잘보이는 사진을 올려주세요.</p>
+					</label>
+					<input type="file" name="file" id="mainFile">
+				</div>
+
+				서브 사진
+				<div class="profile_add">
+					<label for="subFile">
+						<p class="btn_upload">서브사진은 자신이 돋보일 수 있는 포즈 또는 맡았던<br>역할에 대해 어필할수 있는 사진을 올려주세요.</p>
+					</label>
+					<input type="file" name="file" id="subFile">
+				</div>
+			</div>-->
 		</div>
 	</div><!-- //wrap -->
 	<script>
-	const swiper = new Swiper(".swiper_fraction", {
-		spaceBetween: 10,
-		slidesPerView: 1.15,
-		centeredSlides: true,
-		pagination: {
-			el: ".swiper-pagination",
-			type: "fraction",
-		},
-	});
+		//퍼블 페이지 확인용, 추후 삭제 필요
+		const urlParams = new URL(location.href).searchParams;
+		const state = urlParams.get('state');
+		if (state === 'none') {
+			document.querySelector('#test1').style.display = 'block';
+		}
 	</script>
 </body>
 </html>

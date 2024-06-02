@@ -153,6 +153,42 @@ document.addEventListener('DOMContentLoaded', () => {
             document.body.style.overflow = '';
         });
     });
+
+    //input reset button show/hide
+    document.querySelectorAll('.inp_txt').forEach(input => {
+        input.addEventListener('input', () => {
+            const resetButton = input.nextElementSibling;
+            if (resetButton && resetButton.classList.contains('btn_reset')) {
+                resetButton.style.display = input.value.trim() !== '' ? 'inline-block' : 'none';
+            }
+        });
+    });
+
+    //input reset button
+    document.querySelectorAll('.btn_reset').forEach(button => {
+        button.addEventListener('click', () => {
+            const inputField = button.previousElementSibling;
+            if (inputField && inputField.classList.contains('inp_txt')) {
+                inputField.value = '';
+                button.style.display = 'none';
+            }
+        });
+    });
+
+    //input error msg remove
+    document.querySelectorAll('.inp_txt').forEach(input => {
+        input.addEventListener('input', () => {
+            const inpField = input.closest('.inp_field');
+            const errorMessage = inpField.querySelector('.msg_error');
+
+            if (input.classList.contains('error')) {
+                input.classList.remove('error');
+            }
+            if (errorMessage && window.getComputedStyle(errorMessage).display !== 'none') {
+                errorMessage.style.display = 'none';
+            }
+        });
+    });
 });
 
 function openPop(popName) {
@@ -183,6 +219,32 @@ function showNotification(message) {
                 updatedLayerNoti.remove();
             }
         }, 1000);
+    }
+}
+
+//리스트 삭제
+function deleteListItem(){
+    if (event.target.classList.contains('btn_del')) {
+        const listItem = event.target.closest('li');
+        if (listItem) {
+            Swal.fire({
+                title: "삭제하시겠습니까?",
+                customClass: {
+                    popup: 'pop_confirm only_tit' //confirm창에 pop_confirm 클래스 추가
+                },
+                html:"",
+                reverseButtons : true,
+                showCancelButton: true,
+                showDenyButton: false,
+                cancelButtonText: "취소",
+                confirmButtonText: "삭제"
+            }).then((result) => {
+                if (result.isConfirmed) {
+                    //showNotification('');
+                    listItem.remove();
+                }
+            });
+        }
     }
 }
 

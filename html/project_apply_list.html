@@ -23,6 +23,8 @@
 				<a href="javascript://" class="btn_home">HOME</a>
 			</div>
 			<p class="page_name">지원자 현황</p>
+			<a href="javascript:openPop('pop_schedule')" class="btn_info">오디션 정보 보기</a>
+			<a href="javascript://" class="btn_schedule">스케쥴</a>
 		</header>
 		<nav class="type_nav">
 			<ul class="swiper-wrapper">
@@ -53,6 +55,7 @@
 								<dd>25세~30세</dd>
 								<dd>여성</dd>
 							</dl>
+							<div class="state"><img src="../static/images/btn/btn_hold.png" alt=""></div>
 						</div>
 					</a>
 				</li>
@@ -65,6 +68,7 @@
 								<dd>25세~30세</dd>
 								<dd>여성</dd>
 							</dl>
+							<div class="state"><img src="../static/images/btn/btn_pass.png" alt=""></div>
 						</div>
 					</a>
 				</li>
@@ -77,6 +81,7 @@
 								<dd>25세~30세</dd>
 								<dd>여성</dd>
 							</dl>
+							<div class="state"><img src="../static/images/btn/btn_hold.png" alt=""></div>
 						</div>
 					</a>
 				</li>
@@ -89,6 +94,7 @@
 								<dd>25세~30세</dd>
 								<dd>여성</dd>
 							</dl>
+							<div class="state"><img src="../static/images/btn/btn_pass.png" alt=""></div>
 						</div>
 					</a>
 				</li>
@@ -101,6 +107,7 @@
 								<dd>25세~30세</dd>
 								<dd>여성</dd>
 							</dl>
+							<div class="state"><img src="../static/images/btn/btn_hold.png" alt=""></div>
 						</div>
 					</a>
 				</li>
@@ -113,6 +120,7 @@
 								<dd>25세~30세</dd>
 								<dd>여성</dd>
 							</dl>
+							<div class="state"><img src="../static/images/btn/btn_pass.png" alt=""></div>
 						</div>
 					</a>
 				</li>
@@ -125,6 +133,7 @@
 								<dd>25세~30세</dd>
 								<dd>여성</dd>
 							</dl>
+							<div class="state"><img src="../static/images/btn/btn_pass.png" alt=""></div>
 						</div>
 					</a>
 				</li>
@@ -133,17 +142,64 @@
 				<a href="javascript://" class="btn_basic active">오디션 일정 제안</a>
 			</div>
 		</div>
+
+		<!-- schedule layer -->
+		<div id="pop_schedule" class="dim_layer">
+			<div class="dim"></div>
+			<div class="pop_wrap">
+				<div class="pop_handle" onclick="closePop('pop_schedule')"></div>
+				<div class="pop_cont">
+					<div class="card_list">
+						<div class="top">
+							<strong class="txt_num ft_color_default">D-2</strong>
+							<p class="subject mt15">전쟁을 소재로 한 가족영화 </p>
+							<ul class="sub_dot_list">
+								<li>CJ Entertainment</li>
+								<li>단편영화</li>
+								<li>학생작품</li>
+							</ul>
+						</div>
+						<div class="detail_row">
+							<strong class="tit">단역</strong>
+							<p class="desc">남성, 45세, 고루한 아버지 역남성, 45세, 고루한 아버지 역남성, 45세, 고루한 아버지 역남성, 45세, 고루한 아버지 역</p>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+		<!--// schedule layer -->
 	</div><!-- //wrap -->
+	
 	<script>
-	const swiper = new Swiper(".swiper_fraction", {
-		spaceBetween: 10,
-		slidesPerView: 1.15,
-		centeredSlides: true,
-		pagination: {
-			el: ".swiper-pagination",
-			type: "fraction",
-		},
-	});
+		/*
+		//심사 완료 - 오디션 일정제안 버튼을 눌렀을 경우
+		Swal.fire({
+			title: "지원자에게 오디션 일정 제안 하시겠습니까?",
+			customClass: {
+				popup: 'pop_confirm' //confirm창에 pop_confirm 클래스 추가
+			},
+			html:"오디션 일정 제안이 완료 될 경우 더이상  해당 배역의 합격 여부를 수정할 수 없습니다.",
+			reverseButtons : true,
+			showCancelButton: true,
+			showDenyButton: false,
+			cancelButtonText: "나중에",
+			confirmButtonText: "제안하기"
+		});
+		
+		//심사 완료 - 오디션 일정 제안하기 전
+		Swal.fire({
+			title: "심사를 완료 하시겠습니까? ",
+			customClass: {
+				popup: 'pop_confirm' //confirm창에 pop_confirm 클래스 추가
+			},
+			html:"심사가 완료 된 후 합격된 지원자에게<br>오디션 일정제안을 해주세요.<br>오디션 일정 제안 전에는 지원자의 합격 여부를<br>수정할 수 있습니다.",
+			reverseButtons : true,
+			showCancelButton: true,
+			showDenyButton: false,
+			cancelButtonText: "나중에",
+			confirmButtonText: "제안하기"
+		});
+		*/
 	</script>
 </body>
 </html>

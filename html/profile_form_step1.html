@@ -19,11 +19,10 @@
 	<div class="wrap">
 		<header class="header_type1">
 			<div>
-				<a href="javascript:history.go(-1)" class="btn_prev">이전</a>
-				<a href="javascript://" class="btn_home">HOME</a>
+				<a href="javascript://" id="btnPrev" class="btn_prev">이전</a>
+				<a href="javascript://" id="btnHome" class="btn_home">HOME</a>
 			</div>
 			<p class="page_name">새 프로필 만들기</p>
-			<a href="javascript://" class="btn_next">다음</a>
 		</header>
 		<nav class="page_nav">
 			<ul>
@@ -36,27 +35,16 @@
 		<div class="content">
 			<form autocomplete="off">
 				<div class="reg_form">
-					<div class="inp_field">
-						<label for="user_name">이름</label>
-						<div class="inp_box"><input type="text" id="user_name" class="inp_txt" placeholder="아티스트로서 활동하는 이름을 적어 주세요."/><button type="button" class="btn_reset">X</button></div>
+					<div class="inp_field essential">
+						<label for="name">이름</label>
+						<div class="inp_box"><input type="text" id="name" class="inp_txt" placeholder="아티스트로서 활동하는 이름을 적어 주세요."/><button type="button" class="btn_reset">X</button></div>
 						<span class="msg_error">필수 입력 사항입니다.</span>
 					</div>
-					<div class="inp_field">
+					<div class="inp_field essential">
 						<label for="age">연령대</label>
 						<div class="inp_box">
 							<input type="text" id="age" class="inp_txt" onclick="javascript:openPop('pop_age')" readonly placeholder="연기가 가능한 연령대를 선택해 주세요."/>
 						</div>
-						<!--<div class="inp_box">
-							<div class="sel_box">
-								<select name="" id="">
-									<option>선택</option>
-									<option>17~1811</option>
-									<option>17~18222</option>
-									<option>17~1833</option>
-									<option>17~1844</option>
-								</select>
-							</div>
-						</div>-->
 						<span class="msg_error">필수 입력 사항입니다.</span>
 					</div>
 					<div class="inp_field">
@@ -76,7 +64,7 @@
 							</div>
 						</div>
 					</div>
-					<div class="inp_field">
+					<div class="inp_field essential">
 						<label for="area">활동 지역</label>
 						<div class="inp_box" onclick="javascript:openPop('pop_su')"><input type="text" id="area" class="inp_txt" placeholder="활동 가능한 지역을 선택해 주세요(최대 5개)." readonly /></div>
 						<span class="msg_error">필수 입력 사항입니다.</span>
@@ -107,15 +95,14 @@
 					<div class="inp_field">
 						<label for="area">최종 학력/교육 <span class="lab_sub">(선택사항)</span></label>
 						<div class="inp_box"><input type="text" id="area" class="inp_txt" placeholder="최종 학력/교육을 입력해 주세요." /><button type="button" class="btn_reset">X</button></div>
-						<span class="msg_error">필수 입력 사항입니다.</span>
 					</div>
 					<div class="inp_field">
 						<label for="area">특기 <span class="lab_sub">(선택사항)</span></label>
 						<input type="hidden" value="" name="tag" id="rdTag" />
 						<div class="inp_box"><span class="txt">#</span><input type="text" id="tag" size="7" class="inp_txt" placeholder="자유롭게 입력해 주세요."/></div>
-						<span class="msg_error">필수 입력 사항입니다.</span>
-						<ul id="tag_list" class="tag_list"></ul>
+						<ul id="tagSpecialtyList" class="tag_list mt15"></ul>
 					</div>
+					<a href="javascript://" id="btnNext" class="btn_basic mt40 unactive">다음</a>
 				</div>
 			</form>
 		</div>
@@ -124,15 +111,18 @@
 		<div id="pop_age" class="dim_layer">
 			<div class="dim"></div>
 			<div class="pop_wrap">
+				<div class="pop_handle" onclick="closePop('pop_age')"></div>
 				<div class="pop_head">
-					<a href="javascript:closePop('pop_age');" class="btn_txt btn_pop_close">확인</a>
+					<a href="javascript:void(0);" id="btnConfirm" class="btn_txt txt_point_green">확인</a>
 				</div>
 				<div class="pop_cont">
-					<select>
-						<option value="">18~38</option>
-						<option value="">19~39</option>
-						<option value="">20~40</option>
-					</select>
+					<div class="sel_box_type2">
+						<select id="ageSelect" class="">
+							<option value="">18~38</option>
+							<option value="">19~39</option>
+							<option value="">20~40</option>
+						</select>
+					</div>
 				</div>
 			</div>
 		</div>
@@ -142,17 +132,29 @@
 		<div id="pop_su" class="dim_layer full">
 			<div class="dim"></div>
 			<div class="pop_wrap">
+				<div class="pop_handle" onclick="closePop('pop_su')"></div>
 				<div class="pop_head">
-					<a href="javascript:closePop('pop_su');" class="btn_txt btn_pop_close">확인</a>
+					<a href="javascript://" id="btnComfirmSu" class="btn_txt btn_pop_close">확인</a>
 				</div>
 				<div class="pop_cont">
-					<ul class="list_type1">
+					<ul id="tagAreaList" class="tag_list"></ul>
+					<ul id="areaList" class="list_type1">
 						<li><a href="javascript://">국내 전체</a></li>
 						<li><a href="javascript://">서울</a></li>
-						<li><a href="javascript://">서울</a></li>
-						<li><a href="javascript://">서울</a></li>
-						<li><a href="javascript://">서울</a></li>
-						<li><a href="javascript://">서울</a></li>
+						<li><a href="javascript://">경기</a></li>
+						<li><a href="javascript://">인천</a></li>
+						<li><a href="javascript://">부산</a></li>
+						<li><a href="javascript://">대구</a></li>
+						<li><a href="javascript://">대전</a></li>
+						<li><a href="javascript://">울산</a></li>
+						<li><a href="javascript://">세종</a></li>
+						<li><a href="javascript://">강원</a></li>
+						<li><a href="javascript://">충남</a></li>
+						<li><a href="javascript://">충북</a></li>
+						<li><a href="javascript://">전남</a></li>
+						<li><a href="javascript://">전북</a></li>
+						<li><a href="javascript://">경남</a></li>
+						<li><a href="javascript://">경북</a></li>
 					</ul>
 				</div>
 			</div>
@@ -182,29 +184,29 @@
 		if (e.key === 'Enter' || e.keyCode === 32) {
 			const tagValue = self.value; 
 
-			// 해시태그 값이 없으면 실행X
+			//해시태그 값이 없으면 실행X
 			if (tagValue !== '') {
-				// 중복 태그 확인
+				//중복 태그 확인
 				const result = Object.values(tag).filter(word => word === tagValue);
 				
-				// 중복 태그가 없으면 실행
+				//중복 태그가 없으면 실행
 				if (result.length === 0) { 
-					const tagList = document.getElementById('tag_list');
+					const tagListSpecialty = document.getElementById('tagSpecialtyList');
 					const li = document.createElement('li');
 					li.classList.add('tag_item');
 					li.innerHTML = `${tagValue}<span class='btn_del' idx='${counter}'>태그삭제</span>`;
-					tagList.appendChild(li);
+					tagListSpecialty.appendChild(li);
 					addTag(tagValue);
 					self.value = '';
 				} else {
 					alert('특기가 중복됩니다.');
 				}
 			}
-			e.preventDefault(); // 스페이스바 시 빈 공간이 생기지 않도록 방지
+			e.preventDefault(); //스페이스바 시 빈 공간이 생기지 않도록 방지
 		}
 	});
 
-	// 인덱스 검사 후 삭제
+	//인덱스 검사 후 삭제
     document.addEventListener('click', (e) => {
         if (e.target.classList.contains('btn_del')) {
             const index = e.target.getAttribute('idx');
@@ -212,6 +214,192 @@
             e.target.parentElement.remove();
         }
     });
+
+	//이번버튼 클릭 시
+	document.getElementById('btnPrev').onclick = function(){
+		Swal.fire({
+			title: "변경한 내용을 취소하고 나가시겠습니까?",
+			customClass: {
+				popup: 'pop_confirm' //confirm창에 pop_confirm 클래스 추가
+			},
+			html:"변경 내역을 저장하지 않고<br><b>프로필</b> 화면으로 이동합니다.",
+			reverseButtons : true,
+			showCancelButton: true,
+			showDenyButton: false,
+			cancelButtonText: "취소",
+			confirmButtonText: "이동"
+		});
+	};
+
+	//홈버튼 클릭 시
+	document.getElementById('btnHome').onclick = function(){
+		Swal.fire({
+			title: "변경한 내용을 취소하고 나가시겠습니까?",
+			customClass: {
+				popup: 'pop_confirm' //confirm창에 pop_confirm 클래스 추가
+			},
+			html:"변경 내역을 저장하지 않고<br><b>모집 공고</b> 화면으로 이동합니다.",
+			reverseButtons : true,
+			showCancelButton: true,
+			showDenyButton: false,
+			cancelButtonText: "취소",
+			confirmButtonText: "이동"
+		});
+	};
+
+	//연령선택
+	document.getElementById('btnConfirm').addEventListener('click', () => {
+		const ageSelect = document.getElementById('ageSelect');
+		const selectedAgeRange = ageSelect.options[ageSelect.selectedIndex].text;
+		document.getElementById('age').value = selectedAgeRange;
+		closePop('pop_age');
+	});
+
+	//지역선택
+    const listItems = document.querySelectorAll('#areaList li');
+    const maxActiveItems = 5;
+    let areaCounter = 0;
+
+    listItems.forEach(item => {
+        item.addEventListener('click', () => {
+            const isActive = item.classList.contains('active');
+            const activeItemsCount = document.querySelectorAll('#areaList li.active').length;
+            const areaValue = item.textContent.trim();
+
+            if (!isActive && activeItemsCount < maxActiveItems) {
+                // 아이템 추가
+                item.classList.add('active');
+                const tagAreaList = document.getElementById('tagAreaList');
+                const tagAreaItem = document.createElement('li');
+                tagAreaItem.classList.add('tag_item');
+                tagAreaItem.innerHTML = `${areaValue}<span class='btn_del' idx='${counter}'>태그삭제</span>`;
+                tagAreaList.appendChild(tagAreaItem);
+                addTag(areaValue);
+                areaCounter++;
+
+				nextActive();
+				
+            } else if (!isActive && activeItemsCount === maxActiveItems) {
+                alert('최대 5개까지 선택 가능합니다.');
+            } else if (isActive) {
+                item.classList.remove('active');
+				//tag에서 삭제
+				const targetText  = item.textContent;
+				console.log(targetText);
+				document.querySelectorAll('#tagAreaList .tag_item').forEach(tagItem => {
+					const tagText = tagItem.textContent.replace('태그삭제', '').trim();
+					if (tagText === targetText) {
+						tagItem.remove();
+					}
+				});
+
+				nextActive();
+            }
+
+			function nextActive(){
+				const btnConfirmSu = document.querySelector('#btnComfirmSu');
+				if (activeItemsCount > 0) {
+					btnConfirmSu.classList.add('txt_point_green');
+				} else {
+					btnConfirmSu.classList.remove('txt_point_green');
+				}
+			}
+
+			document.addEventListener('DOMContentLoaded', () => {
+				const btnDel = document.querySelector('#tagAreaList .btn_del');
+				if (btnDel) {
+					btnDel.addEventListener('click', (event) => {
+						const tagText = event.target.parentElement.textContent.replace('태그삭제', '').trim();
+						const areaListItems = document.querySelectorAll('#areaList li.active');
+
+						areaListItems.forEach(item => {
+							const listItemText = item.textContent.replace('태그삭제', '').trim();
+							console.log(tagText);
+							if (listItemText === tagText) {
+								item.classList.remove('active');
+							}
+						});
+					});
+				}
+			});
+        });
+    });
+
+	document.querySelector('#btnComfirmSu').addEventListener('click', () => {
+		const tagItems = document.querySelectorAll('#tagAreaList .tag_item');
+		const tagTextArray = [];
+
+		tagItems.forEach(item => {
+			const tagText = item.textContent.replace('태그삭제', '').trim();
+			tagTextArray.push(tagText);
+		});
+		const tagTextString = tagTextArray.join(', ');
+		const areaInput = document.querySelector('#area');
+		areaInput.value = tagTextString;
+
+		closePop('pop_su');
+
+	});
+
+	//다음
+	document.querySelector('#btnNext').addEventListener('click', () => {
+		const nameInput = document.querySelector('#name');
+		const nameValue = nameInput.value.trim();
+
+		const ageInput = document.querySelector('#age');
+		const ageValue = ageInput.value.trim();
+
+		const areaInput = document.querySelector('#area');
+		const areaValue = areaInput.value.trim();
+
+		const errorMessageName = nameInput.closest('.inp_field').querySelector('.msg_error');
+		const errorMessageAge = ageInput.closest('.inp_field').querySelector('.msg_error');
+		const errorMessageArea = areaInput.closest('.inp_field').querySelector('.msg_error');
+
+		if (nameValue === '') {
+			nameInput.classList.add('error');
+			errorMessageName.style.display = 'block';
+		} else if (ageValue === '') {
+			ageInput.classList.add('error');
+			errorMessageAge.style.display = 'block';
+		}  else if (areaValue === '') {
+			areaInput.classList.add('error');
+			errorMessageArea.style.display = 'block';
+		} else {
+			errorMessageName.style.display = 'none';
+			errorMessageAge.style.display = 'none';
+			errorMessageArea.style.display = 'none';
+			
+			const btnNext = document.querySelector('#btnNext');
+			btnNext.classList.remove('unactive');
+			btnNext.classList.add('active');
+		}
+	});
+
+	//다음버튼 활성화
+	const inputs = document.querySelectorAll('.inp_txt');
+	function checkFormValidity() {
+		let allInputsValid = true;
+		inputs.forEach(input => {
+			const inpField = input.closest('.inp_field');
+			const isEssential = inpField.classList.contains('essential');
+			if (isEssential && input.value.trim() === '') {
+				allInputsValid = false;
+			}
+		});
+
+		return allInputsValid;
+	}
+	inputs.forEach(input => {
+		input.addEventListener('input', () => {
+			const btnNext = document.querySelector('#btnNext');
+			if (checkFormValidity()) {
+				btnNext.classList.add('active');
+			} else {
+				btnNext.classList.remove('active');
+			}
+		});
+	});
 	</script>
 </body>
 </html>

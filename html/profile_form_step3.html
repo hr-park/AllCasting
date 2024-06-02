@@ -23,7 +23,6 @@
 				<a href="javascript://" class="btn_home">HOME</a>
 			</div>
 			<p class="page_name">새 프로필 만들기</p>
-			<a href="javascript://" class="btn_next">다음</a>
 		</header>
 		<nav class="page_nav">
 			<ul>
@@ -36,53 +35,56 @@
 		<div class="content">
 			<form autocomplete="off">
 				<div class="reg_form">
-					<div class="inp_field">
-						<label for="">연도</label>
-						<div class="inp_box"><input type="text" id="" class="inp_txt" placeholder="작품에 참여한 연도를 선택해 주세요."/><button type="button" class="btn_reset">X</button></div>
+					<div class="inp_field essential">
+						<label for="year">연도</label>
+						<div class="inp_box"><input type="text" id="year" class="inp_txt" onclick="javascript:openPop('pop_year')" placeholder="작품에 참여한 연도를 선택해 주세요." readonly /><button type="button" class="btn_reset">X</button></div>
 						<span class="msg_error">필수 입력 사항입니다.</span>
 					</div>
 					<div class="inp_field">
-						<label for="area">매체</label>
+						<label for="media">매체</label>
 						<div class="inp_box">
 							<div class="sel_box">
-								<select name="" id="">
+								<select name="" id="media">
 									<option>대분류</option>
-									<option>대분류1</option>
-									<option>대분류2</option>
-									<option>대분류</option>
-									<option>대분류</option>
+									<option>영화</option>
+									<option>TV</option>
+									<option>무대</option>
+									<option>온라인</option>
+									<option>광고</option>
+									<option>기타 경력</option>
 								</select>
 							</div>
 						</div>
 					</div>
-					<div class="inp_field">
-						<label for="">작품명</label>
-						<div class="inp_box"><input type="text" id="" class="inp_txt" placeholder="작품명을 입력해 주세요."/><button type="button" class="btn_reset">X</button></div>
+					<div class="inp_field essential">
+						<label for="title">작품명</label>
+						<div class="inp_box"><input type="text" id="title" class="inp_txt" placeholder="작품명을 입력해 주세요."/><button type="button" class="btn_reset">X</button></div>
 						<span class="msg_error">필수 입력 사항입니다.</span>
 					</div>
 					<div class="inp_field">
-						<label for="">역할</label>
+						<label for="role">역할</label>
 						<div class="inp_box">
 							<div class="sel_box">
-								<select name="" id="">
+								<select name="" id="role">
 									<option>역할 구분</option>
-									<option></option>
-									<option></option>
-									<option></option>
-									<option></option>
+									<option>주연</option>
+									<option>조연</option>
+									<option>단역</option>
+									<option>보조출연</option>
+									<option>모델</option>
 								</select>
 							</div>
 						</div>
 					</div>
 					<div class="inp_field">
 						<div class="inp_chk">
-							<input type="checkbox" name="" id="test">
-							<label for="test">대표작품</label>
+							<input type="checkbox" name="" id="representative">
+							<label for="representative">대표작품</label>
 						</div>
 					</div>
 					<div class="btn_box"><button type="button" class="btn_add"><span>경력 사항 추가</span></button></div>
-					<ul class="list_type2">
-						<li>
+					<ul id="careerList" class="list_type2">
+						<!--<li>
 							<div class="mb5">
 								<strong class="label mark">2021</strong>
 								<span>대표 작품</span>
@@ -96,11 +98,142 @@
 							</div>
 							<p class="subject">단편 영화 ‘영화 제목제목제목’ 조연</p>
 							<button type="button" class="btn_del">삭제</button>
-						</li>
+						</li>-->
 					</ul>
+					<a href="profile_form_step4.html" id="btnNext" class="btn_basic mt40 unactive">다음</a>
 				</div>
 			</form>
 		</div>
 	</div><!-- //wrap -->
+
+	<!-- P1)Profile-step3-DE-2 -->
+	<div id="pop_year" class="dim_layer">
+		<div class="dim"></div>
+		<div class="pop_wrap">
+			<div class="pop_handle" onclick="closePop('pop_year')"></div>
+			<div class="pop_head">
+				<a href="javascript:void(0);" id="btnConfirm" class="btn_txt txt_point_green">확인</a>
+			</div>
+			<div class="pop_cont">
+				<div class="sel_box_type2">
+					<select id="ageYear" class="">
+						<option value="">2019년</option>
+						<option value="">2020년</option>
+						<option value="">2021년</option>
+						<option value="">2022년</option>
+					</select>
+				</div>
+			</div>
+		</div>
+	</div>
+	<!-- -->
+
+	<script>
+		//추가
+		document.querySelector('.btn_add').addEventListener('click', () => {
+			const yearInput = document.querySelector('#year');
+			const yearValue = yearInput.value.trim();
+			const mediaValue = document.querySelector('#media').value.trim();
+			const titleInput = document.querySelector('#title');
+			const titleValue = titleInput.value.trim();
+			const roleValue = document.querySelector('#role').value.trim();
+			const isRepresentative = document.getElementById('representative').checked;
+			const errorMessageYear = yearInput.closest('.inp_field').querySelector('.msg_error');
+			const errorMessageTitle = titleInput.closest('.inp_field').querySelector('.msg_error');
+
+			if (yearValue === '') {
+				yearInput.classList.add('error');
+				errorMessageYear.style.display = 'block';
+			} else if (titleValue === '') {
+				titleInput.classList.add('error');
+				errorMessageTitle.style.display = 'block';
+			} else {
+				errorMessageYear.style.display = 'none';
+				errorMessageTitle.style.display = 'none';
+
+				//경력 추가
+				const careerList = document.getElementById('careerList');
+				const newListItem = document.createElement('li');
+				
+				let representativeElement = '';
+				if (isRepresentative) {
+					representativeElement = '<span>대표 작품</span>';
+				}
+				newListItem.innerHTML = `
+					<div class="mb5">
+						<strong class="label mark">${yearValue}</strong>
+						${representativeElement}
+					</div>
+					<p class="subject">${mediaValue} ${titleValue} ${roleValue}</p>
+					<button type="button" class="btn_del">삭제</button>
+				`;
+
+				careerList.appendChild(newListItem);
+
+				//form초기화
+				document.querySelector('.btn_add').classList.remove('active');
+				document.querySelectorAll('.inp_txt').forEach(input => {
+					input.value = '';
+					if (input.classList.contains('error')) {
+						input.classList.remove('error');
+					}
+				});
+				document.querySelectorAll('.sel_box selet').forEach(select => {
+					//select초기화
+					select.selectedIndex = 0;
+					if (select.closest('.select-selected').contains('has_value')) {
+						select.classList.remove('has_value');
+					}
+					if (select.closest('.select-items').contains('same-as-selected')) {
+						select.classList.remove('same-as-selected');
+					} 
+				});
+				document.querySelectorAll('.btn_reset').forEach(btn => {
+					btn.style.display = 'none';
+				});
+				const btnNext = document.querySelector('#btnNext');
+				btnNext.classList.remove('unactive');
+				btnNext.classList.add('active');
+			}
+		});
+
+		//추가버튼 활성화
+		const inputs = document.querySelectorAll('.inp_txt');
+		function checkFormValidity() {
+			let allInputsValid = true;
+			inputs.forEach(input => {
+				const inpField = input.closest('.inp_field');
+				const isEssential = inpField.classList.contains('essential');
+				if (isEssential && input.value.trim() === '') {
+					allInputsValid = false;
+				}
+			});
+
+			return allInputsValid;
+		}
+		inputs.forEach(input => {
+			input.addEventListener('input', () => {
+				const btnAdd = document.querySelector('.btn_add');
+				if (checkFormValidity()) {
+					btnAdd.classList.add('active');
+				} else {
+					btnAdd.classList.remove('active');
+				}
+			});
+		});
+
+		//영상 리스트 삭제
+		document.querySelector('#careerList').addEventListener('click', (event) => {
+			deleteListItem();
+		});
+
+		//연도선택
+		document.getElementById('btnConfirm').addEventListener('click', () => {
+			const yearSelect = document.getElementById('ageYear');
+			const selectedYearRange = yearSelect.options[yearSelect.selectedIndex].text;
+			document.getElementById('year').value = selectedYearRange;
+			closePop('pop_year');
+		});
+	</script>
 </body>
 </html>

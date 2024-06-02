@@ -23,7 +23,6 @@
 				<a href="javascript://" class="btn_home">HOME</a>
 			</div>
 			<p class="page_name">새 프로필 만들기</p>
-			<a href="javascript://" class="btn_next">다음</a>
 		</header>
 		<nav class="page_nav">
 			<ul>
@@ -36,33 +35,121 @@
 		<div class="content">
 			<form autocomplete="off">
 				<div class="reg_form">
-					<div class="inp_field">
-						<label for="">영상 제목</label>
-						<div class="inp_box"><input type="text" id="" class="inp_txt" placeholder="영상 제목을 입력해 주세요."/><button type="button" class="btn_reset">X</button></div>
+					<div class="inp_field essential">
+						<label for="title">영상 제목</label>
+						<div class="inp_box"><input type="text" id="title" class="inp_txt" placeholder="영상 제목을 입력해 주세요."/><button type="button" class="btn_reset">X</button></div>
 						<span class="msg_error">필수 입력 사항입니다.</span>
 					</div>
 					<div class="inp_field">
-						<label for="">영상 URL</label>
-						<div class="inp_box"><input type="text" id="" class="inp_txt" placeholder="유튜브 영상 링크를 넣어 주세요."/><button type="button" class="btn_reset">X</button></div>
+						<label for="url">영상 URL</label>
+						<div class="inp_box"><input type="text" id="url" class="inp_txt" placeholder="유튜브 영상 링크를 넣어 주세요."/><button type="button" class="btn_reset">X</button></div>
 						<span class="msg_error">URL 형식이 아닙니다.</span>
 					</div>
 					<div class="inp_field">
 						<div class="video_box"><iframe width="" height="" src="https://www.youtube.com/embed/_FOm1HamXJ8" title="" frameborder="0" allow="" allowfullscreen></iframe></div>
 					</div>
 					<div class="btn_box"><button type="button" class="btn_add"><span>영상 링크 추가</span></button></div>
-					<ul class="list_type3">
-						<li>
+					<ul id="videoList" class="list_type3">
+						<!--<li>
 							<p class="subject">티빙 ‘유미의 세포들’ 연기 영상</p>
 							<button type="button" class="btn_del">삭제</button>
 						</li>
 						<li>
 							<p class="subject">한국인 참가자의 소극적인 모습에 기대감 1도 없던 심사위원과 관객들이 잠시 후 모두 경악</p>
 							<button type="button" class="btn_del">삭제</button>
-						</li>
+						</li>-->
 					</ul>
+					<a href="javascript://" id="btnNext" class="btn_basic mt40 unactive">다음</a>
 				</div>
 			</form>
 		</div>
 	</div><!-- //wrap -->
+
+	<script>
+	//추가
+	document.querySelector('.btn_add').addEventListener('click', () => {
+		const videoTitleInput = document.querySelector('#title');
+		const videoTitleValue = videoTitleInput.value.trim();
+		const videoUrlInput = document.querySelector('#url');
+		const videoUrlValue = videoUrlInput.value.trim();
+		const errorMessageTitle = videoTitleInput.closest('.inp_field').querySelector('.msg_error');
+		const errorMessageUrl = videoUrlInput.closest('.inp_field').parentElement.querySelector('.msg_error');
+
+		if (videoTitleValue === '') {
+			videoTitleInput.classList.add('error');
+			errorMessageTitle.style.display = 'block';
+		}/* else if (videoUrlValue === '') {
+			//errorMessageUrl.style.display = 'block';
+		} */else {
+			errorMessageTitle.style.display = 'none';
+			errorMessageUrl.style.display = 'none';
+
+			//영상 추가
+			//ul생성
+			/*let careerList = document.getElementById('videoList');
+			if (!careerList) {
+				careerList = document.createElement('ul');
+				careerList.id = 'videoList';
+				careerList.classList.add('list_type3');
+
+				const btnBox = document.querySelector('.btn_box');
+				btnBox.parentNode.insertBefore(careerList, btnBox.nextSibling);
+			}*/
+
+			//li생성
+			const careerList = document.getElementById('videoList');
+			const newListItem = document.createElement('li');
+			newListItem.innerHTML = `
+				<p class="subject">${videoTitleValue}</p>
+				<button type="button" class="btn_del">삭제</button>
+			`;
+			careerList.appendChild(newListItem);
+
+			//form초기화
+			document.querySelector('.btn_add').classList.remove('active');
+			document.querySelectorAll('.inp_txt').forEach(input => {
+				input.value = '';
+			});
+			document.querySelectorAll('.btn_reset').forEach(btn => {
+				btn.style.display = 'none';
+			});
+			const btnNext = document.querySelector('#btnNext');
+			btnNext.classList.remove('unactive');
+			btnNext.classList.add('active');
+		}
+	});
+
+	//추가버튼 활성화
+	const inputs = document.querySelectorAll('.inp_txt');
+	function checkFormValidity() {
+		let allInputsValid = true;
+		inputs.forEach(input => {
+			const inpField = input.closest('.inp_field');
+			const isEssential = inpField.classList.contains('essential');
+			if (isEssential && input.value.trim() === '') {
+				allInputsValid = false;
+			}
+		});
+
+		return allInputsValid;
+	}
+	inputs.forEach(input => {
+		input.addEventListener('input', () => {
+			const btnAdd = document.querySelector('.btn_add');
+			if (checkFormValidity()) {
+				btnAdd.classList.add('active');
+			} else {
+				btnAdd.classList.remove('active');
+			}
+		});
+	});
+
+	//영상 리스트 삭제
+	document.addEventListener('click', (event) => {
+		if (event.target.classList.contains('btn_del')) {
+			deleteListItem(event.target);
+		}
+	});
+	</script>
 </body>
 </html>

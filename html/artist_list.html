@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+	<meta charset="utf-8" />
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no"/>
+	<title>All CASTING</title>
+	<link rel="stylesheet" href="../static/css/NotoSansKR.css">
+	<link rel="stylesheet" href="../static/css/style.css">
+	<link rel="stylesheet" href="../static/css/swiper-bundle.min.css" />
+    <link rel="stylesheet" href="../static/css/flatpickr.min.css">
+	<script src="../static/js/swiper-bundle.min.js"></script>
+	<script src="https://cdn.jsdelivr.net/npm/flatpickr"></script>
+	<script src="https://npmcdn.com/flatpickr/dist/l10n/ko.js"></script>
+	<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+	<script src="../static/js/common.js"></script>
+</head>
+<body>
+	<div class="wrap">
+		<header class="header_type2">
+			<nav>
+				<ul>
+					<li class="active"><a href="javascript://" class="active">아티스트</a></li>
+					<li><a href="javascript://" class="">즐겨찾기</a></li>
+				</ul>
+			</nav>
+			<div class="drop_box">
+				<button type="button" class="selected">마감일순</button>
+				<ul>
+					<li><a href="javascript://">마감일순</a></li>
+					<li><a href="javascript://">업데이트순</a></li>
+				</ul>
+			</div>
+		</header>
+		<nav class="type_nav swiper_type_nav">
+			<ul class="swiper-wrapper">
+				<li class="swiper-slide active"><a href="javascript://">전체</a></li>
+				<li class="swiper-slide"><a href="javascript://">배우</a></li>
+				<li class="swiper-slide"><a href="javascript://">모델</a></li>
+			</ul>
+		</nav>
+		<div class="content has_gnb">
+			<div class="swiper profile_swiper full">
+				<div class="swiper-wrapper">
+					<div class="swiper-slide">
+						<a href="artist_view.html">
+							<div class="profile_thumb">
+								<img src="../static/images/profile_sample.jpg" alt="" />
+								<dl class="profile_info fixed">
+									<dt>이유비</dt>
+									<dd>25세~30세</dd>
+									<dd>여성</dd>
+								</dl>
+							</div>
+						</a>
+						<button type="button" class="btn_bookmark_white" onclick="toggleActiveClass(this)">bookmark</button>
+						<button type="button" class="btn_like" onclick="toggleActiveClass(this)"><span>100</span></button>
+					</div>
+					<div class="swiper-slide">
+						<a href="artist_view.html">
+							<div class="profile_thumb">
+								<img src="../static/images/profile_sample.jpg" alt="" />
+								<dl class="profile_info fixed">
+									<dt>이유비</dt>
+									<dd>25세~30세</dd>
+									<dd>여성</dd>
+								</dl>
+							</div>
+						</a>
+						<button type="button" class="btn_bookmark_white" onclick="toggleActiveClass(this)">bookmark</button>
+						<button type="button" class="btn_like" onclick="toggleActiveClass(this)"><span>100</span></button>
+					</div>
+					<div class="swiper-slide">
+						<a href="artist_view.html">
+							<div class="profile_thumb">
+								<img src="../static/images/profile_sample.jpg" alt="" />
+								<dl class="profile_info fixed">
+									<dt>이유비</dt>
+									<dd>25세~30세</dd>
+									<dd>여성</dd>
+								</dl>
+							</div>
+						</a>
+						<button type="button" class="btn_bookmark_white" onclick="toggleActiveClass(this)">bookmark</button>
+						<button type="button" class="btn_like" onclick="toggleActiveClass(this)"><span>100</span></button>
+					</div>
+					<div class="swiper-slide">
+						<a href="artist_view.html">
+							<div class="profile_thumb">
+								<img src="../static/images/profile_sample.jpg" alt="" />
+								<dl class="profile_info fixed">
+									<dt>이유비</dt>
+									<dd>25세~30세</dd>
+									<dd>여성</dd>
+								</dl>
+							</div>
+						</a>
+						<button type="button" class="btn_bookmark_white" onclick="toggleActiveClass(this)">bookmark</button>
+						<button type="button" class="btn_like" onclick="toggleActiveClass(this)"><span>100</span></button>
+					</div>
+					<div class="swiper-slide">
+						<a href="artist_view.html">
+							<div class="profile_thumb">
+								<img src="../static/images/profile_sample.jpg" alt="" />
+								<dl class="profile_info fixed">
+									<dt>이유비</dt>
+									<dd>25세~30세</dd>
+									<dd>여성</dd>
+								</dl>
+							</div>
+						</a>
+						<button type="button" class="btn_bookmark_white" onclick="toggleActiveClass(this)">bookmark</button>
+						<button type="button" class="btn_like" onclick="toggleActiveClass(this)"><span>100</span></button>
+					</div>
+				</div>
+			</div>
+		</div>
+		<nav class="gnb producer">
+			<ul>
+				<li><a href="javascript://">Home</a></li>
+				<li><a href="javascript://">프로젝트</a></li>
+				<li class="active"><a href="javascript://">아티스트</a></li>
+				<li><a href="javascript://">일정</a></li>
+				<li ><a href="javascript://">프로필</a></li>
+			</ul>
+		</nav>
+	</div><!-- //wrap -->
+	<script>
+	const profile_swiper = new Swiper(".profile_swiper", {
+		spaceBetween: 10,
+		slidesPerView: 1.2,
+		centeredSlides: true,
+	});
+
+	function toggleActiveClass(button) {
+        button.classList.toggle('active');
+    }
+	</script>
+</body>
+</html>
