@@ -189,7 +189,35 @@ document.addEventListener('DOMContentLoaded', () => {
             }
         });
     });
+
+    document.querySelectorAll('.pop_handle').forEach(handle => {
+        if (handle.nextElementSibling && handle.nextElementSibling.classList.contains('pop_head')) {
+            handle.classList.add('has_head');
+        }
+    });
 });
+
+//select init
+function resetSelectBox() {
+    const selectContainers = document.querySelectorAll('.sel_box');
+
+    selectContainers.forEach(selectContainer => {
+        const selectElmnt = selectContainer.querySelector('select');
+        const selectSelected = selectContainer.querySelector('.select-selected');
+        const selectItems = selectContainer.querySelector('.select-items');
+
+        selectElmnt.selectedIndex = 0;
+        selectSelected.classList.remove('has_value');
+        selectItems.classList.remove('same-as-selected');
+
+        const sameAsSelectedItems = selectItems.querySelectorAll('.same-as-selected');
+        sameAsSelectedItems.forEach(item => {
+            item.classList.remove('same-as-selected');
+        });
+
+        selectSelected.innerHTML = selectElmnt.options[selectElmnt.selectedIndex].innerHTML;
+    });
+}
 
 function openPop(popName) {
     document.querySelectorAll(`#${popName}`).forEach(pop => {

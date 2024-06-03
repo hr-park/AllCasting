@@ -178,15 +178,10 @@
 						input.classList.remove('error');
 					}
 				});
-				document.querySelectorAll('.sel_box selet').forEach(select => {
+
+				document.querySelectorAll('.sel_box').forEach(select => {
 					//select초기화
-					select.selectedIndex = 0;
-					if (select.closest('.select-selected').contains('has_value')) {
-						select.classList.remove('has_value');
-					}
-					if (select.closest('.select-items').contains('same-as-selected')) {
-						select.classList.remove('same-as-selected');
-					} 
+					resetSelectBox();
 				});
 				document.querySelectorAll('.btn_reset').forEach(btn => {
 					btn.style.display = 'none';
