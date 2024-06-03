@@ -19,15 +19,15 @@
 	<div class="wrap">
 		<!--<header class="header_type1">
 			<div>
-				<a href="javascript:history.go(-1)" class="btn_prev">이전</a>
-				<a href="javascript://" class="btn_home">HOME</a>
+				<button type="button" class="btn_prev" onclick="history.go(-1)">이전</button>
+				<button type="button" class="btn_home">HOME</button>
 			</div>
 			<p class="page_name">오디션 일정 선택하기</p>
 		</header>-->
 		<header class="header_type2">
 			<nav>
 				<ul>
-					<li class="active"><a href="javascript://" class="active">일정</a></li>
+					<li class="active"><button type="button" class="active">일정</button></li>
 				</ul>
 			</nav>
 		</header>
@@ -47,9 +47,9 @@
 						<button type="button" class="btn_drop_menu">메뉴열기</button>
 						<div class="drop_menu">
 							<ul>
-								<li><a href="javascript://">장소 확인</a></li>
-								<li><a href="javascript://" id="scheduleAdd">일정 추가 요청</a></li>
-								<li><a href="javascript://" id="applyCancle">지원 취소</a></li>
+								<li><button type="button">장소 확인</button></li>
+								<li><button type="button" id="scheduleAdd">일정 추가 요청</button></li>
+								<li><button type="button" id="applyCancle">지원 취소</button></li>
 							</ul>
 						</div>
 					</div>
@@ -63,9 +63,9 @@
 						<button type="button" class="btn_drop_menu">메뉴열기</button>
 						<div class="drop_menu">
 							<ul>
-								<li><a href="javascript://">장소 확인</a></li>
-								<li><a href="javascript://" id="scheduleAdd">일정 추가 요청</a></li>
-								<li><a href="javascript://" id="applyCancle">지원 취소</a></li>
+								<li><button type="button">장소 확인</button></li>
+								<li><button type="button" id="scheduleAdd">일정 추가 요청</button></li>
+								<li><button type="button" id="applyCancle">지원 취소</button></li>
 							</ul>
 						</div>
 					</div>
@@ -79,9 +79,9 @@
 						<button type="button" class="btn_drop_menu">메뉴열기</button>
 						<div class="drop_menu">
 							<ul>
-								<li><a href="javascript://">장소 확인</a></li>
-								<li><a href="javascript://" id="scheduleAdd">일정 추가 요청</a></li>
-								<li><a href="javascript://" id="applyCancle">지원 취소</a></li>
+								<li><button type="button">장소 확인</button></li>
+								<li><button type="button" id="scheduleAdd">일정 추가 요청</button></li>
+								<li><button type="button" id="applyCancle">지원 취소</button></li>
 							</ul>
 						</div>
 					</div>
@@ -96,9 +96,9 @@
 						<button type="button" class="btn_drop_menu">메뉴열기</button>
 						<div class="drop_menu">
 							<ul>
-								<li><a href="javascript://">장소 확인</a></li>
-								<li><a href="javascript://" id="scheduleAdd">일정 추가 요청</a></li>
-								<li><a href="javascript://" id="applyCancle">지원 취소</a></li>
+								<li><button type="button">장소 확인</button></li>
+								<li><button type="button" id="scheduleAdd">일정 추가 요청</button></li>
+								<li><button type="button" id="applyCancle">지원 취소</button></li>
 							</ul>
 						</div>
 					</div>
@@ -107,11 +107,11 @@
 		</div>
 		<nav class="gnb artist">
 			<ul>
-				<li><a href="javascript://">Home</a></li>
-				<li><a href="castingcall_list.html">모집공고</a></li>
-				<li><a href="apply_list.html">지원현황</a></li>
-				<li class="active"><a href="schedule_list.html">일정</a></li>
-				<li><a href="my_profile_list.html">프로필</a></li>
+				<li><button type="button">Home</button></li>
+				<li><button type="button" onclick="location.href='castingcall_list.html'">모집공고</button></li>
+				<li><button type="button" onclick="location.href='apply_list.html'">지원현황</button></li>
+				<li class="active"><button type="button" onclick="location.href='schedule_list.htm'">일정</button></li>
+				<li><button type="button" onclick="location.href='my_profile_list.html'">프로필</button></li>
 			</ul>
 		</nav>
 	</div><!-- //wrap -->

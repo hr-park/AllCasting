@@ -49,9 +49,9 @@
 				<h1>List</h1>
 				<h2>list_type1</h2>
 				<ul class="list_type1">
-					<li class="active"><a href="javascript://">국내 전체</a></li>
-					<li><a href="javascript://">서울</a></li>
-					<li><a href="javascript://">서울</a></li>
+					<li class="active"><button type="button">국내 전체</button></li>
+					<li><button type="button">서울</button></li>
+					<li><button type="button">서울</button></li>
 				</ul>
 				<h2>list_type2</h2>
 				<ul class="list_type2">
@@ -79,17 +79,17 @@
 			<div class="box">
 				<h1>Button</h1>
 				<h2>btn_txt</h2>
-				<a href="javascript://" class="btn_txt">default</a>
-				<a href="javascript://" class="btn_txt active">active</a>
+				<button type="button" class="btn_txt">default</button>
+				<button type="button" class="btn_txt active">active</button>
 				<h2>btn_basic</h2>
-				<a href="javascript://" class="btn_basic">default</a>
-				<a href="javascript://" class="btn_basic unactive">unactive</a>
-				<a href="javascript://" class="btn_basic active">active</a>
+				<button type="button" class="btn_basic">default</button>
+				<button type="button" class="btn_basic unactive">unactive</button>
+				<button type="button" class="btn_basic active">active</button>
 				<h2>btn_add</h2>
 				<button type="button" class="btn_add"><span>btn_add</span></button>
 				<button type="button" class="btn_add active"><span>btn_add active</span></button>
 				<h2>btn_line</h2>
-				<a href="javascript://" class="btn_line">default</a>
+				<button type="button" class="btn_line">default</button>
 			</div>
 			<div class="box">
 				<h1>TEST</h1>
@@ -119,12 +119,12 @@
 					};
 				</script>
 				<h2>common</h2>
-				<a href="javascript:openPop('pop_age')" class="btn_pop_open">default</a>
+				<button type="button" class="btn_pop_open" onclick="openPop('pop_age')">default</button>
 				<div id="pop_age" class="dim_layer">  
 					<div class="dim"></div>
 					<div class="pop_wrap"> 
 						<!--<div class="pop_head">
-							<a href="javascript://" class="btn_txt btn_pop_close">확인</a>
+							<button type="button" class="btn_txt btn_pop_close">확인</button>
 						</div>-->
 						<div class="pop_handle" onclick="closePop('pop_age')"></div>
 						<div class="pop_cont">
@@ -133,19 +133,19 @@
 					</div>
 				</div>
 				<h2>full</h2>
-				<a href="javascript:openPop('pop_su')" class="btn_pop_open">full</a>
+				<button type="button" class="btn_pop_open" onclick="openPop('pop_su')">full</button>
 				<div id="pop_su" class="dim_layer full">
 					<div class="dim"></div>
 					<div class="pop_wrap">
 						<div class="pop_head">
-							<a href="javascript://" class="btn_txt btn_pop_close">확인</a>
+							<button type="button" class="btn_txt btn_pop_close">확인</button>
 						</div>
 						<div class="pop_handle" onclick="closePop('pop_su')"></div>
 						<div class="pop_cont">
 							<ul class="list_type1">
-								<li><a href="javascript://">국내 전체</a></li>
-								<li><a href="javascript://">서울</a></li>
-								<li><a href="javascript://">서울</a></li>
+								<li><button type="button">국내 전체</button></li>
+								<li><button type="button">서울</button></li>
+								<li><button type="button">서울</button></li>
 							</ul>
 						</div>
 					</div>

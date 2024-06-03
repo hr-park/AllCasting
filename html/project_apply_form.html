@@ -19,10 +19,10 @@
 	<div class="wrap">
 		<header class="header_type1">
 			<div>
-				<a href="javascript://" id="btnPrev" class="btn_prev">이전</a>
+				<button type="button" id="btnPrev" class="btn_prev">이전</button>
 			</div>
 			<p class="page_name">오디션 일정 제안하기</p>
-			<a href="javascript://" class="btn_next">완료</a>
+			<button type="button" class="btn_next">완료</button>
 		</header>
 		<div class="content">
 			<form autocomplete="off">
@@ -89,7 +89,7 @@
 							<button type="button" class="btn_del">삭제</button>
 						</li>
 					</ul>
-					<a href="javascript://" id="btnNext" class="btn_basic mt40 unactive">완료</a>
+					<button type="button" id="btnNext" class="btn_basic mt40 unactive">완료</button>
 				</div>
 			</form>
 		</div>
@@ -113,10 +113,10 @@
 
 							<!-- tuning-location-2 -->
 							<div class="addr_list" id="addrList">
-								<!-- <a href="#" onclick="showAddrDetail(this)">
+								<!-- <div onclick="showAddrDetail(this)">
 									<span class="label">에프티엔티</span>
 									<div class="txt">서울 서초구 서초대로 40길 96</div>
-								</a> -->
+								</div> -->
 							</div>
 						</div>
 
@@ -133,7 +133,7 @@
 							</div>
 
 							<div class="fix_bottom">
-								<a href="javascript:submitTuningLocation()" class="btn_line">장소입력완료</a>
+								<button type="button" onclick="submitTuningLocation()" class="btn_line">장소입력완료</button>
 							</div>
 						</div>
 					</div>
@@ -147,7 +147,7 @@
 			<div class="dim"></div>
 			<div class="pop_wrap">
 				<div class="pop_handle" onclick="closePop('pop_time')"></div>
-				<div class="pop_head"><a href="javascript:void(0);" id="" class="btn_txt txt_point_green">저장</a></div>
+				<div class="pop_head"><button type="button" class="btn_txt txt_point_green">저장</button></div>
 				<div class="pop_cont">
 					<input id="fpTimePicker" class="time_selector" placeholder="9:00" />
 				</div>
@@ -160,7 +160,7 @@
 			<div class="dim"></div>
 			<div class="pop_wrap">
 				<div class="pop_handle" onclick="closePop('pop_calendar')"></div>
-				<div class="pop_head"><a href="javascript:void(0);" id="" class="btn_txt txt_point_green">저장</a></div>
+				<div class="pop_head"><button type="button" class="btn_txt txt_point_green">저장</button></div>
 				<div class="pop_cont">
 					<input id="fpCalendar" class="" placeholder="" style="display:none" />
 				</div>
@@ -192,10 +192,10 @@
 
             for (let i = 0; i < locations.length; i++) {
                 htmlContent += `
-					<a href="#" onclick="showAddrDetail(this)">
+					<div onclick="showAddrDetail(this)">
 						<span class="label">${locations[i].location_name}</span>
 						<div class="txt">${locations[i].location_addr}</div>
-					</a>
+					</div>
                 `;
             }
             container.innerHTML = htmlContent;

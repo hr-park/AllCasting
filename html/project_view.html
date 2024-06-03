@@ -18,13 +18,13 @@
 <body>
 	<div class="wrap">
 		<header class="header_type1 pos_abs">
-			<a href="javascript:history.go(-1)" class="btn_prev">이전</a>
+			<button type="button" class="btn_prev" onclick="history.go(-1)">이전</button>
 			<button type="button" class="btn_drop_menu white mr10">메뉴열기</button>
 			<div class="drop_menu">
 				<ul>
-					<li><a href="javascript://">편집하기</a></li>
-					<li><a href="javascript://" id="applyClose">모집마감</a></li>
-					<li><a href="javascript://" id="projectDelete">프로젝트 삭제</a></li>
+					<li><button type="button">편집하기</button></li>
+					<li><button type="button" id="applyClose">모집마감</button></li>
+					<li><button type="button" id="projectDelete">프로젝트 삭제</button></li>
 				</ul>
 			</div>
 		</header>
@@ -67,7 +67,7 @@
 								</div>
 								<p class="txt_light_gr">조각상 콘셉트로 전신에 바디페인팅을 한 뒤 촬영합니다. 최소한의 속옷을 착용하고 작업합니다. 키 175cm 이상의 피트니스 모델 체형이 좋습니다.</p>
 								<p class="ft_size_14">#누드모델 #수영</p>
-								<a href="javascript://" class="btn_basic mt_auto unactive">모집 시작 전입니다</a>
+								<button type="button" class="btn_basic mt_auto unactive">모집 시작 전입니다</button>
 							</div>
 						</li>
 						<li class="swiper-slide item">
@@ -82,7 +82,7 @@
 									<strong class="tit">지원자</strong>
 									<p class="desc"><strong>1,400명</strong><span class="in_block ml10 ft_color_org">700 : 1</span></p>
 								</div>
-								<a href="javascript://" class="btn_basic mt_auto unactive">아직 모집 중입니다</a>
+								<button type="button" class="btn_basic mt_auto unactive">아직 모집 중입니다</button>
 							</div>
 						</li>
 						<li class="swiper-slide item">
@@ -97,7 +97,7 @@
 									<strong class="tit">지원자</strong>
 									<p class="desc"><strong>1,400명</strong><span class="in_block ml10 ft_color_org">700 : 1</span></p>
 								</div>
-								<a href="javascript:openPop('')" class="btn_basic mt_auto active">심사하기</a>
+								<button type="button" class="btn_basic mt_auto active" onclick="openPop('')">심사하기</button>
 							</div>
 						</li>
 						<li class="swiper-slide item">
@@ -112,7 +112,7 @@
 									<strong class="tit">지원자</strong>
 									<p class="desc"><strong>1,400명</strong><span class="in_block ml10 ft_color_org">700 : 1</span></p>
 								</div>
-								<a href="javascript:openPop('')" class="btn_line mt_auto active">확인하기</a>
+								<button type="button" class="btn_line mt_auto active" onclick="openPop('')">확인하기</button>
 							</div>
 						</li>
 					</ul>
@@ -155,11 +155,11 @@
 		</div>
 		<nav class="gnb producer">
 			<ul>
-				<li><a href="javascript://">Home</a></li>
-				<li class="active"><a href="project_list.html">프로젝트</a></li>
-				<li><a href="javascript://">아티스트</a></li>
-				<li><a href="producer_schedule_list.html">일정</a></li>
-				<li><a href="producer_profile1.html">프로필</a></li>
+				<li><button type="button">Home</button></li>
+				<li class="active"><button type="button" onclick="location.href='project_list.html'">프로젝트</button></li>
+				<li><button type="button" onclick="location.href='artist_list.html'">아티스트</button></li>
+				<li><button type="button" onclick="location.href='producer_schedule_list'">일정</button></li>
+				<li><button type="button" onclick="location.href='producer_profile1'">프로필</button></li>
 			</ul>
 		</nav>
 	</div><!-- //wrap -->

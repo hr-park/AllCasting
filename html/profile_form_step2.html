@@ -19,17 +19,17 @@
 	<div class="wrap">
 		<header class="header_type1">
 			<div>
-				<a href="javascript:history.go(-1)" class="btn_prev">이전</a>
-				<a href="javascript://" class="btn_home">HOME</a>
+				<button type="button" class="btn_prev" onclick="history.go(-1)">이전</button>
+				<button type="button" class="btn_home">HOME</button>
 			</div>
 			<p class="page_name">새 프로필 만들기</p>
 		</header>
 		<nav class="page_nav">
 			<ul>
-				<li class="completed"><a href="profile_form_step1.html">기본 정보</a></li>
-				<li class="active"><a href="profile_form_step2.html">사진</a></li>
-				<li><a href="profile_form_step3.html">경력</a></li>
-				<li><a href="profile_form_step4.html">영상</a></li>
+				<li class="completed"><button type="button" onclick="location.href='profile_form_step1.html'">기본 정보</button></li>
+				<li class="active"><button type="button" onclick="location.href='profile_form_step2.html'">사진</button></li>
+				<li><button type="button" onclick="location.href='profile_form_step3.html'">경력</button></li>
+				<li><button type="button" onclick="location.href='profile_form_step4.html'">영상</button></li>
 			</ul>
 		</nav>
 		<div class="content">

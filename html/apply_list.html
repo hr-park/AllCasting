@@ -20,15 +20,15 @@
 		<header class="header_type2">
 			<nav>
 				<ul>
-					<li class="active"><a href="javascript://" class="active">지원현황</a></li>
+					<li class="active"><button type="button" class="active">지원현황</button></li>
 				</ul>
 			</nav>
 		</header>
 		<nav class="type_nav">
 			<ul class="swiper-wrapper">
-				<li class="swiper-slide active"><a href="javascript://">전체</a></li>
-				<li class="swiper-slide"><a href="javascript://">배우</a></li>
-				<li class="swiper-slide"><a href="javascript://">모델</a></li>
+				<li class="swiper-slide active"><button type="button">전체</button></li>
+				<li class="swiper-slide"><button type="button">배우</button></li>
+				<li class="swiper-slide"><button type="button">모델</button></li>
 			</ul>
 		</nav>
 		<div class="content has_gnb">
@@ -40,8 +40,8 @@
 			<div class="bg_cont_gray">
 				<ul class="card_list">
 					<!-- -->
-					<li class="item active">
-						<a href="apply_view.html">
+					<li class="item active" onclick="location.href='apply_view.html'">
+						<div >
 							<div class="top">
 								<p class="subject">전쟁을 소재로 한 가족영화 </p>
 								<ul class="sub_dot_list">
@@ -66,48 +66,46 @@
 									<div class="tit">결과발표</div>
 								</li>
 							</ol>
-						</a>
-						<a href="schedule_choice.html" class="btn_basic active" target="_blank">오디션 일정 선택하기</a>
+						</button>
+						<button type="button" class="btn_basic active" onclick="location.href='schedule_choice.html'">오디션 일정 선택하기</button>
 					</li>
 					<!--// -->
-					<li class="item">
-						<a href="apply_view.html">
-							<div class="top">
-								<p class="subject">전쟁을 소재로 한 가족영화 </p>
-								<ul class="sub_dot_list">
-									<li>CJ Entertainment</li>
-									<li>단편영화</li>
-									<li>학생작품</li>
-								</ul>
-								<strong class="txt_num mt10">5,514 : <em class="ft_color_red">1</em></strong>
-							</div>
-							<div class="detail_row">
-								<strong class="tit">단역</strong>
-								<p class="desc">남성, 45세, 고루한 아버지 역남성</p>
-							</div>
-							<ol class="step_bar">
-								<li class="step_item completed">
-									<div class="tit">심사 대기</div>
-								</li>
-								<li class="step_item completed">
-									<div class="tit">심사 시작</div>
-								</li>
-								<li class="step_item fail">
-									<div class="tit">불합격</div>
-								</li>
-							</ol>
-						</a>
+					<li class="item" onclick="location.href='apply_view.html'">
+						<div class="top">
+							<p class="subject">전쟁을 소재로 한 가족영화 </p>
+							<ul class="sub_dot_list">
+								<li>CJ Entertainment</li>
+								<li>단편영화</li>
+								<li>학생작품</li>
+							</ul>
+							<strong class="txt_num mt10">5,514 : <em class="ft_color_red">1</em></strong>
+						</div>
+						<div class="detail_row">
+							<strong class="tit">단역</strong>
+							<p class="desc">남성, 45세, 고루한 아버지 역남성</p>
+						</div>
+						<ol class="step_bar">
+							<li class="step_item completed">
+								<div class="tit">심사 대기</div>
+							</li>
+							<li class="step_item completed">
+								<div class="tit">심사 시작</div>
+							</li>
+							<li class="step_item fail">
+								<div class="tit">불합격</div>
+							</li>
+						</ol>
 					</li>
 				</ul>
 			</div>
 		</div>
 		<nav class="gnb artist">
 			<ul>
-				<li><a href="javascript://">Home</a></li>
-				<li><a href="castingcall_list.html">모집공고</a></li>
-				<li class="active"><a href="apply_list.html">지원현황</a></li>
-				<li><a href="schedule_list.html">일정</a></li>
-				<li><a href="my_profile_list.html">프로필</a></li>
+				<li><button type="button">Home</button></li>
+				<li><button type="button" onclick="location.href='castingcall_list.html'">모집공고</button></li>
+				<li class="active"><button type="button" onclick="location.href='apply_list.html'">지원현황</button></li>
+				<li><button type="button" onclick="location.href='schedule_list.htm'">일정</button></li>
+				<li><button type="button" onclick="location.href='my_profile_list.html'">프로필</button></li>
 			</ul>
 		</nav>
 	</div><!-- //wrap -->

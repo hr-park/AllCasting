@@ -20,21 +20,21 @@
 		<header class="header_type2">
 			<nav>
 				<ul>
-					<li class="active"><a href="javascript://" class="active">나의 프로필</a></li>
+					<li class="active"><button type="button" class="active">나의 프로필</button></li>
 				</ul>
 			</nav>
 			<div>
-				<a href="javascript://" class="btn_profile_change">나의 프로필 변경</a>
-				<a href="javascript://" class="btn_profile_setting">나의 프로필 설정</a>
+				<button type="button" class="btn_profile_change">나의 프로필 변경</button>
+				<button type="button" class="btn_profile_setting">나의 프로필 설정</button>
 			</div>
 		</header>
 		<div class="content has_gnb">
 			<nav class="page_nav">
 				<ul>
-					<li class="active"><a href="producer_profile1.html">기본 정보</a></li>
-					<li><a href="producer_profile2.html">모집공고</a></li>
-					<!--<li><a href="producer_profile3.html">아티스트</a></li>
-					<li><a href="producer_profile4.html">최신이슈</a></li>--> <!-- 1차개발에서 제외 -->
+					<li class="active"><button type="button" onclick="location.href='producer_profile1.html'">기본 정보</button></li>
+					<li><button type="button" onclick="location.href='producer_profile2.html'">모집공고</button></li>
+					<!--<li><button type="button" onclick="location.href='producer_profile3.html'">아티스트</button></li>
+					<li><button type="button" onclick="location.href='producer_profile4.html'">최신이슈</button></li>--> <!-- 1차개발에서 제외 -->
 				</ul>
 			</nav>
 			<div class="cont_pd">
@@ -44,7 +44,7 @@
 				</div>
 				<div class="detail_row">
 					<strong class="tit min">홈페이지</strong>
-					<p class="desc"><a href="https://www.naver.com" target="_blank">www.naver.com</a></p>
+					<p class="desc"><button type="button" onclick="window.open('https://www.naver.com')">www.naver.com</button></p>
 				</div>
 				<div class="mt25">
 					<div class="detail_row column">
@@ -64,16 +64,16 @@
 						<p class="desc">서울시 서초구 123-45 </p>
 					</div>
 				</div>
-				<a href="javascript://" class="btn_line mt25">지도보기</a>
+				<button type="button" class="btn_line mt25">지도보기</button>
 			</div>
 		</div>
 		<nav class="gnb producer">
 			<ul>
-				<li><a href="javascript://">Home</a></li>
-				<li><a href="project_list.html">프로젝트</a></li>
-				<li><a href="javascript://">아티스트</a></li>
-				<li><a href="producer_schedule_list.html">일정</a></li>
-				<li class="active"><a href="producer_profile1.html">프로필</a></li>
+				<li><button type="button">Home</button></li>
+				<li><button type="button" onclick="location.href='project_list.html'">프로젝트</button></li>
+				<li><button type="button" onclick="location.href='artist_list.html'">아티스트</button></li>
+				<li><button type="button" onclick="location.href='producer_schedule_list'">일정</button></li>
+				<li class="active"><button type="button" onclick="location.href='producer_profile1'">프로필</button></li>
 			</ul>
 		</nav>
 	</div><!-- //wrap -->

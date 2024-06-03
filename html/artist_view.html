@@ -18,7 +18,7 @@
 <body>
 	<div class="wrap">
 		<header class="header_type3">
-			<a href="javascript:history.go(-1)" class="btn_prev" style="top:20px">이전</a>
+            <button type="button" class="btn_prev" onclick="history.go(-1)" style="top:20px">이전</button>
             <button type="button" class="btn_bookmark_white active" onclick="toggleActiveClass(this)">bookmark</button>
 		</header>
 		<div class="content">
@@ -39,7 +39,7 @@
 					</div>
 				</div>
 				<div class="swiper-scrollbar"></div>
-				<a href="javascript:openPop('pop_profile');" class="btn_detail">상세보기</a>
+				<button type="button" class="btn_detail" onclick="openPop('pop_profile');">상세보기</button>
 			</div>
 			<dl class="profile_info fixed">
 				<dt>이유비</dt>
@@ -56,7 +56,7 @@
             <div class="pop_wrap">
                 <div class="pop_handle" onclick="closePop('pop_profile')"></div>
                 <div class="btn_area">
-                    <a href="javascript:openPop('pop_report')" class="btn_report">신고</a>
+                    <button type="button" class="btn_report" onclick="openPop('pop_report')">신고</button>
                 </div>
                 <div class="pop_cont type2">
                     <p class="profile_name">이유비</p>
@@ -198,9 +198,8 @@
                     </div>
                     <!-- 업데이트 내역 -->
                     <div class="profile_update">최근 업데이트 : 2022년 6월 23일</div>
-                    <a href="javascript://" id="btnOffer" class="btn_basic active mt40">역할 제안하기</a>
+                    <button type="button" id="btnOffer" class="btn_basic active mt40">역할 제안하기</button>
                 </div>
-                <!--<a href="javascript:closePop('pop_profile');" class="btn_pop_close">팝업닫기</a>-->
             </div>
         </div>
 
@@ -210,7 +209,7 @@
 			<div class="pop_wrap">
 				<div class="pop_handle" onclick="closePop('pop_report')"></div>
 				<div class="pop_cont">
-					<p>신고 사유를 알려주세요. 운영진이 검토한 뒤 조치를 취하겠습니다. 콜타임의 <a href="javascript://"><u class="txt_point_green">개인정보 보호방침,</u></a> <a href="javascript://"><u class="txt_point_green">이용자 약관</u></a> 및 현행법을 위반한 행위는 제재 대상이 됩니다.</p>
+					<p>신고 사유를 알려주세요. 운영진이 검토한 뒤 조치를 취하겠습니다. 콜타임의 <u class="txt_point_green">개인정보 보호방침,</u><u class="txt_point_green">이용자 약관</u> 및 현행법을 위반한 행위는 제재 대상이 됩니다.</p>
 					<div class="sel_box mt25">
 						<select name="" id="">
 							<option>신고 사유 선택</option>
@@ -219,7 +218,7 @@
 							<option>신고 사유3</option>
 						</select>
 					</div>
-					<a href="javascript://" class="btn_basic active mt50">사용자 신고하기</a>
+					<button type="button" class="btn_basic active mt50">사용자 신고하기</button>
 				</div>
 			</div>
 		</div>
@@ -246,7 +245,7 @@
                             <option>고루한 아버지 역</option>
 						</select>
 					</div>
-					<a href="javascript://" id="btnOfferNotice" class="btn_basic active mt50">역할 제안 알림 보내기</a>
+					<button type="button" id="btnOfferNotice" class="btn_basic active mt50">역할 제안 알림 보내기</button>
 				</div>
 			</div>
 		</div>

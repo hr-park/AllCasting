@@ -18,12 +18,12 @@
 <body>
 	<div class="wrap">
 		<header class="header_type3">
-			<a href="javascript:history.go(-1)" class="btn_prev">이전</a>
+			<button type="button" class="btn_prev" onclick="history.go(-1)">이전</button>
 			<button type="button" class="btn_drop_menu">메뉴열기</button>
 			<div class="drop_menu">
 				<ul>
-					<li><a href="javascript://">편집</a></li>
-					<li><a href="javascript://">프로필 삭제</a></li>
+					<li><button type="button">편집</button></li>
+					<li><button type="button">프로필 삭제</button></li>
 				</ul>
 			</div>
 			<button type="button" class="btn_sharing">공유하기</button>
@@ -46,7 +46,7 @@
 					</div>
 				</div>
 				<div class="swiper-scrollbar"></div>
-				<a href="javascript:openPop('pop_profile');" class="btn_detail">상세보기</a>
+				<button type="button" class="btn_detail" onclick="openPop('pop_profile')">상세보기</button>
 			</div>
 			<dl class="profile_info fixed">
 				<dt>이유비</dt>
@@ -66,8 +66,8 @@
                     <button type="button" class="btn_drop_menu">메뉴열기</button>
                     <div class="drop_menu">
                         <ul>
-                            <li><a href="javascript://">편집</a></li>
-                            <li><a href="javascript://">프로필 삭제</a></li>
+                            <li><button type="button">편집</button></li>
+                            <li><button type="button">프로필 삭제</button></li>
                         </ul>
                     </div>
                     <button type="button" class="btn_sharing">공유하기</button>
@@ -235,7 +235,6 @@
                     <!-- 업데이트 내역 -->
                     <div class="profile_update">최근 업데이트 : 2022년 6월 23일</div>
                 </div>
-                <!--<a href="javascript:closePop('pop_profile');" class="btn_pop_close">팝업닫기</a>-->
             </div>
         </div>
 	</div><!-- //wrap -->
