@@ -150,27 +150,14 @@ header.pos_abs + .content{min-height:calc(100% - 75px)}
 .gnb.artist ul li.active:nth-child(5) button:before{background-position:-100px -25px}
 .gnb.producer ul li button:before{background:url('../images/ico/ico_gnb_producer.svg') no-repeat}
 .gnb.producer ul li:first-child button:before{background-position:0 0}
-.gnb.producer ul li:nth-child(2) button:before{background-position:-25px 0}
-.gnb.producer ul li:nth-child(3) button:before{background-position:-50px 0}
-.gnb.producer ul li:nth-child(4) button:before{background-position:-75px 0}
+.gnb.producer ul li:nth-child(2) button:before{background-position:-26px 0}
+.gnb.producer ul li:nth-child(3) button:before{background-position:-51px 0}
+.gnb.producer ul li:nth-child(4) button:before{background-position:-76px 0}
 .gnb.producer ul li:nth-child(5) button:before{background-position:-100px 0}
 .gnb.producer ul li.active:first-child button:before{background-position:0 -25px}
 .gnb.producer ul li.active:nth-child(2) button:before{background-position:-25px -25px}
-.gnb.producer ul li.active:nth-child(3) button:before{background-position:-50px -25px}
-.gnb.producer ul li.active:nth-child(4) button:before{background-position:-75px -25px}
-.gnb.producer ul li.active:nth-child(5) button:before{background-position:-100px -25px}
-
-
-.gnb.producer ul li button:before{background:url('../images/ico/ico_gnb_producer.svg') no-repeat}
-.gnb.producer ul li:first-child button:before{background-position:0 0}
-.gnb.producer ul li:nth-child(2) button:before{background-position:-25px 0}
-.gnb.producer ul li:nth-child(3) button:before{background-position:-50px 0}
-.gnb.producer ul li:nth-child(4) button:before{background-position:-75px 0}
-.gnb.producer ul li:nth-child(5) button:before{background-position:-100px 0}
-.gnb.producer ul li.active:first-child button:before{background-position:0 -25px}
-.gnb.producer ul li.active:nth-child(2) button:before{background-position:-25px -25px}
-.gnb.producer ul li.active:nth-child(3) button:before{background-position:-50px -25px}
-.gnb.producer ul li.active:nth-child(4) button:before{background-position:-75px -25px}
+.gnb.producer ul li.active:nth-child(3) button:before{background-position:-51px -25px}
+.gnb.producer ul li.active:nth-child(4) button:before{background-position:-76px -25px}
 .gnb.producer ul li.active:nth-child(5) button:before{background-position:-100px -25px}
 
 .in_block{display:inline-block;}
@@ -536,13 +523,13 @@ ul.list_type3 li .btn_del{position:absolute;right:10px;top:16px;display:inline-b
 .login_wrap .type_list li{flex:1;}
 .login_wrap .type_list li:first-child label{background:#fff url('../images/ico/ico_cast.svg') no-repeat 50% 20px}
 .login_wrap .type_list li:nth-child(2) label{background:#fff url('../images/ico/ico_perform.svg') no-repeat 50% 20px}
-.login_wrap .btn_box a{position:relative;display:flex;height:56px;padding:0 14px;border-radius:4px;color:#222;font-size:16px;justify-content:center;align-items:center;}
-.login_wrap .btn_box a + a{margin-top:8px}
-.login_wrap .btn_box a.btn_kakao{background:#FEE500}
-.login_wrap .btn_box a.btn_google{background:#222;color:#fff}
+.login_wrap .btn_box button{position:relative;display:flex;width:100%;height:56px;padding:0 14px;border-radius:4px;color:#222;font-size:16px;justify-content:center;align-items:center;}
+.login_wrap .btn_box button + button{margin-top:8px}
+.login_wrap .btn_box .btn_kakao{background:#FEE500}
+.login_wrap .btn_box .btn_google{background:#222;color:#fff}
 .login_wrap .btn_box button:before{content:'';position:absolute;left:14px;top:50%;display:inline-block;width:24px;height:24px;margin-top:-12px;vertical-align:middle;}
-.login_wrap .btn_box a.btn_kakao:before{background:url('../images/ico/ico_kakao.svg') no-repeat 50% 50%}
-.login_wrap .btn_box a.btn_google:before{background:url('../images/ico/ico_google.svg') no-repeat 50% 50%}
+.login_wrap .btn_box .btn_kakao:before{background:url('../images/ico/ico_kakao.svg') no-repeat 50% 50%}
+.login_wrap .btn_box .btn_google:before{background:url('../images/ico/ico_google.svg') no-repeat 50% 50%}
 .login_wrap .txt_agree{margin-top:20px;text-align:center;font-size:11px;letter-spacing:-.03em;line-height:1.45}
 .login_wrap .txt_agree > span{text-decoration:underline;}
 
