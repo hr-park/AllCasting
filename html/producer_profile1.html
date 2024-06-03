@@ -29,7 +29,7 @@
 			</div>
 		</header>
 		<div class="content has_gnb">
-			<nav class="page_nav">
+			<nav class="type_nav">
 				<ul>
 					<li class="active"><button type="button" onclick="location.href='producer_profile1.html'">기본 정보</button></li>
 					<li><button type="button" onclick="location.href='producer_profile2.html'">모집공고</button></li>
@@ -38,7 +38,8 @@
 				</ul>
 			</nav>
 			<div class="cont_pd">
-				<div class="detail_row">
+				<div class="flex justify_end"><button type="button" class="btn_modify" onclick="location.href='producer_profile1_form.html'">프로필 수정</button></div>
+				<div class="detail_row mt25">
 					<strong class="tit min">이메일</strong>
 					<p class="desc">abcd123@naver.com</p>
 				</div>
@@ -49,13 +50,35 @@
 				<div class="mt25">
 					<div class="detail_row column">
 						<strong class="tit">기업소개</strong>
-						<p class="desc">기업을 소개하는 문구입니다. 기업을 소개하는 문구입니다. 기업을 소개하는 문구입니다. </p>
+						<dl class="desc_list">
+							<dt>올 캐스팅</dt>
+							<dd>기업을 소개하는 문구입니다. 기업을 소개하는 문구입니다. 기업을 소개하는 문구입니다.</dd>
+						</dl>
 					</div>
 				</div>	
 				<div class="mt25">
 					<div class="detail_row column">
 						<strong class="tit">연혁</strong>
-						<p class="desc"></p>
+						<dl class="desc_list">
+							<dt>2022</dt>
+							<dd>연혁 문구입니다.<br>연혁 문구입니다.<br>연혁 문구입니다.<br></dd>
+						</dl>
+						<dl class="desc_list">
+							<dt>2024</dt>
+							<dd>연혁 문구입니다.<br>연혁 문구입니다.<br>연혁 문구입니다.<br></dd>
+						</dl>
+						<!--<dl class="desc_list dot_type">
+							<dt>2022</dt>
+							<dd>연혁 문구입니다.</dd>
+							<dd>연혁 문구입니다.</dd>
+							<dd>연혁 문구입니다.</dd>
+						</dl>
+						<dl class="desc_list dot_type">
+							<dt>2024</dt>
+							<dd>연혁 문구입니다.</dd>
+							<dd>연혁 문구입니다.</dd>
+							<dd>연혁 문구입니다.</dd>
+						</dl>-->
 					</div>
 				</div>
 				<div class="mt25">
@@ -64,7 +87,6 @@
 						<p class="desc">서울시 서초구 123-45 </p>
 					</div>
 				</div>
-				<button type="button" class="btn_line mt25">지도보기</button>
 			</div>
 		</div>
 		<nav class="gnb producer">

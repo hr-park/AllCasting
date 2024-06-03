@@ -1,0 +1,386 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+	<meta charset="utf-8" />
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no"/>
+	<title>All CASTING</title>
+	<link rel="stylesheet" href="../static/css/NotoSansKR.css">
+	<link rel="stylesheet" href="../static/css/style.css">
+	<link rel="stylesheet" href="../static/css/swiper-bundle.min.css" />
+    <link rel="stylesheet" href="../static/css/flatpickr.min.css">
+	<script src="../static/js/swiper-bundle.min.js"></script>
+	<script src="https://cdn.jsdelivr.net/npm/flatpickr"></script>
+	<script src="https://npmcdn.com/flatpickr/dist/l10n/ko.js"></script>
+	<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+	<script src="../static/js/common.js"></script>
+</head>
+<body>
+	<div class="wrap">
+		<header class="header_type1">
+			<div>
+				<button type="button" id="btnPrev" class="btn_prev">이전</button>
+				<button type="button" id="btnHome" class="btn_home">HOME</button>
+			</div>
+			<p class="page_name">새 프로젝트 만들기</p>
+		</header>
+		<nav class="page_nav">
+			<ul>
+				<li class="active"><button type="button" onclick="location.href='project_form_step1.html'">기본 정보</button></li>
+				<li><button type="button" onclick="location.href='project_form_step2.html'">역할 정보</button></li>
+				<li><button type="button" onclick="location.href='project_form_step3.html'">추가된 역할</button></li>
+			</ul>
+		</nav>
+		<div class="content">
+			<form autocomplete="off">
+				<div class="reg_form">
+					<div class="inp_field essential">
+						<label for="">프로젝트 이름</label>
+						<div class="inp_box"><input type="text" id="" class="inp_txt" placeholder="모집 공고에 등록될 제목을 적어 주세요."/><button type="button" class="btn_reset">X</button></div>
+						<span class="msg_error">필수 입력 사항입니다.</span>
+					</div>
+					<div class="inp_field essential">
+						<label for="recruitPeriod">모집 기간</label>
+						<div class="inp_box"><input type="text" id="recruitPeriod" class="inp_txt flatpickr" placeholder="지원 가능한 기간을 선택해 주세요." onclick="javascript:openPop('pop_calendar1')"/><button type="button" class="btn_reset">X</button></div>
+						<span class="msg_error">필수 입력 사항입니다.</span>
+					</div>
+					<div class="inp_field essential">
+						<label for="">감독 및 제작사</label>
+						<div class="row">
+							<div class="inp_box">
+								<div class="flex_center">
+									<div class="pos_rel">
+										<input type="text" id="" class="inp_txt" placeholder="감독명"/>
+										<button type="button" class="btn_reset">X</button>
+									</div>
+								</div>
+							</div>
+							<div class="inp_box">
+								<div class="flex_center">
+									<div class="pos_rel">
+										<input type="text" id="" class="inp_txt" placeholder="제작사명"/>
+										<button type="button" class="btn_reset">X</button>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+					<div class="inp_field essential">
+						<label for="">매체</label>
+						<div class="inp_box">
+							<div class="sel_box">
+								<select name="" id="media">
+									<option>대분류</option>
+									<option>영화</option>
+									<option>TV</option>
+									<option>무대</option>
+									<option>온라인</option>
+									<option>광고</option>
+									<option>기타 경력</option>
+								</select>
+							</div>
+						</div>
+					</div>
+					<div class="inp_field">
+						<label for="">장르 <span class="lab_sub">(선택사항)</span></label>
+						<div class="inp_box" onclick="javascript:openPop('pop_genre')"><input type="text" id="area" class="inp_txt" placeholder="장르를 선택해 주세요(최대 3개)." readonly=""></div>
+					</div>
+					<div class="inp_field essential">
+						<label for="description">작품 설명</label>
+						<p class="txt_counter"><span id="counter">0</span>/1,000</p>
+						<div class="inp_box high">
+							<textarea id="description" class="inp_txt" placeholder="작품을 설명해 주세요."></textarea>
+						</div>
+					</div>
+					<div class="inp_field essential">
+						<label for="shootingPeriod">촬영 기간</label>
+						<div class="inp_box"><input type="text" id="shootingPeriod" class="inp_txt flatpickr" placeholder="촬영이 예정된 일정을 선택해 주세요." onclick="javascript:openPop('pop_calendar2')"></div>
+						<div class="inp_box">
+							<div class="inp_chk">
+								<input type="checkbox" name="" id="chk">
+								<label for="chk">학생 작품</label>
+							</div>
+						</div>
+					</div>
+					<button type="button" id="btnNext" class="btn_basic mt40 unactive">다음</button>
+				</div>
+			</form>
+		</div>
+		<!-- pop_calendar1 - 모집기간 -->
+		<div id="pop_calendar1" class="dim_layer pop_calendar">
+			<div class="dim"></div>
+			<div class="pop_wrap">
+				<div class="pop_handle" onclick="closePop('pop_calendar1')"></div>
+				<div class="pop_head"><button type="button" class="btn_txt txt_point_green">확인</button></div>
+				<div class="pop_cont">
+					<input id="fpCalendar1" class="" placeholder="" style="display:none" />
+				</div>
+			</div>
+		</div>
+		<!--// pop_calendar1 -->
+
+		<!-- pop_calendar2 - 촬영기간 -->
+		<div id="pop_calendar2" class="dim_layer pop_calendar">
+			<div class="dim"></div>
+			<div class="pop_wrap">
+				<div class="pop_handle" onclick="closePop('pop_calendar2')"></div>
+				<div class="pop_head"><button type="button" class="btn_txt txt_point_green">확인</button></div>
+				<div class="pop_cont">
+					<input id="fpCalendar2" class="" placeholder="" style="display:none" />
+				</div>
+			</div>
+		</div>
+		<!--// pop_calendar2 -->
+
+		<!-- P2)nav-Project-step-1-spopup-3DE -->
+		<div id="pop_genre" class="dim_layer full">
+			<div class="dim"></div>
+			<div class="pop_wrap">
+				<div class="pop_handle" onclick="closePop('pop_genre')"></div>
+				<div class="pop_head">
+					<button type="button" id="btnComfirmGenre" class="btn_txt btn_pop_close">확인</button>
+				</div>
+				<div class="pop_cont">
+					<ul id="tagGenreList" class="tag_list"></ul>
+					<ul id="genreList" class="list_type1 mt10">
+						<li><button type="button">드라마</button></li>
+						<li><button type="button">액션</button></li>
+						<li><button type="button">스릴러</button></li>
+						<li><button type="button">공포</button></li>
+						<li><button type="button">범죄</button></li>
+						<li><button type="button">판타지</button></li>
+						<li><button type="button">웨스턴</button></li>
+						<li><button type="button">애니메이션</button></li>
+						<li><button type="button">코미디</button></li>
+						<li><button type="button">전쟁</button></li>
+						<li><button type="button">로맨스</button></li>
+						<li><button type="button">미스터리</button></li>
+						<li><button type="button">어드벤처</button></li>
+						<li><button type="button">가족</button></li>
+						<li><button type="button">SF</button></li>
+						<li><button type="button">역사/사극</button></li>
+						<li><button type="button">다큐멘터리</button></li>
+					</ul>
+				</div>
+			</div>
+		</div>
+	</div><!-- //wrap -->
+	<script>
+	//TAG
+	const tag = {};
+	let counter = 0;
+
+	const addTag = (value) => {
+		tag[counter] = value;
+		counter++;
+	};
+
+	//인덱스 검사 후 삭제
+    document.addEventListener('click', (e) => {
+        if (e.target.classList.contains('btn_del')) {
+            const index = e.target.getAttribute('idx');
+            tag[index] = '';
+            e.target.parentElement.remove();
+        }
+    });
+
+	//이전버튼 클릭 시
+	document.getElementById('btnPrev').onclick = function(){
+		Swal.fire({
+			title: "변경한 내용을 취소하고 나가시겠습니까?",
+			customClass: {
+				popup: 'pop_confirm' //confirm창에 pop_confirm 클래스 추가
+			},
+			html:"변경 내역을 저장하지 않고<br><b>프로필</b> 화면으로 이동합니다.",
+			reverseButtons : true,
+			showCancelButton: true,
+			showDenyButton: false,
+			cancelButtonText: "취소",
+			confirmButtonText: "이동"
+		});
+	};
+
+	//홈버튼 클릭 시
+	document.getElementById('btnHome').onclick = function(){
+		Swal.fire({
+			title: "변경한 내용을 취소하고 나가시겠습니까?",
+			customClass: {
+				popup: 'pop_confirm' //confirm창에 pop_confirm 클래스 추가
+			},
+			html:"변경 내역을 저장하지 않고<br><b>모집 공고</b> 화면으로 이동합니다.",
+			reverseButtons : true,
+			showCancelButton: true,
+			showDenyButton: false,
+			cancelButtonText: "취소",
+			confirmButtonText: "이동"
+		});
+	};
+
+	//장르선택
+    const listItems = document.querySelectorAll('#genreList li');
+    const maxActiveItems = 3;
+    let areaCounter = 0;
+
+    listItems.forEach(item => {
+        item.addEventListener('click', () => {
+            const isActive = item.classList.contains('active');
+            const activeItemsCount = document.querySelectorAll('#genreList li.active').length;
+            const areaValue = item.textContent.trim();
+
+            if (!isActive && activeItemsCount < maxActiveItems) {
+                // 아이템 추가
+                item.classList.add('active');
+                const tagGenreList = document.getElementById('tagGenreList');
+                const tagAreaItem = document.createElement('li');
+                tagAreaItem.classList.add('tag_item');
+                tagAreaItem.innerHTML = `${areaValue}<span class='btn_del' idx='${counter}'>태그삭제</span>`;
+                tagGenreList.appendChild(tagAreaItem);
+                addTag(areaValue);
+                areaCounter++;
+
+				nextActive();
+				
+            } else if (!isActive && activeItemsCount === maxActiveItems) {
+                alert('최대 3개까지 선택 가능합니다.');
+            } else if (isActive) {
+                item.classList.remove('active');
+				//tag에서 삭제
+				const targetText  = item.textContent;
+				document.querySelectorAll('#tagGenreList .tag_item').forEach(tagItem => {
+					const tagText = tagItem.textContent.replace('태그삭제', '').trim();
+					if (tagText === targetText) {
+						tagItem.remove();
+					}
+				});
+
+				nextActive();
+            }
+
+			function nextActive(){
+				const btnConfirmSu = document.querySelector('#btnComfirmGenre');
+				if (activeItemsCount > 0) {
+					btnConfirmSu.classList.add('txt_point_green');
+				} else {
+					btnConfirmSu.classList.remove('txt_point_green');
+				}
+			}
+
+			document.addEventListener('DOMContentLoaded', () => {
+				const btnDel = document.querySelector('#tagGenreList .btn_del');
+				if (btnDel) {
+					btnDel.addEventListener('click', (event) => {
+						const tagText = event.target.parentElement.textContent.replace('태그삭제', '').trim();
+						const genreListItems = document.querySelectorAll('#genreList li.active');
+
+						genreListItems.forEach(item => {
+							const listItemText = item.textContent.replace('태그삭제', '').trim();
+							if (listItemText === tagText) {
+								item.classList.remove('active');
+							}
+						});
+					});
+				}
+			});
+        });
+    });
+
+	document.querySelector('#btnComfirmGenre').addEventListener('click', () => {
+		const tagItems = document.querySelectorAll('#tagGenreList .tag_item');
+		const tagTextArray = [];
+
+		tagItems.forEach(item => {
+			const tagText = item.textContent.replace('태그삭제', '').trim();
+			tagTextArray.push(tagText);
+		});
+		const tagTextString = tagTextArray.join(', ');
+		const areaInput = document.querySelector('#area');
+		areaInput.value = tagTextString;
+
+		closePop('pop_genre');
+
+	});
+
+	//다음
+	document.querySelector('#btnNext').addEventListener('click', () => {
+		
+	});
+
+	//다음버튼 활성화
+	const inputs = document.querySelectorAll('.inp_txt');
+	function checkFormValidity() {
+		let allInputsValid = true;
+		inputs.forEach(input => {
+			const inpField = input.closest('.inp_field');
+			const isEssential = inpField.classList.contains('essential');
+			if (isEssential && input.value.trim() === '') {
+				allInputsValid = false;
+			}
+		});
+
+		return allInputsValid;
+	}
+	inputs.forEach(input => {
+		input.addEventListener('input', () => {
+			const btnNext = document.querySelector('#btnNext');
+			if (checkFormValidity()) {
+				btnNext.classList.add('active');
+			} else {
+				btnNext.classList.remove('active');
+			}
+		});
+	});
+
+	//모집기간
+	const fpCalendar1 = document.querySelector('#fpCalendar1')
+	fpCalendar1.flatpickr({
+		inline: true,
+		dateFormat: "Y. m. d",
+		altFormat: "Y. n.",
+		defaultDate: "today",
+		mode: "range",
+		onChange: function(selectedDates, dateStr, instance) {
+			instance.element.value = dateStr.replace('to', '~');
+		}
+	});
+	document.querySelector('#pop_calendar1 .btn_txt').addEventListener('click', function() {
+		let timePickerValue = document.getElementById('fpCalendar1').value;
+		document.getElementById('recruitPeriod').value = timePickerValue;
+		closePop('pop_calendar1');
+	});
+
+	//촬영기간
+	const fpCalendar2 = document.querySelector('#fpCalendar2')
+	fpCalendar2.flatpickr({
+		inline: true,
+		dateFormat: "Y. m. d",
+		altFormat: "Y. n.",
+		defaultDate: "today",
+		mode: "range",
+		onChange: function(selectedDates, dateStr, instance) {
+			instance.element.value = dateStr.replace('to', '~');
+		}
+	});
+	document.querySelector('#pop_calendar2 .btn_txt').addEventListener('click', function() {
+		let timePickerValue = document.getElementById('fpCalendar2').value;
+		document.getElementById('shootingPeriod').value = timePickerValue;
+		closePop('pop_calendar2');
+	});
+
+	//작품설명 글자수 카운팅
+	document.addEventListener('DOMContentLoaded', () => {
+		const textarea = document.getElementById('description');
+		const counter = document.getElementById('counter');
+		const maxLength = 1000;
+
+		textarea.addEventListener('input', () => {
+			let textLength = textarea.value.length;
+			if (textLength > maxLength) {
+				textarea.value = textarea.value.substring(0, maxLength);
+				textLength = maxLength;
+			}
+			counter.textContent = textLength.toLocaleString();
+		});
+	});
+	</script>
+</body>
+</html>

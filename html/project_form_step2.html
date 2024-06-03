@@ -1,0 +1,295 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+	<meta charset="utf-8" />
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no"/>
+	<title>All CASTING</title>
+	<link rel="stylesheet" href="../static/css/NotoSansKR.css">
+	<link rel="stylesheet" href="../static/css/style.css">
+	<link rel="stylesheet" href="../static/css/swiper-bundle.min.css" />
+    <link rel="stylesheet" href="../static/css/flatpickr.min.css">
+	<script src="../static/js/swiper-bundle.min.js"></script>
+	<script src="https://cdn.jsdelivr.net/npm/flatpickr"></script>
+	<script src="https://npmcdn.com/flatpickr/dist/l10n/ko.js"></script>
+	<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+	<script src="../static/js/common.js"></script>
+</head>
+<body>
+	<div class="wrap">
+		<header class="header_type1">
+			<div>
+				<button type="button" id="btnPrev" class="btn_prev">이전</button>
+				<button type="button" id="btnHome" class="btn_home">HOME</button>
+			</div>
+			<p class="page_name">새 프로젝트 만들기</p>
+		</header>
+		<nav class="page_nav">
+			<ul>
+				<li><button type="button" onclick="location.href='project_form_step1.html'">기본 정보</button></li>
+				<li class="active"><button type="button" onclick="location.href='project_form_step2.html'">역할 정보</button></li>
+				<li><button type="button" onclick="location.href='project_form_step3.html'">추가된 역할</button></li>
+			</ul>
+		</nav>
+		<div class="content">
+			<form autocomplete="off">
+				<div class="reg_form">
+					<div class="inp_field essential">
+						<label for="role">역할 구분</label>
+						<div class="inp_box">
+							<div class="sel_box">
+								<select name="" id="role">
+									<option>역할 구분</option>
+									<option>주연</option>
+									<option>조연</option>
+									<option>단역</option>
+									<option>보조출연</option>
+									<option>모델</option>
+								</select>
+							</div>
+						</div>
+					</div>
+					<div class="inp_field essential">
+						<label for="age">성별 <span class="lab_sub">(연기가 가능한 성별)</span></label>
+						<div class="inp_box">
+							<div class="inp_chk">
+								<input type="checkbox" name="gender" id="gender1">
+								<label for="gender1">남성</label>
+							</div>
+							<div class="inp_chk">
+								<input type="checkbox" name="gender" id="gender2">
+								<label for="gender2">여성</label>
+							</div>
+							<div class="inp_chk">
+								<input type="checkbox" name="gender" id="gender3">
+								<label for="gender3">기타</label>
+							</div>
+						</div>
+					</div>
+					<div class="inp_field essential">
+						<label for="age">나이</label>
+						<div class="inp_box">
+							<input type="text" id="age" class="inp_txt" onclick="javascript:openPop('pop_age')" readonly placeholder="역할의 나이를 선택해 주세요."/>
+						</div>
+						<span class="msg_error">필수 입력 사항입니다.</span>
+					</div>
+					<div class="inp_field essential">
+						<label for="role_name">역할 이름</label>
+						<div class="inp_box">
+							<input type="text" id="role_name" class="inp_txt" placeholder="역할의 이름을 입력해 주세요."/>
+						</div>
+						<span class="msg_error">필수 입력 사항입니다.</span>
+					</div>
+					<div class="inp_field essential">
+						<label for="description">역할 설명</label>
+						<p class="txt_counter"><span id="counter">0</span>/1,000</p>
+						<div class="inp_box high">
+							<textarea id="description" class="inp_txt" placeholder="역할에 대해 설명해 주세요."></textarea>
+						</div>
+						<div class="inp_box">
+							<div class="inp_chk">
+								<input type="checkbox" name="" id="chk">
+								<label for="chk">노출 연기 있음</label>
+							</div>
+						</div>
+					</div>
+					<div class="inp_field">
+						<label for="area">특기 <span class="lab_sub">(선택사항)</span></label>
+						<input type="hidden" value="" name="tag" id="rdTag" />
+						<div class="inp_box"><span class="txt">#</span><input type="text" id="tag" size="7" class="inp_txt" placeholder="자유롭게 입력해 주세요."/></div>
+						<ul id="tagSpecialtyList" class="tag_list mt15"></ul>
+					</div>
+					<div class="inp_field essential">
+						<label for="pay">출연료</label>
+						<div class="row">
+							<div class="inp_box">
+								<div class="sel_box">
+									<select name="" id="pay">
+										<option>작품당</option>
+										<option>xxx</option>
+										<option>xxx</option>
+									</select>
+								</div>
+							</div>
+							<div class="inp_box">
+								<input type="text" id="" class="inp_txt" placeholder="최소 출연료"/>
+							</div>
+							<div class="inp_box">
+								<input type="text" id="" class="inp_txt" placeholder="최대 출연료"/>
+							</div>
+						</div>
+						<div class="inp_box justify_end">
+							<div class="inp_chk">
+								<input type="checkbox" name="" id="chk1">
+								<label for="chk1">협의 후 결정</label>
+							</div>
+							<div class="inp_chk">
+								<input type="checkbox" name="" id="chk2">
+								<label for="chk2">무급</label>
+							</div>
+						</div>
+					</div>
+					<button type="button" id="btnNext" class="btn_add mt40"><span>역할 추가</span></button>
+				</div>
+			</form>
+		</div>
+
+		<!-- P1)Profile-step1-agepop -->
+		<div id="pop_age" class="dim_layer">
+			<div class="dim"></div>
+			<div class="pop_wrap">
+				<div class="pop_handle" onclick="closePop('pop_age')"></div>
+				<div class="pop_head">
+					<button type="button" id="btnConfirm" class="btn_txt txt_point_green">확인</button>
+				</div>
+				<div class="pop_cont">
+					<div class="sel_box_type2">
+						<select id="ageSelect" class="">
+							<option value="">18~38</option>
+							<option value="">19~39</option>
+							<option value="">20~40</option>
+						</select>
+					</div>
+				</div>
+			</div>
+		</div>
+		<!-- -->
+	</div><!-- //wrap -->
+	<script>
+	//TAG
+	const tag = {};
+	let counter = 0;
+
+	const addTag = (value) => {
+		tag[counter] = value;
+		counter++;
+	};
+
+	const marginTag = () => Object.values(tag).filter(word => word !== "");
+
+	// document.getElementById('tag-form').addEventListener('submit', (e) => {
+	//     const value = marginTag(); // 배열로 반환
+	//     document.getElementById('rdTag').value = value; 
+	//     e.target.submit();
+	// });
+
+	document.getElementById('tag').addEventListener('keypress', (e) => {
+		const self = e.target;
+
+		if (e.key === 'Enter' || e.keyCode === 32) {
+			const tagValue = self.value; 
+
+			//해시태그 값이 없으면 실행X
+			if (tagValue !== '') {
+				//중복 태그 확인
+				const result = Object.values(tag).filter(word => word === tagValue);
+				
+				//중복 태그가 없으면 실행
+				if (result.length === 0) { 
+					const tagListSpecialty = document.getElementById('tagSpecialtyList');
+					const li = document.createElement('li');
+					li.classList.add('tag_item');
+					li.innerHTML = `${tagValue}<span class='btn_del' idx='${counter}'>태그삭제</span>`;
+					tagListSpecialty.appendChild(li);
+					addTag(tagValue);
+					self.value = '';
+				} else {
+					alert('특기가 중복됩니다.');
+				}
+			}
+			e.preventDefault(); //스페이스바 시 빈 공간이 생기지 않도록 방지
+		}
+	});
+
+	//인덱스 검사 후 삭제
+    document.addEventListener('click', (e) => {
+        if (e.target.classList.contains('btn_del')) {
+            const index = e.target.getAttribute('idx');
+            tag[index] = '';
+            e.target.parentElement.remove();
+        }
+    });
+
+	//이전버튼 클릭 시
+	document.getElementById('btnPrev').onclick = function(){
+		Swal.fire({
+			title: "변경한 내용을 취소하고 나가시겠습니까?",
+			customClass: {
+				popup: 'pop_confirm' //confirm창에 pop_confirm 클래스 추가
+			},
+			html:"변경 내역을 저장하지 않고<br><b>프로필</b> 화면으로 이동합니다.",
+			reverseButtons : true,
+			showCancelButton: true,
+			showDenyButton: false,
+			cancelButtonText: "취소",
+			confirmButtonText: "이동"
+		});
+	};
+
+	//홈버튼 클릭 시
+	document.getElementById('btnHome').onclick = function(){
+		Swal.fire({
+			title: "변경한 내용을 취소하고 나가시겠습니까?",
+			customClass: {
+				popup: 'pop_confirm' //confirm창에 pop_confirm 클래스 추가
+			},
+			html:"변경 내역을 저장하지 않고<br><b>모집 공고</b> 화면으로 이동합니다.",
+			reverseButtons : true,
+			showCancelButton: true,
+			showDenyButton: false,
+			cancelButtonText: "취소",
+			confirmButtonText: "이동"
+		});
+	};
+
+	//연령선택
+	document.getElementById('btnConfirm').addEventListener('click', () => {
+		const ageSelect = document.getElementById('ageSelect');
+		const selectedAgeRange = ageSelect.options[ageSelect.selectedIndex].text;
+		document.getElementById('age').value = selectedAgeRange;
+		closePop('pop_age');
+	});
+
+	//다음버튼 활성화
+	const inputs = document.querySelectorAll('.inp_txt');
+	function checkFormValidity() {
+		let allInputsValid = true;
+		inputs.forEach(input => {
+			const inpField = input.closest('.inp_field');
+			const isEssential = inpField.classList.contains('essential');
+			if (isEssential && input.value.trim() === '') {
+				allInputsValid = false;
+			}
+		});
+
+		return allInputsValid;
+	}
+	inputs.forEach(input => {
+		input.addEventListener('input', () => {
+			const btnNext = document.querySelector('#btnNext');
+			if (checkFormValidity()) {
+				btnNext.classList.add('active');
+			} else {
+				btnNext.classList.remove('active');
+			}
+		});
+	});
+
+	//역할설명 글자수 카운팅
+	document.addEventListener('DOMContentLoaded', () => {
+		const textarea = document.getElementById('description');
+		const counter = document.getElementById('counter');
+		const maxLength = 1000;
+
+		textarea.addEventListener('input', () => {
+			let textLength = textarea.value.length;
+			if (textLength > maxLength) {
+				textarea.value = textarea.value.substring(0, maxLength);
+				textLength = maxLength;
+			}
+			counter.textContent = textLength.toLocaleString();
+		});
+	});
+	</script>
+</body>
+</html>
