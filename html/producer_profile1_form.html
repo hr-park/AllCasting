@@ -37,7 +37,7 @@
 					<li><button type="button" onclick="location.href='producer_profile4.html'">최신이슈</button></li>--> <!-- 1차개발에서 제외 -->
 				</ul>
 			</nav>
-			<div class="cont_pd">
+			<div class="cont_pd reg_form">
 				<div class="detail_row mt25">
 					<strong class="tit min">이메일</strong>
 					<p class="desc">abcd123@naver.com</p>
@@ -52,8 +52,8 @@
 						<dl class="desc_list">
 							<dt><input type="text" id="" class="inp_txt" placeholder="회사명 입력해 주세요."/></dt>
 							<dd>
-								<p class="txt_counter"><span id="counter1">0</span>/1,000</p>
-								<textarea placeholder="회사에 대한 소개 문구를 입력해 주세요." class="mt10" rows="6" maxlength="1000"></textarea>
+								<p class="txt_counter"><span id="" class="counter">0</span>/1,000</p>
+								<textarea placeholder="회사에 대한 소개 문구를 입력해 주세요." class="mt10 inp_txt" rows="6" maxlength="1000"></textarea>
 							</dd>
 						</dl>
 					</div>
@@ -64,24 +64,17 @@
 						<dl class="desc_list">
 							<dt><input type="text" id="" class="inp_txt" placeholder="해당 년도를 입력해 주세요."/></dt>
 							<dd>
-								<p class="txt_counter"><span id="counter2">0</span>/1,000</p>
-								<textarea placeholder="수행하신 이력을 입력해 주세요." class="mt10" rows="6" maxlength="1000"></textarea>
+								<p class="txt_counter"><span id="" class="counter">0</span>/1,000</p>
+								<textarea placeholder="수행하신 이력을 입력해 주세요." class="mt10 inp_txt" rows="6" maxlength="1000"></textarea>
 							</dd>
 						</dl>
 						<button type="button" class="btn_add active mt10"><span>연혁 추가</span></button>
-						<dl class="desc_list mt10">
-							<dt><input type="text" id="" class="inp_txt" placeholder="해당 년도를 입력해 주세요."/></dt>
-							<dd>
-								<p class="txt_counter"><span id="counter3">0</span>/1,000</p>
-								<textarea placeholder="수행하신 이력을 입력해 주세요." class="mt10" rows="6" maxlength="1000"></textarea>
-							</dd>
-						</dl>
 					</div>
 				</div>
 				<div class="mt25">
 					<div class="detail_row column">
 						<strong class="tit">오시는길</strong>
-						<p class="desc" onclick="javascript:openPop('pop_tuning_location')"><input type="text" id="" class="inp_txt" placeholder="회사 주소를 입력해 주세요." readonly /></p>
+						<p class="desc" onclick="javascript:openPop('pop_tuning_location')"><input type="text" id="addr" class="inp_txt" placeholder="회사 주소를 입력해 주세요." readonly /></p>
 					</div>
 				</div>
 				<button type="button" class="btn_basic active mt40" onclick="location.href='producer_profile1.html'">저장</button>
@@ -246,6 +239,13 @@
 		function submitTuningLocation(){
 			closePop('pop_tuning_location');
 
+			//주소입력
+			const locationName = document.getElementById('locationName').value;
+			const locationAddress1 = document.getElementById('locationAddress1').value;
+			const locationAddress2 = document.getElementById('locationAddress2').value;
+			const addrInput = document.getElementById('addr');
+			addrInput.value = `${locationName} ${locationAddress1} ${locationAddress2}`;
+
 			// 팝업 초기화
 			addrSearch.style.display = 'block';
 			addrDetail.style.display = 'none';
@@ -256,6 +256,7 @@
 
 			searchBar.value = '';
 			searchBar.nextElementSibling.style.display = 'none';
+
 		}
 
 		//글자수 카운트
@@ -263,8 +264,33 @@
 			const textareas = document.querySelectorAll('textarea');
 			textareas.forEach((textarea, index) => {
 				textarea.addEventListener('input', function() {
-					const counter = document.getElementById(`counter${index + 1}`);
+					//const counter = document.getElementById(`counter${index + 1}`);
+					const counter = textarea.parentNode.querySelector('.counter');
 					const length = textarea.value.length;
+					counter.textContent = length;
+				});
+			});
+		});
+
+		//연혁추가
+		document.addEventListener('DOMContentLoaded', () => {
+			const btnAdd = document.querySelector('.btn_add');
+			btnAdd.addEventListener('click', () => {
+				const newDescList = document.createElement('dl');
+				newDescList.className = 'desc_list';
+				newDescList.innerHTML = `
+					<dt><input type="text" id="" class="inp_txt" placeholder="해당 년도를 입력해 주세요."/></dt>
+					<dd>
+						<p class="txt_counter"><span id="" class="counter">0</span>/1,000</p>
+						<textarea placeholder="수행하신 이력을 입력해 주세요." class="mt10 inp_txt" rows="6" maxlength="1000"></textarea>
+					</dd>
+				`;
+				btnAdd.parentNode.insertBefore(newDescList, btnAdd);
+
+				const newTextarea = newDescList.querySelector('textarea');
+				newTextarea.addEventListener('input', function() {
+					const counter = newTextarea.parentNode.querySelector('.counter');
+					const length = newTextarea.value.length;
 					counter.textContent = length;
 				});
 			});

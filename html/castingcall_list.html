@@ -135,17 +135,13 @@
 				<li><button type="button">Home</button></li>
 				<li class="active"><button type="button" onclick="location.href='castingcall_list.html'">모집공고</button></li>
 				<li><button type="button" onclick="location.href='apply_list.html'">지원현황</button></li>
-				<li><button type="button" onclick="location.href='schedule_list.htm'">일정</button></li>
+				<li><button type="button" onclick="location.href='schedule_list.html'">일정</button></li>
 				<li><button type="button" onclick="location.href='my_profile_list.html'">프로필</button></li>
 			</ul>
 		</nav>
 	</div><!-- //wrap -->
 	<!-- -->
 	<script>
-		function toggleActiveClass(button) {
-			button.classList.toggle('active');
-		}
-
 		//퍼블 페이지 확인용, 추후 삭제 필요
 		const urlParams = new URL(location.href).searchParams;
 		const state = urlParams.get('state');

@@ -133,10 +133,12 @@
 		document.querySelector('.btn_add').addEventListener('click', () => {
 			const yearInput = document.querySelector('#year');
 			const yearValue = yearInput.value.trim();
-			const mediaValue = document.querySelector('#media').value.trim();
+			const mediaSelect = document.querySelector('#media');
+			const mediaValue = mediaSelect.selectedIndex !== 0 ? mediaSelect.value.trim() : '';
 			const titleInput = document.querySelector('#title');
 			const titleValue = titleInput.value.trim();
-			const roleValue = document.querySelector('#role').value.trim();
+			const roleSelect = document.querySelector('#role');
+			const roleValue = roleSelect.selectedIndex !== 0 ? roleSelect.value.trim() : '';
 			const isRepresentative = document.getElementById('representative').checked;
 			const errorMessageYear = yearInput.closest('.inp_field').querySelector('.msg_error');
 			const errorMessageTitle = titleInput.closest('.inp_field').querySelector('.msg_error');
@@ -151,10 +153,10 @@
 				errorMessageYear.style.display = 'none';
 				errorMessageTitle.style.display = 'none';
 
-				//경력 추가
+				// 경력 추가
 				const careerList = document.getElementById('careerList');
 				const newListItem = document.createElement('li');
-				
+
 				let representativeElement = '';
 				if (isRepresentative) {
 					representativeElement = '<span>대표 작품</span>';
@@ -170,7 +172,7 @@
 
 				careerList.appendChild(newListItem);
 
-				//form초기화
+				// form 초기화
 				document.querySelector('.btn_add').classList.remove('active');
 				document.querySelectorAll('.inp_txt').forEach(input => {
 					input.value = '';
@@ -180,7 +182,7 @@
 				});
 
 				document.querySelectorAll('.sel_box').forEach(select => {
-					//select초기화
+					// select 초기화
 					resetSelectBox();
 				});
 				document.querySelectorAll('.btn_reset').forEach(btn => {

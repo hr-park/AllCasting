@@ -149,7 +149,8 @@
 				<div class="pop_handle" onclick="closePop('pop_time')"></div>
 				<div class="pop_head"><button type="button" class="btn_txt txt_point_green">저장</button></div>
 				<div class="pop_cont">
-					<input id="fpTimePicker" class="time_selector" placeholder="9:00" />
+					<!--<input id="fpTimePicker" class="time_selector" placeholder="9:00" />-->
+					<div id="fpTimePicker"></div>
 				</div>
 			</div>
 		</div>
@@ -277,6 +278,7 @@
 
 		const fpTimePicker = document.querySelector('#fpTimePicker')
 		fpTimePicker.flatpickr({
+			inline: true,
 			enableTime: true,
 			noCalendar: true,
 			dateFormat: "K H:i",

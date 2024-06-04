@@ -179,13 +179,15 @@ document.addEventListener('DOMContentLoaded', () => {
     document.querySelectorAll('.inp_txt').forEach(input => {
         input.addEventListener('input', () => {
             const inpField = input.closest('.inp_field');
-            const errorMessage = inpField.querySelector('.msg_error');
-
-            if (input.classList.contains('error')) {
-                input.classList.remove('error');
-            }
-            if (errorMessage && window.getComputedStyle(errorMessage).display !== 'none') {
-                errorMessage.style.display = 'none';
+            const errorMessage = inpField ? inpField.querySelector('.msg_error') : null;
+    
+            if (errorMessage) {
+                if (input.classList.contains('error')) {
+                    input.classList.remove('error');
+                }
+                if (window.getComputedStyle(errorMessage).display !== 'none') {
+                    errorMessage.style.display = 'none';
+                }
             }
         });
     });
@@ -274,6 +276,11 @@ function deleteListItem(){
             });
         }
     }
+}
+
+//button active toggleclass
+function toggleActiveClass(button) {
+    button.classList.toggle('active');
 }
 
 //chkNumber
