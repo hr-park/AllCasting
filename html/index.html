@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+	<meta charset="utf-8" />
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no"/>
+	<title>All CASTING</title>
+	<link rel="stylesheet" href="../static/css/NotoSansKR.css">
+	<link rel="stylesheet" href="../static/css/style.css">
+	<link rel="stylesheet" href="../static/css/swiper-bundle.min.css" />
+    <link rel="stylesheet" href="../static/css/flatpickr.min.css">
+	<script src="../static/js/swiper-bundle.min.js"></script>
+	<script src="https://cdn.jsdelivr.net/npm/flatpickr"></script>
+	<script src="https://npmcdn.com/flatpickr/dist/l10n/ko.js"></script>
+	<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+	<script src="../static/js/common.js"></script>
+	<style>
+		.main_swiper{height:calc(100vh - 72px)}
+		.main_swiper .swiper-slide{display:flex;}
+		.main_swiper .swiper-slide .img_box{overflow:hidden;position:relative;width:100%;}
+		.main_swiper .swiper-slide .img_box img{position:absolute;top:0;left:50%;width:auto;height:100%;transform:translateX(-50%);}
+		.main_swiper .swiper-slide .btn_basic{position:absolute;left:5%;bottom:15%;width:90%;z-index:1;}
+		.main_swiper .swiper-horizontal>.swiper-scrollbar.ylw_type{bottom:0}
+	</style>
+</head>
+<body>
+	<div class="wrap">
+		<dib class="content has_gnb">
+			<div class="swiper main_swiper">
+				<div class="swiper-wrapper">
+					<div class="swiper-slide">
+						<div class="img_box"><img src="https://dummyimage.com/400x600/098684/fff" alt=""></div>
+						<button type="button" class="btn_basic active" onclick="location.href='castingcall_view.html'">모집공고 바로가기</button>
+					</div>
+					<div class="swiper-slide">
+						<div class="img_box"><img src="https://dummyimage.com/400x600/ED3964/fff" alt=""></div>
+						<button type="button" class="btn_basic active" onclick="location.href='castingcall_view.html'">모집공고 바로가기</button>
+					</div>
+					<div class="swiper-slide">
+						<div class="img_box"><img src="https://dummyimage.com/400x600/999/fff" alt=""></div>
+						<button type="button" class="btn_basic active" onclick="location.href='castingcall_view.html'">모집공고 바로가기</button>
+					</div>
+				</div>
+				<div class="swiper-scrollbar ylw_type"></div>
+			</div>
+		</div>
+		<nav class="gnb artist">
+			<ul>
+				<li class="active" onclick="location.href='index.html'"><button type="button">Home</button></li>
+				<li><button type="button" onclick="location.href='castingcall_list.html'">모집공고</button></li>
+				<li><button type="button" onclick="location.href='apply_list.html'">지원현황</button></li>
+				<li><button type="button" onclick="location.href='schedule_list.html'">일정</button></li>
+				<li><button type="button" onclick="location.href='my_profile_list.html'">프로필</button></li>
+			</ul>
+		</nav>
+	</div><!-- //wrap -->
+	<script>
+	const main_swiper = new Swiper(".main_swiper", {
+		slidesPerView: 1,
+		//autoHeight:true,
+		//autoplay:true,
+		scrollbar: {
+			el: ".swiper-scrollbar",
+		},
+	});
+	</script>
+</body>
+</html>

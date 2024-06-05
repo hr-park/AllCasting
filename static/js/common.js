@@ -126,20 +126,20 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     });
 
-    //type_nav slide
-    const typeNavElement = document.querySelector('.type_nav');
-    if (typeNavElement && typeNavElement.clientHeight > 40) {
-        const activeSlide = typeNavElement.querySelector('.swiper-slide.active');
+    //page_nav slide
+    const pageNavElement = document.querySelector('.page_nav');
+    if (pageNavElement && pageNavElement.clientHeight > 40) {
+        const activeSlide = pageNavElement.querySelector('.swiper-slide.active');
         if (activeSlide) {
-            const typeNavChildren = Array.from(typeNavElement.children);
-            const typeNavIdx = typeNavChildren.indexOf(activeSlide);
-            const typeNavSwiper = new Swiper('.type_nav', {
+            const pageNavChildren = Array.from(pageNavElement.children);
+            const pageNavIdx = pageNavChildren.indexOf(activeSlide);
+            const pageNavSwiper = new Swiper('.page_nav', {
                 slidesPerView: "auto",
                 observer: true,
                 observeParents: true,
-                initialSlide: typeNavIdx,
+                initialSlide: pageNavIdx,
             });
-            typeNavElement.classList.add('swiper_type_nav');
+            pageNavElement.classList.add('swiper_page_nav');
         }
     }
 
