@@ -35,7 +35,7 @@
 		<div class="content">
 			<form autocomplete="off">
 				<!-- 등록 전 -->
-				<div class="reg_form" id="test1" style="display:none;">
+				<div class="reg_form" id="beforeTest" style="display:none;"> <!-- ID 테스트용입니다! 지워주세요 -->
 					<div class="inp_field">
 						<label for="">메인 사진</label>
 						<div class="profile_add mt10 min">
@@ -57,7 +57,7 @@
 				</div>
 				<!--// 등록 전 -->
 				<!-- 등록 후 -->
-				<div class="reg_form">
+				<div class="reg_form" id="afterTest"> <!-- ID 테스트용입니다! 지워주세요 -->
 					<div class="inp_field">
 						<label for="">메인 사진</label>
 						<div class="profile_thumb modify mt10">
@@ -95,24 +95,6 @@
 				</div>
 				<!--// 등록 후 -->
 			</form>
-
-
-			<!--<div class="cont_pd">
-				<div class="profile_add">
-					<label for="mainFile">
-						<p class="btn_upload">메인사진은 얼굴과 가슴 또는 배까지 나온<br>자신의 얼굴이 잘보이는 사진을 올려주세요.</p>
-					</label>
-					<input type="file" name="file" id="mainFile">
-				</div>
-
-				서브 사진
-				<div class="profile_add">
-					<label for="subFile">
-						<p class="btn_upload">서브사진은 자신이 돋보일 수 있는 포즈 또는 맡았던<br>역할에 대해 어필할수 있는 사진을 올려주세요.</p>
-					</label>
-					<input type="file" name="file" id="subFile">
-				</div>
-			</div>-->
 		</div>
 	</div><!-- //wrap -->
 	<script>
@@ -120,7 +102,8 @@
 		const urlParams = new URL(location.href).searchParams;
 		const state = urlParams.get('state');
 		if (state === 'none') {
-			document.querySelector('#test1').style.display = 'block';
+			document.querySelector('#beforeTest').style.display = 'block';
+			document.querySelector('#afterTest').style.display = 'none';
 		}
 	</script>
 </body>

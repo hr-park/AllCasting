@@ -391,7 +391,7 @@ ul.list_type3 li .btn_del{position:absolute;right:10px;top:16px;display:inline-b
 .btn_basic{display:flex;width:100%;height:48px;padding:0 10px;align-items:center;justify-content:center;background:#F3F3F3;color:#F3F3F3;border-radius:4px;font-size:16px;box-sizing:border-box;}
 .btn_basic.unactive{color:#999;}
 .btn_basic.active{background:#222;color:#fff;}
-.btn_add{display:block;width:100%;height:48px;border-radius:4px;background:#F3F3F3;color:#999;border:0 none;box-sizing:border-box;}
+.btn_add{display:block;width:100%;height:48px;border-radius:4px;/*background:#F3F3F3;*/background:#fff;border:1px solid #E7E7E7;background:#fff;color:#999;box-sizing:border-box;}
 .btn_add span{display:inline-block;padding-left:28px;line-height:1.5;background:url('../images/ico/ico_plus.svg') no-repeat 0 50% / 12px auto}
 .btn_add.active{border:1px solid #E7E7E7;background:#fff;}
 .btn_add.active span{color:#222;background:url('../images/ico/ico_plus_active.svg') no-repeat 0 50% / 12px auto}

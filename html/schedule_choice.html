@@ -26,7 +26,7 @@
 			<button type="button" class="btn_drop_menu">메뉴열기</button>
 			<div class="drop_menu">
 				<ul>
-					<li><button type="button">장소 확인</button></li>
+					<li><button type="button" onclick="openPop('pop_location')">장소 확인</button></li>
 					<li><button type="button" id="schedule_add">일정 추가 요청</button></li>
 					<li><button type="button" id="apply_cancle">지원 취소</button></li>
 				</ul>
@@ -136,7 +136,6 @@
 			}
 		}
 
-		const layerNotiDiv = document.querySelector('#layer_noti');
 		//주소 복사 후 alert
 		function copyAddr(){
 			let copyText = document.querySelector('#locationAddr').textContent;
@@ -201,6 +200,7 @@
 			cancelButtonText: "이동",
 			confirmButtonText: "취소"
 		});*/
+		
 	</script>
 </body>
 </html>

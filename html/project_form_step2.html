@@ -48,9 +48,10 @@
 								</select>
 							</div>
 						</div>
+						<span class="msg_error">필수 입력 사항입니다.</span>
 					</div>
 					<div class="inp_field essential">
-						<label for="age">성별 <span class="lab_sub">(연기가 가능한 성별)</span></label>
+						<label for="gender">성별 <span class="lab_sub">(연기가 가능한 성별)</span></label>
 						<div class="inp_box">
 							<div class="inp_chk">
 								<input type="checkbox" name="gender" id="gender1">
@@ -65,11 +66,19 @@
 								<label for="gender3">기타</label>
 							</div>
 						</div>
+						<span class="msg_error">필수 입력 사항입니다.</span>
 					</div>
 					<div class="inp_field essential">
 						<label for="age">나이</label>
 						<div class="inp_box">
 							<input type="text" id="age" class="inp_txt" onclick="javascript:openPop('pop_age')" readonly placeholder="역할의 나이를 선택해 주세요."/>
+						</div>
+						<span class="msg_error">필수 입력 사항입니다.</span>
+					</div>
+					<div class="inp_field essential">
+						<label for="howmany">모집 인원</label>
+						<div class="inp_box">
+							<input type="text" id="howmany" class="inp_txt" placeholder="역할의 모집 인원을 입력해 주세요."/>
 						</div>
 						<span class="msg_error">필수 입력 사항입니다.</span>
 					</div>
@@ -94,7 +103,7 @@
 						</div>
 					</div>
 					<div class="inp_field">
-						<label for="area">특기 <span class="lab_sub">(선택사항)</span></label>
+						<label for="area">필요 특기 <span class="lab_sub">(선택사항)</span></label>
 						<input type="hidden" value="" name="tag" id="rdTag" />
 						<div class="inp_box"><span class="txt">#</span><input type="text" id="tag" size="7" class="inp_txt" placeholder="자유롭게 입력해 주세요."/></div>
 						<ul id="tagSpecialtyList" class="tag_list mt15"></ul>
@@ -118,6 +127,7 @@
 								<input type="text" id="" class="inp_txt" placeholder="최대 출연료"/>
 							</div>
 						</div>
+						<span class="msg_error">필수 입력 사항입니다.</span>
 						<div class="inp_box justify_end">
 							<div class="inp_chk">
 								<input type="checkbox" name="" id="chk1">
@@ -129,7 +139,11 @@
 							</div>
 						</div>
 					</div>
-					<button type="button" id="btnNext" class="btn_add mt40"><span>역할 추가</span></button>
+					<button type="button" id="" class="btn_add mt40" onclick="addForm();"><span>역할 추가</span></button>
+					<button type="button" id="btnNext" class="btn_basic mt40 unactive">완료</button>
+					<ul id="roleList" class="role_list">
+						
+					</ul>
 				</div>
 			</form>
 		</div>
@@ -250,7 +264,96 @@
 		closePop('pop_age');
 	});
 
-	//다음버튼 활성화
+	//역할설명 글자수 카운팅
+	document.addEventListener('DOMContentLoaded', () => {
+		const textarea = document.getElementById('description');
+		const counter = document.getElementById('counter');
+		const maxLength = 1000;
+
+		textarea.addEventListener('input', () => {
+			let textLength = textarea.value.length;
+			if (textLength > maxLength) {
+				textarea.value = textarea.value.substring(0, maxLength);
+				textLength = maxLength;
+			}
+			counter.textContent = textLength.toLocaleString();
+		});
+	});
+
+
+	//추가
+	function addForm() {
+		const roleSelect = document.querySelector('#role');
+		const roleValue = roleSelect.selectedIndex !== 0 ? roleSelect.value.trim() : '';
+
+		// Gender 체크박스 값 가져오기
+		const genderCheckboxes = document.querySelectorAll('input[name="gender"]');
+		const selectedGenders = Array.from(genderCheckboxes)
+			.filter(checkbox => checkbox.checked)
+			.map(checkbox => checkbox.nextElementSibling.textContent.trim());
+
+		// 필수 입력 필드 검사
+		const essentialFields = document.querySelectorAll('.inp_field.essential');
+		let isValid = true;
+		essentialFields.forEach(field => {
+			const input = field.querySelector('.inp_txt, select');
+			const errorMessage = field.querySelector('.msg_error');
+			if (input) {
+				if (input.value.trim() === '' || (input.tagName === 'SELECT' && input.selectedIndex === 0)) {
+					input.classList.add('error');
+					if (errorMessage) errorMessage.style.display = 'block';
+					isValid = false;
+				} else {
+					input.classList.remove('error');
+					if (errorMessage) errorMessage.style.display = 'none';
+				}
+			}
+		});
+
+		if (!isValid) return;
+
+		// 경력 추가
+		const roleList = document.getElementById('roleList');
+		const newListItem = document.createElement('li');
+
+		newListItem.innerHTML = `
+			<div class="flex_column_gap">
+				<div class="detail_col">
+					<strong class="tit"><strong class="role_label">${roleValue}</strong></strong>
+					<p class="desc"><strong>${selectedGenders.join(', ')}, ${document.getElementById('age').value.trim()}, ${document.getElementById('howmany').value.trim()}명, ${document.getElementById('role_name').value.trim()}</strong></p>
+				</div>
+				<p class="txt_light_gr">${document.getElementById('description').value.trim()}</p>
+				<p class="ft_size_14"></p>
+				<div class="flex justify_end">
+					<div class="detail_row">
+						<strong class="tit">출연료</strong>
+						<p class="desc">${document.getElementById('pay').value.trim()} <strong>${document.querySelector('#pay').nextElementSibling.value.trim()}~${document.querySelector('#pay').nextElementSibling.nextElementSibling.value.trim()}원</strong></p>
+					</div>
+				</div>
+			</div>
+			<button type="button" class="btn_del">삭제</button>
+		`;
+
+		roleList.appendChild(newListItem);
+
+		// form 초기화
+		document.querySelectorAll('.inp_txt').forEach(input => {
+			input.value = '';
+			input.classList.remove('error');
+		});
+		document.querySelectorAll('select').forEach(select => {
+			select.selectedIndex = 0;
+		});
+		genderCheckboxes.forEach(checkbox => {
+			checkbox.checked = false;
+		});
+
+		const btnNext = document.querySelector('#btnNext');
+		btnNext.classList.remove('unactive');
+		btnNext.classList.add('active');
+	}
+
+	// 추가 버튼 활성화 검사
 	const inputs = document.querySelectorAll('.inp_txt');
 	function checkFormValidity() {
 		let allInputsValid = true;
@@ -266,29 +369,20 @@
 	}
 	inputs.forEach(input => {
 		input.addEventListener('input', () => {
-			const btnNext = document.querySelector('#btnNext');
+			const btnAdd = document.querySelector('.btn_add');
 			if (checkFormValidity()) {
-				btnNext.classList.add('active');
+				btnAdd.classList.add('active');
 			} else {
-				btnNext.classList.remove('active');
+				btnAdd.classList.remove('active');
 			}
 		});
 	});
 
-	//역할설명 글자수 카운팅
-	document.addEventListener('DOMContentLoaded', () => {
-		const textarea = document.getElementById('description');
-		const counter = document.getElementById('counter');
-		const maxLength = 1000;
-
-		textarea.addEventListener('input', () => {
-			let textLength = textarea.value.length;
-			if (textLength > maxLength) {
-				textarea.value = textarea.value.substring(0, maxLength);
-				textLength = maxLength;
-			}
-			counter.textContent = textLength.toLocaleString();
-		});
+	// 영상 리스트 삭제
+	document.querySelector('#roleList').addEventListener('click', (event) => {
+		if (event.target.classList.contains('btn_del')) {
+			event.target.parentElement.remove();
+		}
 	});
 	</script>
 </body>

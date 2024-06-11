@@ -47,7 +47,7 @@
 						<button type="button" class="btn_drop_menu">메뉴열기</button>
 						<div class="drop_menu">
 							<ul>
-								<li><button type="button">장소 확인</button></li>
+								<li><button type="button" onclick="openPop('pop_location')">장소 확인</button></li>
 								<li><button type="button" id="scheduleAdd">일정 추가 요청</button></li>
 								<li><button type="button" id="applyCancle">지원 취소</button></li>
 							</ul>
@@ -63,7 +63,7 @@
 						<button type="button" class="btn_drop_menu">메뉴열기</button>
 						<div class="drop_menu">
 							<ul>
-								<li><button type="button">장소 확인</button></li>
+								<li><button type="button" onclick="openPop('pop_location')">장소 확인</button></li>
 								<li><button type="button" id="scheduleAdd">일정 추가 요청</button></li>
 								<li><button type="button" id="applyCancle">지원 취소</button></li>
 							</ul>
@@ -79,7 +79,7 @@
 						<button type="button" class="btn_drop_menu">메뉴열기</button>
 						<div class="drop_menu">
 							<ul>
-								<li><button type="button">장소 확인</button></li>
+								<li><button type="button" onclick="openPop('pop_location')">장소 확인</button></li>
 								<li><button type="button" id="scheduleAdd">일정 추가 요청</button></li>
 								<li><button type="button" id="applyCancle">지원 취소</button></li>
 							</ul>
@@ -96,7 +96,7 @@
 						<button type="button" class="btn_drop_menu">메뉴열기</button>
 						<div class="drop_menu">
 							<ul>
-								<li><button type="button">장소 확인</button></li>
+								<li><button type="button" onclick="openPop('pop_location')">장소 확인</button></li>
 								<li><button type="button" id="scheduleAdd">일정 추가 요청</button></li>
 								<li><button type="button" id="applyCancle">지원 취소</button></li>
 							</ul>
@@ -114,6 +114,24 @@
 				<li><button type="button" onclick="location.href='my_profile_list.html'">프로필</button></li>
 			</ul>
 		</nav>
+
+		<!-- Schedule-popup-장소확인 -->
+		<div id="pop_location" class="dim_layer">
+			<div class="dim"></div>
+			<div class="pop_wrap">
+				<div class="pop_handle" onclick="closePop('pop_location')"></div>
+				<div class="pop_cont">
+					<p class="sub_tit">장소확인</p>
+					<div class="addr_box">
+						<p>로캘리</dt>
+						<p><button type="button" id="locationAddr">서울시 서초구 123-45, YG빌딩 2층</button></p>
+						<p class="txt_gr">서초동 124-57</p>
+					</div>
+					<div class="txt_gr">주소를 터치하면 클립보드에 복사됩니다.</div>
+				</div>
+			</div>
+		</div>
+
 	</div><!-- //wrap -->
 	<!-- -->
 	<script>
@@ -178,9 +196,9 @@
 			let dayStat  = dayElem.querySelector('.stat');	// 날짜 하단 아이콘 추가할 곳
 			
 			// 퍼블 확인용
-			if(dayLabel === 'May 13, 2024' || dayLabel === 'May 14, 2024' || dayLabel === 'May 15, 2024'){
+			if(dayLabel === 'June 13, 2024' || dayLabel === 'June 14, 2024' || dayLabel === 'June 15, 2024'){
 				dayStat.innerHTML += `<span class="bg_state_red"></span><span class="bg_state_selected"></span><span class="bg_state_default"></span>`;
-			}else if(dayLabel === 'May 25, 2024'){
+			}else if(dayLabel === 'June 25, 2024'){
 				dayStat.innerHTML += `<span class="bg_state_end"></span>`;
 			}
         }
@@ -219,6 +237,21 @@
 				}
 			});
 		};
+
+		//주소 복사 후 alert
+		function copyAddr(){
+			let copyText = document.querySelector('#locationAddr').textContent;
+			let textarea = document.createElement("textarea");
+			document.body.appendChild(textarea);
+			textarea.value = copyText;
+			textarea.select();
+			document.execCommand("copy");
+			document.body.removeChild(textarea);
+			showNotification('주소가 클립보드에 복사되었습니다.');
+		}
+
+		const locationAddr = document.querySelector('#locationAddr');
+		locationAddr.addEventListener('click', copyAddr);
 	</script>
 </body>
 </html>
