@@ -121,10 +121,10 @@
 								</div>
 							</div>
 							<div class="inp_box">
-								<input type="text" id="" class="inp_txt" placeholder="최소 출연료"/>
+								<input type="text" id="minPayInput" class="inp_txt" placeholder="최소 출연료"/>
 							</div>
 							<div class="inp_box">
-								<input type="text" id="" class="inp_txt" placeholder="최대 출연료"/>
+								<input type="text" id="maxPayInput" class="inp_txt" placeholder="최대 출연료"/>
 							</div>
 						</div>
 						<span class="msg_error">필수 입력 사항입니다.</span>
@@ -139,11 +139,13 @@
 							</div>
 						</div>
 					</div>
-					<button type="button" id="" class="btn_add mt40" onclick="addForm();"><span>역할 추가</span></button>
-					<button type="button" id="btnNext" class="btn_basic mt40 unactive">완료</button>
+					<div class="btn_box">
+						<button type="button" id="" class="btn_add mt40" onclick="addForm();"><span>역할 추가</span></button>
+					</div>
 					<ul id="roleList" class="role_list">
 						
 					</ul>
+					<button type="button" id="btnNext" class="btn_basic mt40 unactive">완료</button>
 				</div>
 			</form>
 		</div>
@@ -180,12 +182,6 @@
 	};
 
 	const marginTag = () => Object.values(tag).filter(word => word !== "");
-
-	// document.getElementById('tag-form').addEventListener('submit', (e) => {
-	//     const value = marginTag(); // 배열로 반환
-	//     document.getElementById('rdTag').value = value; 
-	//     e.target.submit();
-	// });
 
 	document.getElementById('tag').addEventListener('keypress', (e) => {
 		const self = e.target;
@@ -316,6 +312,23 @@
 		const roleList = document.getElementById('roleList');
 		const newListItem = document.createElement('li');
 
+		 // 출연료
+		const minPayValue = document.querySelector('#minPayInput').value.trim();
+		const maxPayValue = document.querySelector('#maxPayInput').value.trim();
+
+		// 특기리스트
+		const tagSpecialtyList = document.getElementById('tagSpecialtyList');
+		const tagItems = tagSpecialtyList.querySelectorAll('.tag_item');
+		const newSpecialties = [];
+		tagItems.forEach(tagItem => {
+			const specialtyText = Array.from(tagItem.childNodes)
+				.filter(node => node.nodeType === Node.TEXT_NODE)
+				.map(node => node.textContent.trim())
+				.join('');
+			newSpecialties.push(specialtyText);
+		});
+		const formattedText = newSpecialties.map(specialty => `#${specialty}`).join(' ');
+
 		newListItem.innerHTML = `
 			<div class="flex_column_gap">
 				<div class="detail_col">
@@ -323,16 +336,17 @@
 					<p class="desc"><strong>${selectedGenders.join(', ')}, ${document.getElementById('age').value.trim()}, ${document.getElementById('howmany').value.trim()}명, ${document.getElementById('role_name').value.trim()}</strong></p>
 				</div>
 				<p class="txt_light_gr">${document.getElementById('description').value.trim()}</p>
-				<p class="ft_size_14"></p>
+				<p class="ft_size_14">${formattedText}</p>
 				<div class="flex justify_end">
 					<div class="detail_row">
 						<strong class="tit">출연료</strong>
-						<p class="desc">${document.getElementById('pay').value.trim()} <strong>${document.querySelector('#pay').nextElementSibling.value.trim()}~${document.querySelector('#pay').nextElementSibling.nextElementSibling.value.trim()}원</strong></p>
+						<p class="desc">${document.getElementById('pay').value.trim()} <strong>${minPayValue}~${maxPayValue}원</strong></p>
 					</div>
 				</div>
 			</div>
 			<button type="button" class="btn_del">삭제</button>
 		`;
+
 
 		roleList.appendChild(newListItem);
 
@@ -341,10 +355,15 @@
 			input.value = '';
 			input.classList.remove('error');
 		});
-		document.querySelectorAll('select').forEach(select => {
-			select.selectedIndex = 0;
+		// select 초기화
+		document.querySelectorAll('.sel_box').forEach(select => {
+			resetSelectBox();
 		});
-		genderCheckboxes.forEach(checkbox => {
+		document.querySelectorAll('#tagSpecialtyList li').forEach(tagListItem => {
+			tagListItem.remove();
+		});
+		
+		document.querySelectorAll('input[type="checkbox"]').forEach(checkbox => {
 			checkbox.checked = false;
 		});
 

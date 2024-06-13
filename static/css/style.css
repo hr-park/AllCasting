@@ -188,7 +188,7 @@ input:focus{outline:0 none}
 .pop_confirm .swal2-title{padding:30px 0 5px;font-size:16px;line-height:1.44;color:#020202}
 .pop_confirm.only_tit .swal2-title{padding:30px 0;}
 .pop_confirm .swal2-html-container{padding:30px 20px;margin:0;font-size:14px;line-height:1.44;color:#020202;}
-.pop_confirm .swal2-title:not([style*="display:none"]) + .swal2-html-container{padding:0 20px 30px}
+.pop_confirm .swal2-title:not([style*="display:none"]) + .swal2-html-container{padding:20px 20px 30px}
 .pop_confirm .swal2-actions{width:100%;margin-top:0;border-top:1px solid #E7E7E7}
 .pop_confirm .swal2-actions button{flex:1;height:50px;margin:0;border-radius:0;font-size:16px;color:#222;background:#fff;}
 .pop_confirm .swal2-actions button:hover{background-image:none !important;}
@@ -253,6 +253,7 @@ input:focus{outline:0 none}
 .reg_form .inp_txt:not(:placeholder-shown):not(textarea){border-color:#018975}
 .reg_form .inp_txt.error{border-color:#ED394F}
 .reg_form .inp_txt:disabled{background:#F3F3F3;color:#999}
+.reg_form .inp_field .row .select-selected{padding:10px;margin-top:8px}
 .reg_form .msg_error{display:none;margin-top:5px;font-size:12px;line-height:1.5;color:#ED394F}
 .reg_form .btn_box{margin:40px 0}
 
