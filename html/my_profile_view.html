@@ -292,8 +292,8 @@
 		    const moveY = e.type === 'touchmove' ? e.touches[0].clientY : e.clientY;
 	
 		    if (
-			(onlyWhenAtTop && Math.abs(moveY - startY) >= 10 && moveY > startY) || 
-			(!onlyWhenAtTop && Math.abs(moveY - startY) >= 10 && moveY < startY)
+			(onlyWhenAtTop && Math.abs(moveY - startY) >= 5 && moveY > startY) || 
+			(!onlyWhenAtTop && Math.abs(moveY - startY) >= 5 && moveY < startY)
 		    ) {
 			callback();
 		    }
