@@ -247,84 +247,94 @@
 	
 	document.addEventListener('DOMContentLoaded', () => {
 	    const initSwiper = () => {
-	        const swiper = new Swiper(".profile_view_swiper", {
-	            scrollbar: {
-	                el: ".swiper-scrollbar",
-	            },
-	            on: {
-	                slideChangeTransitionStart: function () {
-	                    disableSwiperScroll();
-	                },
-	                slideChangeTransitionEnd: function () {
-	                    enableSwiperScroll();
-	                },
-	            },
-	        });
+		const swiper = new Swiper(".profile_view_swiper", {
+		    scrollbar: {
+			el: ".swiper-scrollbar",
+		    },
+		    on: {
+			slideChangeTransitionStart: function () {
+			    disableSwiperScroll();
+			},
+			slideChangeTransitionEnd: function () {
+			    enableSwiperScroll();
+			},
+		    },
+		});
 	
-	        const swiperElement = document.querySelector('.profile_view_swiper');
-	        addScrollEventListeners(swiperElement, openPop.bind(null, 'pop_profile'));
+		const swiperElement = document.querySelector('.profile_view_swiper');
+		addScrollEventListeners(swiperElement, openPop.bind(null, 'pop_profile'));
 	    };
 	
 	    const initPopupScroll = () => {
-	        const popProfile = document.getElementById('pop_profile');
-	        const popProfileInner = popProfile.querySelector('.pop_wrap');
+		const popProfile = document.getElementById('pop_profile');
+		const popProfileInner = popProfile.querySelector('.pop_wrap');
 	
-	        addScrollEventListeners(popProfileInner, closePop.bind(null, 'pop_profile'), true);
+		addScrollEventListeners(popProfileInner, closePop.bind(null, 'pop_profile'), true);
 	    };
 	
 	    const addScrollEventListeners = (element, callback, onlyWhenAtTop = false) => {
-	        let startY, scrollTopAtStart;
+		let startY, scrollTopAtStart;
 	
-	        const handleStart = (e) => {
-	            startY = e.type === 'touchstart' ? e.touches[0].clientY : e.clientY;
-	            scrollTopAtStart = element.scrollTop;
+		const handleStart = (e) => {
+		    startY = e.type === 'touchstart' ? e.touches[0].clientY : e.clientY;
+		    scrollTopAtStart = element.scrollTop;
 	
-	            if (!onlyWhenAtTop || scrollTopAtStart === 0) {
-	                element.addEventListener('touchmove', handleMove);
-	                element.addEventListener('mousemove', handleMove);
-	            } else {
-	                element.removeEventListener('touchmove', handleMove);
-	                element.removeEventListener('mousemove', handleMove);
-	            }
-	        };
+		    if (!onlyWhenAtTop || scrollTopAtStart === 0) {
+			element.addEventListener('touchmove', handleMove, { passive: false });
+			element.addEventListener('mousemove', handleMove);
+		    } else {
+			element.removeEventListener('touchmove', handleMove);
+			element.removeEventListener('mousemove', handleMove);
+		    }
+		};
 	
-	        const handleMove = (e) => {
-	            const moveY = e.type === 'touchmove' ? e.touches[0].clientY : e.clientY;
+		const handleMove = (e) => {
+		    const moveY = e.type === 'touchmove' ? e.touches[0].clientY : e.clientY;
 	
-	            if (
-					(onlyWhenAtTop && Math.abs(moveY - startY) >= 10 && moveY > startY) || 
-					(!onlyWhenAtTop && Math.abs(moveY - startY) >= 10 && moveY < startY)
-				) {
-					callback();
-				}
+		    if (
+			(onlyWhenAtTop && Math.abs(moveY - startY) >= 10 && moveY > startY) || 
+			(!onlyWhenAtTop && Math.abs(moveY - startY) >= 10 && moveY < startY)
+		    ) {
+			callback();
+		    }
 	
-	            element.removeEventListener('touchmove', handleMove);
-	            element.removeEventListener('mousemove', handleMove);
-	        };
+		    element.removeEventListener('touchmove', handleMove);
+		    element.removeEventListener('mousemove', handleMove);
+		};
 	
-	        element.addEventListener('touchstart', handleStart);
-	        element.addEventListener('mousedown', handleStart);
+		// touchend 이벤트 추가
+		const handleEnd = () => {
+		    element.removeEventListener('touchmove', handleMove);
+		    element.removeEventListener('mousemove', handleMove);
+		};
+	
+		element.addEventListener('touchstart', handleStart);
+		element.addEventListener('mousedown', handleStart);
+		element.addEventListener('touchend', handleEnd);
 	    };
 	
 	    const disableSwiperScroll = () => {
-	        document.querySelector('.profile_view_swiper').allowTouchMove = false;
-	        document.addEventListener('wheel', preventDefault, { passive: false });
-	        document.addEventListener('touchmove', preventDefault, { passive: false });
+		const swiper = document.querySelector('.profile_view_swiper');
+		swiper.allowTouchMove = false;
+		document.addEventListener('wheel', preventDefault, { passive: false });
+		document.addEventListener('touchmove', preventDefault, { passive: false });
 	    };
 	
 	    const enableSwiperScroll = () => {
-	        document.querySelector('.profile_view_swiper').allowTouchMove = true;
-	        document.removeEventListener('wheel', preventDefault);
-	        document.removeEventListener('touchmove', preventDefault);
+		const swiper = document.querySelector('.profile_view_swiper');
+		swiper.allowTouchMove = true;
+		document.removeEventListener('wheel', preventDefault);
+		document.removeEventListener('touchmove', preventDefault);
 	    };
 	
 	    const preventDefault = (e) => {
-	        e.preventDefault();
+		e.preventDefault();
 	    };
 	
 	    initSwiper();
 	    initPopupScroll();
 	});
+
 	</script>
 </body>
 </html>
