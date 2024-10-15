@@ -695,8 +695,8 @@ ul.list_type3 li .btn_del{position:absolute;right:10px;top:16px;display:inline-b
 @media screen and (orientation:landscape){
     .dim_layer .pop_wrap{overflow-y:auto;min-height:auto;max-height:80%;}
     .pop_wrap .pop_cont{min-height:auto;}
-    .profile_view_swiper .swiper-slide{height:auto;}
-	.profile_view_swiper .profile_thumb{height:auto}
+    /*.profile_view_swiper .swiper-slide{height:auto;}
+    .profile_view_swiper .profile_thumb{height:auto}*/
     .profile_thumb img{width:100%;height:auto}
     .profile_view_swiper .swiper-horizontal>.swiper-scrollbar,
     .profile_view_swiper .swiper-scrollbar.swiper-scrollbar-horizontal{bottom:12%;}
